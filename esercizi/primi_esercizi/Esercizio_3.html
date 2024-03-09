@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Info Studente</title>
+<style>
+    #descrizione_lavoro_container {
+      display: none;
+    }
+
+    #studente_lavoratore:not(:checked) ~ #descrizione_lavoro_container {
+      display: none;
+    }
+
+    #studente_lavoratore:checked ~ #descrizione_lavoro_container {
+      display: block;
+    }
+
+    #descrizione_lavoro_container:empty  {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+    <form>
+        <label for="Cognome_Nome">Cognome e Nome:</label><br>
+        <input type="text" id="Cognome_Nome" name="Cognome_Nome" pattern="[A-Za-z\s]{1,}" maxlength="50" required><br>
+        <label for="data_nascita">Data di Nascita:</label><br>
+        <input type="date" id="data_nascita" name="data_nascita"><br>
+        <label for="cap">CAP:</label><br>
+        <input type="number" id="cap" name="cap" maxlength="5" min="00000" max="99999" title="Inserire un numero di 5 cifre" required><br>
+        <label for="studente_lavoratore">Studente Lavoratore:</label>
+        <input type="checkbox" id="studente_lavoratore" name="studente_lavoratore"> <br>
+        <div id="descrizione_lavoro_container">
+            <label for="descrizione_lavoro">Descrizione del Lavoro Svolto:</label><br>
+            <textarea id="descrizione_lavoro" name="descrizione_lavoro" maxlength="80" Sf></textarea><br>
+        </div>
+        telefono:
+        <input type="tel" name="tel" size="15" maxlength="15" pattern="\+\d{2}-\d{3}-\d{7}" ><br>
+        Codice Fiscale:
+        <input type="text" name="CF" maxlength="16" pattern="[A-Za-z]{6}\d{2}[A-Za-z]{1}\d{2}[A-Za-z]{1}\d{3}[A-Za-z]{1}"><br>
+        <label for="foto">foto:</label><br>
+        <input type="file" id="foto" name="foto" accept=".png,.jpeg,.jpg,.gif,.png" multiple><br>
+        <input type="submit" value="invia">
+        <input type="reset" value="reset">
+    </form>
+
+
+</body>
+</html>
+    

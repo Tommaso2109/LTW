@@ -1,0 +1,42 @@
+.button{
+    padding: 10px 15px; 
+    background: black; 
+    color: white; 
+    border-radius: 4px;
+    display: flex;
+    text-decoration: none;
+
+}
+
+.header{
+    display: flex;
+    width: 100%;
+    top :0;
+    left:0;
+    position: fixed;
+    background:linear-gradient(1deg, rgba(0,0,0,0.7), rgba(170, 4, 4, 0.7), rgba(112,1,1,1));
+}
+
+.logo{
+
+}
+
+.titolo{
+    font-size: 50px ;
+    font-weight: bold;
+    color: white;
+    display: inline-block;
+    align-self: center;
+    padding-right: 50px;
+}
+
+.r-l{
+    padding-left: 20px;
+    align-self: center;
+}
+
+.r-l a:hover {
+    background-color:blue;
+    color: #FFFFFF;
+    text-decoration: none;
+}

@@ -1,3 +1,9 @@
+.big-text{font-size: 70px;font-weight: 900;}
+.alf-big-text{font-size: 50px;font-weight: 900;}
+.medium-text{font-size: 40px;font-weight: 600;}
+.normal-text{font-size: 20px;}
+.small-text{font-size: 14px;}
+
 .button{
     padding: 10px 15px; 
     background: black; 
@@ -18,7 +24,7 @@
 }
 
 .logo{
-
+    
 }
 
 .titolo{

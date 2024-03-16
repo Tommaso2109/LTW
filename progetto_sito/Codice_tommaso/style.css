@@ -14,6 +14,16 @@
     text-decoration: none;
     margin-right: 20px;
 }
+.button1{
+    padding: 15px 15px; 
+    background: black; 
+    color: white; 
+    border-radius: 4px;
+    display: inline-block;
+    text-decoration: none;
+
+}
+
 
 
 /*header*/
@@ -77,6 +87,7 @@
 }
 
 /*content*/
+
 .hero{
     position: relative;
     height: 100vh;
@@ -142,6 +153,63 @@
     color: #FFFFFF;
     text-decoration: none;
 }
+
+/*slider*/
+.grid{
+    display: flex;
+    max-width: 1350px;
+    padding: 0 30px;
+    margin: 0 auto; 
+    align-self: center;
+    text-align: center;
+} 
+
+.grid .col{
+    width: 100%;
+}
+
+.main-carousel{
+    padding: 40 px 0;
+    position: fixed;
+}
+
+.carousel-cell{
+    height: 350px;
+    width: 100%;
+    display: flex ;
+}
+
+
+
+.carousel-cell{
+    display: flex;
+    height: 350px;
+    width: 50%;
+    align-items:center;
+}
+
+.cell__immagine{
+    width: 65%;
+    height: 100%;
+}
+
+.cell__immagine img{
+    padding-top: 5px;
+    padding-bottom: 5px;
+    object-fit:contain; 
+    width: 100%;height: 100%;
+}
+
+.cell_titolo{
+    width: 50%;
+    padding-right: 25%;
+
+}
+
+.cell_titolo a{
+    width: 50%;
+}
+
 
 /*helpers*/
 .mt-0{margin-top: 25px;}

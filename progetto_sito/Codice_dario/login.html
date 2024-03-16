@@ -5,16 +5,17 @@
         <link rel="stylesheet" href="styleLogin.css">
     </head>
     <body>
-        <form>
+        
             <div class = "box">
                 <img src="media/logo.png" alt="logo">
-
-                <label for="login">Please login:</label><br>
-                
-                <input class="testo" type="text" id="username" placeholder="Enter username" pattern="" title="Enter username" required><br>
-                <input class="testo" type="password" id="password" placeholder="Enter password" pattern="" title="Enter password" required><br>       
-                <input class="submit-button" type="submit" value="Login">
-                <a href="register.html" class="register" >Non hai un account?</a>
+                <form>
+                    <label for="login">Please login:</label><br>
+                    
+                    <input class="testo" type="text" id="username" placeholder="Enter username" title="Enter username" required><br>
+                    <input class="testo" type="password" id="password" placeholder="Enter password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*\W).{8,}" title="Enter password" required><br>       
+                    <input class="submit-button" type="submit" value="Login">
+                    <a href="register.html" class="register" >Non hai un account?</a>
+                </form>
             </div>
         </form>
     </body>

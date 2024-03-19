@@ -295,7 +295,6 @@ body::-webkit-scrollbar{
     align-items:center;
     margin-left: 30px;
     gap: 5%;
-    
 }
 
 .poster__img{
@@ -305,9 +304,8 @@ body::-webkit-scrollbar{
     display: flex;
     margin: 3%;
     flex-direction: column;
-    border-top: 2px solid #000000b4;
+    border-top: 2px solid #000000;
     border-right:2px solid #000000;
-    background-color: rgba(197, 197, 197, 0.349);
 }
 
 .poster__img1 {

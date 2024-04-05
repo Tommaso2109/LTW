@@ -35,7 +35,6 @@ body::-webkit-scrollbar{
 
 
 /*header*/
-/*header*/
 .header{
     display: flex;
     z-index: 1;
@@ -159,116 +158,6 @@ body::-webkit-scrollbar{
     text-decoration: none;
 }
 /*contet*/
-.hero{
-    position: relative;
-    height: 100vh;
-    display: flex;
-    width: 100%;
-    align-items: center;
-    background-size: cover;
-    overflow: hidden;
-    z-index:0;
-    width: 100%;
-}
-
-.hero__content {
-    width: 100%;
-    max-width: 1350px;
-    margin: 0 auto;
-    padding: 30px;
-    z-index: 1;
-    color: #FFFFFF;
-}
-
-#video{
-    position:absolute;
-    top:0;
-    left:0;
-    min-width: 100%;
-    min-height: 100%;
-    z-index: 0; 
-    width: fit-content;
-}
-
-.intro_content{
-    width: 100%;
-    text-align: center;
-}
-
-.poster{
-    display: flex;
-    height: 100%;
-    width: 100%;
-    align-items:center;
-    margin-left: 30px;
-    gap: 5%;
-    
-}
-
-.poster__img{
-    width: 45%;
-    height: 90%;
-    padding: 30px;
-    display: flex;
-    margin: 3%;
-    flex-direction: column;
-    border-top: 2px solid #000000b4;
-    border-right:2px solid #000000;
-    background-color: rgba(197, 197, 197, 0.349);
-}
-
-.poster__img1 {
-    display: flex;
-    flex-direction: row;
-    width: 25%;
-    height: 90%;
-    padding: 30px;
-    justify-content: center;
-}
-
-
-
-.poster__img img{
-    object-fit: cover; 
-    width: 100%;height: 100%;;
-}
-
-.poster__content {
-    display: flex;
-    justify-content: start;
-    align-items: center;
-}
-
-.right-text {
-    margin-left: auto;
-}
-
-.poster__content img {
-    display: flex;
-    flex-direction: row;
-    width: 25%;
-    height: 90%;
-    /* padding: 30px; */
-    padding-top: 30px;
-    padding-bottom: 10px;
-}
-
-.poster__content h1 {
-    display: flex;
-    flex-direction: row;
-    width: 85%;
-    height: 90%;
-    padding-top: 30px;
-    padding-left: 20px;
-    padding-bottom: 10px;
-}
-
-.poster a:hover{
-    background-color:rgba(48, 48, 48, 0.281);
-    color: #b81515da;
-    text-decoration: none;
-}
-
 .center{
     display: flex;
     justify-content: center;
@@ -291,6 +180,12 @@ body::-webkit-scrollbar{
     font-family: "Figtree", sans-serif;
 }
 
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
 .conteiner:hover .box{
     filter: grayscale(100%) opacity(24%);
     margin: 0;
@@ -311,6 +206,12 @@ body::-webkit-scrollbar{
     padding-top: 80px;
     box-sizing: border-box;
     font-family: "Figtree", sans-serif;
+}
+
+.box img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
 }
 
 .box-link {

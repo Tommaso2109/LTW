@@ -378,7 +378,17 @@ body::-webkit-scrollbar{
       line-height: 1.7;
       margin: 1rem 0 1.5rem;
       font-size: 0.8rem;
-    }
+      background-color: rgba(0, 0, 0, 0.4);
+      border-radius: 15px;
+      padding: 15px;
+      border: 2px solid rgba(255, 255, 255);
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+      transition: all 0.3s ease; /* This adds a transition effect */
+  }
+    .description:hover {
+      background-color: rgba(0, 0, 0, 0.8); /* This changes the background color when the box is hovered */
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.7); /* This changes the shadow when the box is hovered */
+  }
   
     & button {
       width: fit-content;

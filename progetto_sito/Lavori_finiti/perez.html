@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="IT">
     <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>FormulaForFun</title>
         <link rel="stylesheet" href="Style_Pilota.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flickity/3.0.0/flickity.min.css" integrity="sha512-fJcFDOQo2+/Ke365m0NMCZt5uGYEWSxth3wg2i0dXu7A1jQfz9T4hdzz6nkzwmJdOdkcS8jmy2lWGaRXl+nFMQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -53,7 +56,9 @@
                     <span><a href="Haas.html" >Haas</a></span>
                 </ul>
             </li>
-            <li><a href="fanta_formula.html" class="menu-text">Fanta-Formula</a></li> 
+            <li><a href="fanta_formula.html" class="menu-text">Fanta-Formula</a></li>
+            <li><a href="login.html"class="menu-text">Login</a></li>
+            <li><a href="register.html"class="menu-text">Register</a></li> 
         </ul>
 
         <div class="r-l">
@@ -61,11 +66,17 @@
             <p>
             <a href="register.html" class="button">REGISTER</a>
         </div>
+
+        <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
     </div>
 
     <div class="hero">
         <div class="hero__content ">
-            <h1 class = "big-text">SERGIO PÉREZ </h1>
+            <h1 class = "big-text">SERGIO PEREZ </h1>
         </div>
         <video autoplay muted loop id="video">
             <source src="media/perez_home.mp4" type="video/mp4">
@@ -149,6 +160,53 @@
         </main>
     </div>
   
+    <div class="hero-telefono" style=" background-image: url('media/albon_phone.jpg');">
+        <div class="hero-telefono__content">
+            <h1 class = "medium-text"> SERGIO PEREZ</h1>
+        </div>
+    </div>
+  
+    <div class="telefono">
+        <h2 class="title">Carriera</h2>
+        <p class="description">
+            Pérez è stato membro della Ferrari Driver Academy fino al 2012. Ha conquistato il suo
+            primo podio in Formula 1 al Gran Premio della Malesia 2012 con la Sauber, una guida 
+            che gli diede la fama che ha alimentato le speculazioni su un passaggio alla Ferrari 
+            nel prossimo futuro. Tuttavia, Pérez in seguito ha detto ai giornalisti che si aspettava 
+            di rimanere con la Sauber almeno fino alla fine della stagione 2012. A causa della sua 
+            giovane età e delle sue prestazioni, è stato definito "Il bambino prodigio messicano".
+            <br><br>
+            Pérez si è unito alla McLaren per la stagione 2013, ma l'auto non è riuscita a garantire 
+            alla squadra un solo podio. Successivamente, per la stagione 2014, il team ha deciso di 
+            sostituire Pérez con il pilota danese Kevin Magnussen molto tardi nella stagione, quasi 
+            lasciando Pérez senza posto. Nel dicembre 2013, è stato annunciato che la Force India aveva 
+            firmato Pérez con un accordo da 15 milioni di euro.
+            In Sakhir 2020 fece una grande corsa arrivando alla bandiera a scacchi per primo, mettendolo
+            in considerazione per la sua attuale scuderia: Red Bull.
+        </p>
+        <h2 class="title">Statistiche</h2>
+        <p class="description">
+            Sergio è bravo a trovare il podio, ma ha difficoltà a 
+            trasformare questi podi in vittore, avendo 37 podi e solo 
+            6 vittorie. Bisogna contare che deve gestire una macchina 
+            fatta per Max Verstappen e non per lui, obbligandolo ad 
+            abituarsi a una macchina complicata e rischiosa.
+        </p>
+
+        <h2 class="title">Biografia</h2>
+        <p class="description">
+            Sergio Pérez Mendoza (nato il 26 gennaio 1990) 
+            noto anche come "Checo" Pérez, è un pilota automobilistico messicano, attualmente
+            alla guida della Red Bull.
+
+            Pérez inizia a correre con i kart nel 1996, passa alle monoposto nel 2004, prendendo
+            parte al campionato statunitense Skip Barber Formula Dodge Series.
+            <br>
+            Pérez si è costruito una reputazione come un ottimo pilota nei pacchi, trovando sempre 
+            i buchi giusti nel tempismo giusto, sforunatamente per ora vive nell'ombra di Max Verstappen.
+        </p>
+    </div>
+
     <script
     type="module"
     src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
@@ -167,6 +225,12 @@
         </div>
     </footer>
     
+    <!-- Jquery-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flickity/3.0.0/flickity.pkgd.min.js" integrity="sha512-achKCfKcYJg0u0J7UDJZbtrffUwtTLQMFSn28bDJ1Xl9DWkl/6VDT3LMfVTo09V51hmnjrrOTbtg4rEgg0QArA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script src="hamburger.js"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flickity/3.0.0/flickity.pkgd.min.js" integrity="sha512-achKCfKcYJg0u0J7UDJZbtrffUwtTLQMFSn28bDJ1Xl9DWkl/6VDT3LMfVTo09V51hmnjrrOTbtg4rEgg0QArA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </body>

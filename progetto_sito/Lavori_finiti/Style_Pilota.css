@@ -259,6 +259,27 @@ body::-webkit-scrollbar{
     text-decoration: none;
 }
 
+@media(max-width:900px){
+  .r-l{display: none}
+  .menu{position: absolute; top: 0; right: -200%; background: rgb(126, 0, 0);height: 270%;z-index: 2;}
+  .menu li {display: block;}
+  .menu li a{display: block;}
+  .menu li span{display: none;}
+  .menu label a {display: block;}
+
+  .menu--open{right:-30%;}
+  .hamburger{ 
+      display: block;
+      width: 30px;
+      height: 30px;
+      position: absolute;
+      top: 40px;
+      right: 30px;
+      z-index: 2;
+  }
+  .hamburger span{z-index:2; background: white; height: 3px;width: 100%; display: block;margin-bottom: 5px;}
+}
+
 /*content*/
 
 .hero{
@@ -439,68 +460,50 @@ body::-webkit-scrollbar{
       }
     }
   }
+
+  .hero-telefono{display: none;}
+  .telefono{display: none;}
   
-  @media (width > 650px) and (width < 900px) {
-    .content {
-      & .title {
-        font-size: 1rem;
-      }
-      & .description {
-        font-size: 0.7rem;
-      }
-      & button {
-        font-size: 0.7rem;
-      }
-    }
-    .item {
-      width: 160px;
-      height: 270px;
-  
-      &:nth-child(3) {
-        left: 50%;
-      }
-      &:nth-child(4) {
-        left: calc(50% + 170px);
-      }
-      &:nth-child(5) {
-        left: calc(50% + 340px);
-      }
-      &:nth-child(6) {
-        left: calc(50% + 510px);
-        opacity: 0;
-      }
-    }
+
+  @media(max-width:900px){
+    .hero{display: none;}
+    .scroll{display: none;}
+    .telefono{display: block;}
+    .hero-telefono{
+      height: 100vh;
+      display: flex;
+      width: 100%;
+      align-items: center;
+      background-size: cover;
+     background-position: center;
+  }
+
+  .hero-telefono__content {
+      width: 100%;
+      max-width: 1350px;
+      margin: 0 auto;
+      padding: 30px;
   }
   
-  @media (width < 650px) {
-    .content {
-      & .title {
-        font-size: 0.9rem;
-      }
-      & .description {
-        font-size: 0.65rem;
-      }
-      & button {
-        font-size: 0.7rem;
-      }
+  .hero-telefono__content h1,
+  .hero-telefono__content p {color:rgb(255, 255, 255);position:relative;}
+
+  .description {
+    line-height: 1.7;
+    margin: 1rem 0 1.5rem;
+    font-size: 1rem;
+    border-radius: 15px;
+    padding: 15px;
+    margin-left: 8px;
+    margin-right: 8px;
+    border: 2px solid rgba(255, 255, 255);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.9);
+    transition: all 0.3s ease; /* This adds a transition effect */
     }
-    .item {
-      width: 130px;
-      height: 220px;
-  
-      &:nth-child(3) {
-        left: 50%;
-      }
-      &:nth-child(4) {
-        left: calc(50% + 140px);
-      }
-      &:nth-child(5) {
-        left: calc(50% + 280px);
-      }
-      &:nth-child(6) {
-        left: calc(50% + 420px);
-        opacity: 0;
-      }
+
+    .title{
+      font-size: 30px; 
+      text-align: center;
     }
   }
   

@@ -259,6 +259,31 @@ body::-webkit-scrollbar{
     text-decoration: none;
 }
 
+
+.menu label a {color: white; padding: 15px;display:none}
+.hamburger{display: none;}
+
+@media(max-width:900px){
+    .r-l{display: none}
+    .menu{position: absolute; top: 0; right: -200%; background: rgb(126, 0, 0);height: 280%;z-index: 2;}
+    .menu li {display: block;}
+    .menu li a{display: block;}
+    .menu li span{display: none;}
+    .menu label a {display: block;}
+
+    .menu--open{right:-30%;}
+    .hamburger{ 
+        display: block;
+        width: 30px;
+        height: 30px;
+        position: absolute;
+        top: 40px;
+        right: 30px;
+        z-index: 2;
+    }
+    .hamburger span{z-index:2; background: white; height: 3px;width: 100%; display: block;margin-bottom: 5px;}
+}
+
 /*content*/
 
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap");
@@ -396,6 +421,114 @@ body::-webkit-scrollbar{
     filter: grayscale(1); /* Aumenta questo valore per aumentare l'effetto di sfocatura */
 }
 
+.poster__telefono{display: none;}
+
+@media(max-width:900px){
+
+    .grid-container{display: none;}
+
+    .poster__telefono{
+        display: flex;
+        height: 100%;
+        width: 100%;
+        align-items:center;
+        margin-left: 2%;
+        gap: 5%;
+        margin-right: -20px;
+    }
+
+    .separator{
+        margin-top: 60px;
+        margin-bottom: -50px;
+        border: 2px solid black;
+    }
+    .poster_img{
+        object-fit: cover; 
+        width:auto;
+        height: 100%;
+    }
+
+    .poster__content__telefono{
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        align-items: center;
+        margin-top: -50px;
+        align-items: center;
+        margin-right: 25px;
+        width: 100%;
+    }
+
+    .poster__content__telefono img {
+        display: flex;
+        flex-direction: row;
+        max-width: 90%;
+        height: 90%;
+        padding-top: 30px;
+        padding-bottom: 10px;
+        margin-left: 50px;
+       
+    }
+
+    .poster__content__telefono h1 {
+        display: flex;
+        flex-direction: row;
+        margin-top: -20px;
+        margin-left: 50px;
+       
+    }
+
+    .grid_tel{
+        display: grid;
+        grid-template-columns: 50% 50%;
+        grid-template-rows: 100%;
+        
+    }
+    
+    .grid_tel img{
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        margin-left: -50px;
+    }
+
+    .column{
+        margin-left: 50px;
+    }
+
+    .grid_tel_2{
+        margin-top: 20px;
+        display: grid;
+        grid-template-columns: 100%;
+        grid-template-rows: 60% 40%;
+    }
+    
+    .grid_tel_2 img{
+        grid-row: 1;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+    
+    .grid_tel_2 p {
+        grid-row: 2;
+    }
+
+    .description {
+        line-height: 1.7;
+        margin: 1rem 0 1.5rem;
+        font-size: 1rem;
+        border-radius: 15px;
+        padding: 15px;
+        margin-left: 8px;
+        margin-right: 8px;
+        border: 2px solid rgba(255, 255, 255);
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.9);
+        transition: all 0.3s ease; /* This adds a transition effect */
+        width: 90%;       
+        }
+
+}
 
 /*footer*/
 footer {

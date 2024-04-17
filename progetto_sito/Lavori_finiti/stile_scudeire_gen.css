@@ -222,7 +222,7 @@ body::-webkit-scrollbar{
 
 @media(max-width:900px){
     .r-l{display: none}
-    .menu{position: absolute; top: 0; right: -200%; background: rgb(126, 0, 0);height: 200%;z-index: 2;}
+    .menu{position: absolute; top: 0; right: -200%; background: rgb(126, 0, 0);height: 220%;z-index: 2;}
     .menu li {display: block;}
     .menu li a{display: block;}
     .menu li span{display: none;}

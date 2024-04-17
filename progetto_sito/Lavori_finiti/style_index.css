@@ -378,11 +378,15 @@ body::-webkit-scrollbar{
     .poster{
         flex-wrap: wrap;
         height: auto;
+        
     }
 
-    .poster__img,
-    .poster__content{
-        width: 100%;    
+    .poster__img{
+        width: 90%;
+        margin-left:5%;
+    }
+    .poster__content{;
+        width: 100%;
     }
 
 }
@@ -412,11 +416,11 @@ body::-webkit-scrollbar{
 
 }
 
-.poster2__telefono__content a{
+.poster2__content a{
     width: 81px;
 }
 
-.poster2__telefono__content a:hover{
+.poster2__content a:hover{
     background-color:red;
     color: #FFFFFF;
     text-decoration: none;
@@ -431,12 +435,6 @@ body::-webkit-scrollbar{
         height: 100vh;
         width: 100%;
         align-items:center;
-    }
-    
-
-    .poster2__telefono__img{
-        width: 65%;
-        height: 100%;
     }
     
     .poster2__telefono__img img{
@@ -458,12 +456,16 @@ body::-webkit-scrollbar{
     }
 
     .poster2__telefono__img{
-        width: 100%;
+        width: 90%;
+        margin-left: 5%;
     }
     .poster2_telefono__content{
         width: 100%;    
     }
     
+    .poster2__telefono__content a{
+        width: 81px;
+    }
 
 }
 

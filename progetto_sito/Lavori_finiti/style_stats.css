@@ -263,6 +263,31 @@ body::-webkit-scrollbar{
     color: #FFFFFF;
     text-decoration: none;
 }
+.menu label a {color: white; padding: 15px;display:none}
+.hamburger{display: none;}
+
+@media(max-width:900px){
+    .header{background: none;}
+    .logo{display: none}
+    .r-l{display: none}
+    .menu{position: absolute; top: 0; right: -200%; background: rgb(126, 0, 0);height: 270%;z-index: 2;}
+    .menu li {display: block;}
+    .menu li a{display: block;}
+    .menu li span{display: none;}
+    .menu label a {display: block;}
+
+    .menu--open{right:-30%;}
+    .hamburger{ 
+        display: block;
+        width: 30px;
+        height: 30px;
+        position: absolute;
+        top: 40px;
+        right: 30px;
+        z-index: 2;
+    }
+    .hamburger span{z-index:2; background: white; height: 3px;width: 100%; display: block;margin-bottom: 5px;}
+}
 
 /* content */
 .grid-container {

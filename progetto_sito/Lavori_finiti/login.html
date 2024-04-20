@@ -11,14 +11,23 @@
                 <a href="index.html">
                     <img src="media/logo.png" alt="logo">
                 </a>
-                <form>
+                <form action="login.php" method="post">
                     <label for="login">Please login:</label><br>
                     
-                    <input class="testo" type="text" id="username" placeholder="Enter username" title="Enter username" required><br>
-                    <input class="testo" type="password" id="password" placeholder="Enter password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*\W).{8,}" title="Enter password" required><br>       
+                    <input class="testo" type="text" id="username" name="username" placeholder="Enter username" title="Enter username" required><br>
+                    <input class="testo" type="password" id="password" name="password" placeholder="Enter password" pattern="(?=.*\d)(?=.*[A-Z]).{8,}" title="Enter password" required><br>  
                     <input class="submit-button" type="submit" value="Login">
                     <a href="register.html" class="register" >Non hai un account?</a>
                 </form>
             </div>
+            <script>
+                window.onload = function() {
+                    const urlParams = new URLSearchParams(window.location.search);
+                    const error = urlParams.get('error');
+                    if (error) {
+                        alert(error);
+                    }
+                }
+            </script>
     </body>
-</html>
+</html><!--pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*\W).{7,}"-->

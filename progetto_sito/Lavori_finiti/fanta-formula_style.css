@@ -54,6 +54,11 @@ body::-webkit-scrollbar{
     transform: translateY(-28px);
 }
 
+.logo2 {
+    transform: scale(0.6) translateY(-35px);
+    margin-top: -40px;
+}
+
 .menu{
     align-self: center;
     z-index: 0;
@@ -288,23 +293,98 @@ body::-webkit-scrollbar{
 .bunner-budget{
     display: flex;
     z-index: 2;
-    max-width: 50%;
+    /*max-width: 50%;*/
     min-width: 50%;
     margin-left: 25%;
     margin-top: 160px;
     top :0;
     left:0;
     position: fixed;
-    height: 100px;
+    /*height: 100px;*/
     background:linear-gradient(1deg, rgba(0,0,0,0.9), rgba(170, 4, 4, 0.9), rgba(112,1,1,1));
-    
+
+    border-radius: 15px;
+    /*border: 2px solid rgb(191, 0, 0);*/
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+
 }
 
-.conferma-sqaud{
+.bunner-budget::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    /*background: radial-gradient(circle at top left, transparent, black 70%);*/
+    pointer-events: none;
+}
+
+#popup {
+    display: none;
+    position: fixed;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    /* width: 20%;   */
+    /* height: 15%;  */
+    padding: 1.7em; 
+}
+
+#popup-text {
+    text-align: center;
+    margin-top: -55px;
+    margin-bottom: 20px;
+}#popup1 {
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+}
+
+#popup1-text {
+    color: white;
+    font-size: 20px;
+    text-align: center;
+    margin-top: 20%;
+}
+
+#popup1 {
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+}
+
+#popup1-text {
+    color: white;
+    font-size: 50px;
+    text-align: center;
+    margin-top: 20%;
+}
+
+.conferma-squad{
     padding-left: 20px;
     align-self: center;
-    padding-left: 40px;
-    margin-right: 25px;
+    margin-right: 30px;
+    
 }
 
 .button-squad{
@@ -499,6 +579,7 @@ body::-webkit-scrollbar{
     height: 920px;
 }
 
+/*posizione bottone*/
 .grid-container-interno {
     display: grid;
     grid-template-columns: 1fr; /* Crea 1 colonna */
@@ -508,8 +589,6 @@ body::-webkit-scrollbar{
     
 }
 
-
-
 .grid-item-interno {
     padding: 5px;
     text-align: center;
@@ -517,20 +596,32 @@ body::-webkit-scrollbar{
     height: 300px;
     background: none;
     margin-top: 8px;
-    & .description {
-        line-height: 1.7;
-        margin: 1rem 0 1.5rem;
-        font-size: 0.8rem;
-        border-radius: 15px;
-        padding: 15px;
-        border: 2px solid rgba(255, 255, 255);
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-        transition: all 0.3s ease; /* This adds a transition effect */
-    }
-      .description:hover {
-        background-color: rgba(0, 0, 0, 0.8); /* This changes the background color when the box is hovered */
-        box-shadow: 0 0 15px rgba(0, 0, 0, 0.7); /* This changes the shadow when the box is hovered */
-    }
+}
+
+.grid-item-interno .description {
+    line-height: 1.7;
+    margin: 1rem 0 1.5rem;
+    font-size: 0.8rem;
+    border-radius: 15px;
+    padding: 15px;
+    border: 2px solid rgba(255, 255, 255);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    transition: all 0.3s ease; /* This adds a transition effect */
+}
+
+.grid-item-interno .description:hover {
+    background-color: rgba(0, 0, 0, 0.8); /* This changes the background color when the box is hovered */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.7); /* This changes the shadow when the box is hovered */
+}
+
+.grid-item-interno .description.clicked {
+    background-color: grey;
+}
+
+.grid-item-interno .description.clicked:hover {
+    /* Reimposta gli stili allo stato non-hovered */
+    background-color: grey;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 .grid-container-interno-interno {
@@ -558,7 +649,16 @@ body::-webkit-scrollbar{
     margin-top: -10px;
     font-size: 50px;
 }
-.botton_costo{
+.botton_costo_pilota{
+    padding: 0 50px; 
+    background: rgba(19, 19, 19); 
+    color: white; 
+    border-radius: 4px;
+    text-decoration: none;
+    margin-right: 20px;
+    font-size: 35px;
+}
+.botton_costo_scuderia{
     padding: 0 50px; 
     background: rgba(19, 19, 19); 
     color: white; 
@@ -568,7 +668,10 @@ body::-webkit-scrollbar{
     font-size: 35px;
 }
 
-.botton_costo:hover{
+.botton_costo_pilota:hover{
+    background-color: rgba(155, 153, 153, 0.8);
+}
+.botton_costo_scuderia:hover{
     background-color: rgba(155, 153, 153, 0.8);
 }
 

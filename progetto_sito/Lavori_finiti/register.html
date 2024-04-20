@@ -1,9 +1,6 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>register.formula1forfun</title>
         <link rel="stylesheet" href="styleRegister.css">
     </head>
@@ -31,24 +28,17 @@
             <a href="index.html">
                 <img src="media/logo.png" alt="logo">
             </a>
-            <form>
+            <form action="register.php" method="post">
                 <label for="login">WELCOME! Please register here:</label><br>
-                
-                <input class="testo" type="text" id="username" placeholder="Choose a username" title="Choose a username" required><br>
-                <input class="testo" type="email" id="email" placeholder="Insert your email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="Please insert a valid email address" required><br>
-                <input class="testo" type="password" id="password" placeholder="Choose a password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*\W).{8,}" title="Choose a password" required><br>
-                <input class="testo" type="password" id="confirmPassword" placeholder="Repeat the password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*\W).{8,}" title="Repeat the password" required><br>       
+               
+                <input class="testo" type="text" id="username" name="username" placeholder="Choose a username" title="Choose a username" required><br>
+                <input class="testo" type="email" id="email" name="email" placeholder="Insert your email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="Please insert a valid email address" required><br>
+                <input class="testo" type="password" id="password" name="password" placeholder="Choose a password" title="Choose a password" pattern="(?=.*\d)(?=.*[A-Z]).{8,}" required><br>
+                <input class="testo" type="password" id="confirmPassword" name="confirmPassword" placeholder="Repeat the password" title="Repeat the password" pattern="(?=.*\d)(?=.*[A-Z]).{8,}" required><br>       
                 <input class="submit-button" type="submit" value="Register">
-                <a href="login.html" class="login" >Hai già un account?</a>
+                <a href="login.html" class="login" >Hai gia un account?</a>
             </form>
         </div>
-
-        <!-- Jquery-->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/flickity/3.0.0/flickity.pkgd.min.js" integrity="sha512-achKCfKcYJg0u0J7UDJZbtrffUwtTLQMFSn28bDJ1Xl9DWkl/6VDT3LMfVTo09V51hmnjrrOTbtg4rEgg0QArA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
-        <script src="hamburger.js"></script>
         
     </body>
 </html>

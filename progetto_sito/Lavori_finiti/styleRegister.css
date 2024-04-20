@@ -36,7 +36,7 @@ form {
     align-items: center;
     justify-content: center;
     width: 25%; /* Adjust as needed */
-    height: 50%; /* Adjust as needed */
+    height: 60%; /* Adjust as needed */
     margin: auto;
     border: 1px solid black; /* Adjust as needed */
     background-color: #f4f4f48a; /* New */
@@ -89,8 +89,9 @@ label {
 
 .login{
     position:relative;
-    bottom: 15px;
+    bottom: 25px;
+    left: 20px;
     margin-right: 280px;
-    
+    white-space: nowrap;
 }
 

@@ -267,8 +267,6 @@ body::-webkit-scrollbar{
 .hamburger{display: none;}
 
 @media(max-width:900px){
-    .header{background: none;}
-    .logo{display: none}
     .r-l{display: none}
     .menu{position: absolute; top: 0; right: -200%; background: rgb(126, 0, 0);height: 270%;z-index: 2;}
     .menu li {display: block;}
@@ -336,11 +334,13 @@ body::-webkit-scrollbar{
 .main::before {
   top: 0;
   left: 0;
+  z-index: 1;
 }
 
 .main::after {
   bottom: 0;
   right: 0;
+  z-index: 3;
 
 }
 
@@ -416,6 +416,39 @@ body::-webkit-scrollbar{
     left:65%;
 }
 
+
+@media(max-width:900px){
+    .grid-container{
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: auto;
+        gap: 10;
+        min-height: 100vh;
+        width: 100vw;
+        margin-bottom: 20px;
+        margin-left: 90px;
+    }
+    
+    .main:hover .container .title,
+    .main:hover .container .button_grid ,
+    .main:hover .container .desc{
+        left:150%;
+    }
+
+    .main .container .title,
+    .main .container .button_grid,
+    .main .container .desc {
+        transition: none;
+        left: 150%;
+        width: 100%;
+    }
+    .main::before,
+    .main::after,
+    .main:hover::before {
+        display: none;
+      }
+    
+}
 
 /*footer*/
 footer {

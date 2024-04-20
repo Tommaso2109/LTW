@@ -1,6 +1,9 @@
 <!DOCTYPE html>
-<html lang="IT">
+<html lang="en">
     <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>FormulaForFun</title>
         <link rel="stylesheet" href="style_index.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flickity/3.0.0/flickity.min.css" integrity="sha512-fJcFDOQo2+/Ke365m0NMCZt5uGYEWSxth3wg2i0dXu7A1jQfz9T4hdzz6nkzwmJdOdkcS8jmy2lWGaRXl+nFMQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -25,7 +28,7 @@
                         <li><a href="piloti/Norris.html">Lando Norris</a></li>
                         <li><a href="piloti/piastri.html">Oscar Piastri</a></li>
                         <li><a href="piloti/Alonso.html">Fernando Alonso</a></li>
-                        <li><a href="piloti/Stroll.html">Lance Stroll</a></li>                                       
+                        <li><a href="piloti/Stroll.html">Lance Stroll</a></li>                     
                         <li><a href="piloti/Gasly.html">Pierre Gasly</a></li>
                         <li><a href="piloti/Ocon.html">Esteban Ocon</a></li>
                         <li><a href="piloti/Albon.html">Alexander Albon</a></li>
@@ -52,13 +55,22 @@
                         <span><a href="scuderie/Haas.html" >Haas</a></span>
                     </ul>
                 </li>
-                <li><a href="fanta-formula.php" class="menu-text">Fanta-Formula</a></li> 
+                <li><a href="fanta-formula.html" class="menu-text">Fanta-Formula</a></li>
+                <label><a href="login.html" id="loginButton" class="menu-text">Login</a></label>
+                <label><a href="register.html" id="registerButton" class="menu-text">Register</a></label>
             </ul>
 
             <div class="r-l">
-                <a href="login.html" class="button">LOGIN</a>
+                <a href="login.html" id="loginButton" class="button">LOGIN</a>
                 <p>
-                <a href="register.html" class="button">REGISTER</a>
+                <a href="register.html" id="registerButton" class="button">REGISTER</a>
+                <a href="pagina_personale.html" id="userImage" style="display: none;"><img src="media/profilo_vuotio.jpg" alt="User" ></a>
+            </div>
+
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
             </div>
         </div>
 
@@ -70,6 +82,12 @@
                 <source src="media/home_video.mp4" type="video/mp4">
     
             </video>
+        </div>
+
+        <div class="hero-telefono">
+            <div class="hero-telefono__content">
+                <h1 class = "big-text"> Formula 1 For Fun </h1>
+            </div>
         </div>
         
         <div  class="intro_content">
@@ -83,20 +101,31 @@
             <div class="poster__content ">
                 <h1>stats piloti</h1>
                 <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestiae sit facilis ab tenetur natus debitis alias quidem ipsa culpa! Velit voluptates est esse eum ex, autem deserunt nulla voluptatum ipsa!</p>
-                <a href="stats_piloti.html" class="button">Leggi di più</a>
+                <a href="stats.html" class="button">Leggi di più</a>
             </div>
         </div>
 
-        <div class="poster mt-2">
-            <div class="poster__content ">
-                <h1>stats scuderia</h1>
+        <div class="poster2 mt-2">
+            <div class="poster2__content ">
+                <h1>scuderia</h1>
                 <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Hic, nam aliquam, ullam doloremque illo repellendus soluta placeat est obcaecati ipsa fugit nostrum sed vitae officia nihil assumenda ducimus nemo sint?</p>
-                <a href="stats_scuderie.html" class="button">Leggi di più</a>
+                 <a href="stats.html" class="button">Leggi di più</a>
             </div>
-            <div class="poster__img ">
+            <div class="poster2__img ">
                 <img src="media/scuderie.jpg" alt="">
             </div>
         </div>
+
+        <div class="poster2__telefono mt-3">
+            <div class="poster2__telefono__img">
+                <img src="media/scuderie.jpg" alt="">
+            </div>
+            <div class="poster2__telefono__content ">
+                <h1>scuderia</h1>
+                <p >Lorem ipsum, dolor sit amet consectetur adipisicing elit. Hic, nam aliquam, ullam doloremque illo repellendus soluta placeat est obcaecati ipsa fugit nostrum sed vitae officia nihil assumenda ducimus nemo sint?</p>
+                <a href="scuderie.html" class="button">Leggi di più</a>
+            </div>
+         </div>
 
         <div class="grid mt-2">
             <div class="col">
@@ -112,7 +141,7 @@
                 </div>
                 <div class="cell__titolo">
                     <h1 class="alf-big-text">Max Verstappen</h1>
-                    <a href="" class="button1">Leggi di più</a>
+                    <a href="piloti/verstappen.html" class="button1">Leggi di più</a>
                 </div>
             </div>  
             
@@ -122,7 +151,7 @@
                 </div>
                 <div class="cell__titolo">
                     <h1 class="alf-big-text">Sergio Perez</h1>
-                    <a href="" class="button1">Leggi di più</a>
+                    <a href="piloti/perez.html" class="button1">Leggi di più</a>
                 </div>
             </div>
               
@@ -132,7 +161,7 @@
                 </div>
                 <div class="cell__titolo">
                     <h1 class="alf-big-text">Lewis Hemilton</h1>
-                    <a href="" class="button1">Leggi di più</a>
+                    <a href="piloti/Hamilton.html" class="button1">Leggi di più</a>
                 </div>
             </div>
 
@@ -142,7 +171,7 @@
                 </div>
                 <div class="cell__titolo">
                     <h1 class="alf-big-text">George Russell</h1>
-                    <a href="" class="button1">Leggi di più</a>
+                    <a href="piloti/Russel.html" class="button1">Leggi di più</a>
                 </div>
             </div>
               
@@ -152,7 +181,7 @@
                 </div>
                 <div class="cell__titolo">
                     <h1 class="alf-big-text">Charles Leclerc</h1>
-                    <a href="" class="button1">Leggi di più</a>
+                    <a href="piloti/Leclerc.html" class="button1">Leggi di più</a>
                 </div>
             </div>
             
@@ -162,7 +191,7 @@
                 </div>
                 <div class="cell__titolo">
                     <h1 class="alf-big-text">Carlos Sainz</h1>
-                    <a href="" class="button1">Leggi di più</a>
+                    <a href="piloti/sainz.html" class="button1">Leggi di più</a>
                 </div>
             </div>
               
@@ -172,7 +201,7 @@
                 </div>
                 <div class="cell__titolo">
                     <h1 class="alf-big-text">Lando Norris</h1>
-                    <a href="" class="button1">Leggi di più</a>
+                    <a href="piloti/Norris.html" class="button1">Leggi di più</a>
                 </div>
             </div>
               
@@ -182,7 +211,7 @@
                 </div>
                 <div class="cell__titolo">
                     <h1 class="alf-big-text">Oscar Piastri</h1>
-                    <a href="" class="button1">Leggi di più</a>
+                    <a href="piloti/piastri.html" class="button1">Leggi di più</a>
                 </div>
             </div>
               
@@ -192,7 +221,7 @@
                 </div>
                 <div class="cell__titolo">
                     <h1 class="alf-big-text">Fernando Alonso</h1>
-                    <a href="" class="button1">Leggi di più</a>
+                    <a href="piloti/Alonso.html" class="button1">Leggi di più</a>
                 </div>
             </div>
               
@@ -202,7 +231,7 @@
                 </div>
                 <div class="cell__titolo">
                     <h1 class="alf-big-text"> Lance Stroll</h1>
-                    <a href="" class="button1">Leggi di più</a>
+                    <a href="piloti/Stroll.html" class="button1">Leggi di più</a>
                 </div>
             </div>
               
@@ -212,7 +241,7 @@
                 </div>
                 <div class="cell__titolo">
                     <h1 class="alf-big-text">Pierre Gasly</h1>
-                    <a href="" class="button1">Leggi di più</a>
+                    <a href="piloti/Gasly.html" class="button1">Leggi di più</a>
                 </div>
             </div>
               
@@ -222,7 +251,7 @@
                 </div>
                 <div class="cell__titolo">
                     <h1 class="alf-big-text">Esteban Ocon</h1>
-                    <a href="" class="button1">Leggi di più</a>
+                    <a href="piloti/Ocon.html" class="button1">Leggi di più</a>
                 </div>
             </div>
               
@@ -232,7 +261,7 @@
                 </div>
                 <div class="cell__titolo">
                     <h1 class="alf-big-text">Alexander Albon</h1>
-                    <a href="" class="button1">Leggi di più</a>
+                    <a href="piloti/Albon.html" class="button1">Leggi di più</a>
                 </div>
             </div>
               
@@ -242,7 +271,7 @@
                 </div>
                 <div class="cell__titolo">
                     <h1 class="alf-big-text">Logan Sargeant</h1>
-                    <a href="" class="button1">Leggi di più</a>
+                    <a href="piloti/Sargeant.html" class="button1">Leggi di più</a>
                 </div>
             </div>
               
@@ -252,7 +281,7 @@
                 </div>
                 <div class="cell__titolo">
                     <h1 class="alf-big-text">Yuki Tsunoda</h1>
-                    <a href="" class="button1">Leggi di più</a>
+                    <a href="piloti/Tsunoda.html" class="button1">Leggi di più</a>
                 </div>
             </div>
               
@@ -262,7 +291,7 @@
                 </div>
                 <div class="cell__titolo">
                     <h1 class="alf-big-text">Daniel Ricciardo</h1>
-                    <a href="" class="button1">Leggi di più</a>
+                    <a href="piloti/Ricciardo.html" class="button1">Leggi di più</a>
                 </div>
             </div>
               
@@ -272,7 +301,7 @@
                 </div>
                 <div class="cell__titolo">
                     <h1 class="alf-big-text">Valterri Bottas</h1>
-                    <a href="" class="button1">Leggi di più</a>
+                    <a href="piloti/bottas.html" class="button1">Leggi di più</a>
                 </div>
             </div>
               
@@ -282,7 +311,7 @@
                 </div>
                 <div class="cell__titolo">
                     <h1 class="alf-big-text">Ghuanyu Zhou</h1>
-                    <a href="" class="button1">Leggi di più</a>
+                    <a href="piloti/Zhou.html" class="button1">Leggi di più</a>
                 </div>
             </div>
               
@@ -292,7 +321,7 @@
                 </div>
                 <div class="cell__titolo">
                     <h1 class="alf-big-text">Nico Hulkenberg</h1>
-                    <a href="" class="button1">Leggi di più</a>
+                    <a href="piloti/Hulkenberg.html" class="button1">Leggi di più</a>
                 </div>
             </div>
               
@@ -302,7 +331,7 @@
                 </div>
                 <div class="cell__titolo">
                     <h1 class="alf-big-text">Kevin Magnussen</h1>
-                    <a href="" class="button1">Leggi di più</a>
+                    <a href="piloti/magnussen.html" class="button1">Leggi di più</a>
                 </div>
             </div>   
         </div>
@@ -310,7 +339,7 @@
         <div class="bg-cover mt-3">
             <div class="bg-cover__title">
                 <h1 class="big-text">Fanta-Formula</h1>        
-                <a href=""class="button1">Leggi di più</a>
+                <a href="fanta-formula.html"class="button1">Leggi di più</a>
             </div>
          </div>
 
@@ -322,6 +351,12 @@
             </div>
         </footer>
         
+        <!-- Jquery-->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/flickity/3.0.0/flickity.pkgd.min.js" integrity="sha512-achKCfKcYJg0u0J7UDJZbtrffUwtTLQMFSn28bDJ1Xl9DWkl/6VDT3LMfVTo09V51hmnjrrOTbtg4rEgg0QArA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+        <script src="hamburger.js"></script>
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/flickity/3.0.0/flickity.pkgd.min.js" integrity="sha512-achKCfKcYJg0u0J7UDJZbtrffUwtTLQMFSn28bDJ1Xl9DWkl/6VDT3LMfVTo09V51hmnjrrOTbtg4rEgg0QArA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     </body>

@@ -5,12 +5,12 @@
 .normal-text{font-size: 20px;}
 .small-text{font-size: 14px;}
   
-  body {
- 
-    overflow: hidden;
-    margin: 0;
-    overflow-y: scroll;
-  }
+body {
+
+overflow: hidden;
+margin: 0;
+overflow-y: scroll;
+}
   
 body::-webkit-scrollbar{
     display: none;
@@ -350,7 +350,7 @@ body::-webkit-scrollbar{
   scale: 0.7;
 }
 .content p {
-  font-size: 14px;
+  font-size: 25px;  /* Grandezza testo nel paragrafo */
   line-height: 1.5;
   color: #d1d1d1;
   transform: translateY(50%);
@@ -525,7 +525,7 @@ body::-webkit-scrollbar{
         border: 2px solid rgba(255, 255, 255);
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.9);
         transition: all 0.3s ease; /* This adds a transition effect */
-        width: 90%;       
+        width: 90%;  
         }
 
 }

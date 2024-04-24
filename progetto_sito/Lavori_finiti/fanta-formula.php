@@ -1,5 +1,19 @@
-<?php 
-session_start(); // Start the session at the beginning of your file 
+<?php
+session_start();
+if(!isset($_SESSION['username'])) {
+?>
+<script type="text/javascript">
+    window.onload = function() {
+        var popup = document.getElementById('popup1');
+        var popupText = document.getElementById('popup1-text');
+                        
+        popupText.textContent = 'Perfavore fai il Login per usare questa funzione';
+        //popup.innerHTML = '<p>Perfavore fai il Login per usare questa funzione</p><a href="Login.html">Login</a>';
+        popup.style.display = 'block';
+    }
+</script>
+<?php
+}
 ?>
 
 <!DOCTYPE html>
@@ -66,7 +80,7 @@ session_start(); // Start the session at the beginning of your file
 
             <div class="r-l">
             <?php if(isset($_SESSION['username'])): ?>
-                    <a href="pagina_personale.php" id="userImage"><img style="width:100px; height:auto" src="<?php echo $_SESSION['profile_image']; ?>" alt="image"></a>
+                    <a href="pagina_personale.php" id="userImage"><img src="<?php echo $_SESSION['profile_image']; ?>" alt="image"></a>
                     <a href="logout.php" id="logoutButton" class="button">LOGOUT</a>
                 <?php else: ?>
                     <a href="login.html" id="loginButton" class="button">LOGIN</a>
@@ -81,17 +95,19 @@ session_start(); // Start the session at the beginning of your file
                 <span></span>
             </div>
         </div>
-
-        <div class="bunner-budget">
-            <ul class="content-bunner">
-                <li><a id="total" class="menu-text">Budget disponibile: 15000 $</a></li>
-                <li><a id="scelte" class="menu-text">Piloti: 0/2, Scuderie: 0/1</a></li>
-            </ul>
-
-            <div class="conferma-squad"> 
-                <button class="button-squad" name="conferma_squadra">Conferma Squadra</button>
+        
+        <?php if(isset($_SESSION['username'])): ?>
+            <div class="bunner-budget">
+                <ul class="content-bunner">
+                    <li><a id="total" class="menu-text">Budget disponibile: 15000 $</a></li>
+                    <li><a id="scelte" class="menu-text">Piloti: 0/2, Scuderie: 0/1</a></li>
+                </ul>
+            
+                <div class="conferma-squad"> 
+                    <button class="button-squad" name="conferma_squadra">Conferma Squadra</button>
+                </div>
             </div>
-        </div>
+        <?php endif; ?>
         <?php
                     // Stabilisci la connessione al database
                     $conn = new mysqli('localhost', 'root', '', 'statistiche');
@@ -659,7 +675,7 @@ session_start(); // Start the session at the beginning of your file
                         popup.style.display = 'block';
                     } else {
                         // Gestisci il caso di successo qui
-                        window.location.href = "index.php";
+                        window.location.href = "pagina_personale.php";
                     }
                     
                 },

@@ -35,7 +35,7 @@ if ($result->num_rows > 0) {
         echo "<body>";
         echo '<div class="sfondo"></div>';
         echo '<div class = "box">';
-        echo '<a href="index.html">';
+        echo '<a href="index.php">';
         echo '<img src="media/logo.png" alt="logo">';
         echo '</a>';
         echo '<form>';
@@ -61,7 +61,7 @@ if ($result->num_rows > 0) {
         echo "<body>";
         echo '<div class="sfondo"></div>';
         echo '<div class = "box">';
-        echo '<a href="index.html">';
+        echo '<a href="index.php">';
         echo '<img src="media/logo.png" alt="logo">';
         echo '</a>';
         echo '<form>';

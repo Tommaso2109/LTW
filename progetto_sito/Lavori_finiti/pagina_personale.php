@@ -2,8 +2,8 @@
 session_start(); // Start the session at the beginning of your file 
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE php>
+<php lang="en">
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -23,26 +23,26 @@ session_start(); // Start the session at the beginning of your file
                 <li><a href="stats.php" class="menu-text">Stats</a></li>
                 <li><a href="piloti.php" class="menu-text">Piloti</a>
                     <ul>
-                        <li><a href="verstappen.php">Max Verstappen</a></li> 
-                        <li><a href="perez.php">Sergio Perez</a></li> 
-                        <li><a href="Hamilton.php">Lewis Hamilton</a></li> 
-                        <li><a href="Russel.php">George Russell</a></li> 
-                        <li><a href="Leclerc.php">Charles Leclerc</a></li>
-                        <li><a href="sainz.php">Carlos Sainz</a></li> 
-                        <li><a href="Norris.php">Lando Norris</a></li>
-                        <li><a href="piastri.php">Oscar Piastri</a></li>
-                        <li><a href="Alonso.php">Fernando Alonso</a></li>
-                        <li><a href="Stroll.php">Lance Stroll</a></li>                     
-                        <li><a href="Gasly.php">Pierre Gasly</a></li>
-                        <li><a href="Ocon.php">Esteban Ocon</a></li>
-                        <li><a href="Albon.php">Alexander Albon</a></li>
-                        <li><a href="Sargeant.php">Logan Sargeant</a></li>
-                        <li><a href="Tsunoda.php">Yuki Tsunoda</a></li>
-                        <li><a href="Ricciardo.php">Daniel Ricciardo</a></li>
-                        <li><a href="bottas.php">Valterri Bottas</a></li>
-                        <li><a href="Zhou.php">Ghuanyu Zhou</a></li>
-                        <li><a href="Hulkenberg.php">Nico Hulkenberg</a></li>
-                        <li><a href="magnussen.php">Kevin Magnussen</a></li>
+                        <li><a href="piloti/verstappen.php">Max Verstappen</a></li> 
+                        <li><a href="piloti/perez.php">Sergio Perez</a></li> 
+                        <li><a href="piloti/Hamilton.php">Lewis Hamilton</a></li> 
+                        <li><a href="piloti/Russel.php">George Russell</a></li> 
+                        <li><a href="piloti/Leclerc.php">Charles Leclerc</a></li>
+                        <li><a href="piloti/sainz.php">Carlos Sainz</a></li> 
+                        <li><a href="piloti/Norris.php">Lando Norris</a></li>
+                        <li><a href="piloti/piastri.php">Oscar Piastri</a></li>
+                        <li><a href="piloti/Alonso.php">Fernando Alonso</a></li>
+                        <li><a href="piloti/Stroll.php">Lance Stroll</a></li>                     
+                        <li><a href="piloti/Gasly.php">Pierre Gasly</a></li>
+                        <li><a href="piloti/Ocon.php">Esteban Ocon</a></li>
+                        <li><a href="piloti/Albon.php">Alexander Albon</a></li>
+                        <li><a href="piloti/Sargeant.php">Logan Sargeant</a></li>
+                        <li><a href="piloti/Tsunoda.php">Yuki Tsunoda</a></li>
+                        <li><a href="piloti/Ricciardo.php">Daniel Ricciardo</a></li>
+                        <li><a href="piloti/bottas.php">Valterri Bottas</a></li>
+                        <li><a href="piloti/Zhou.php">Ghuanyu Zhou</a></li>
+                        <li><a href="piloti/Hulkenberg.php">Nico Hulkenberg</a></li>
+                        <li><a href="piloti/magnussen.php">Kevin Magnussen</a></li>
                     </ul>
                 </li>
                 <li><a href="scuderie.php" class="menu-text">Scuderie</a>
@@ -60,8 +60,8 @@ session_start(); // Start the session at the beginning of your file
                     </ul>
                 </li>
                 <li><a href="fanta-formula.php" class="menu-text">Fanta-Formula</a></li>
-                <label><a href="login.php" id="loginButton" class="menu-text">Login</a></label>
-                <label><a href="register.php" id="registerButton" class="menu-text">Register</a></label>
+                <label><a href="login.html" id="loginButton" class="menu-text">Login</a></label>
+                <label><a href="register.html" id="registerButton" class="menu-text">Register</a></label>
             </ul>
 
             <div class="r-l">
@@ -83,7 +83,7 @@ session_start(); // Start the session at the beginning of your file
         </div>
 
         <?php
-        $user = "AdviceLOL";
+        $user = $_SESSION['username'];
         
         $conn = new mysqli('127.0.0.1', 'root', '', 'statistiche');
 
@@ -160,7 +160,7 @@ session_start(); // Start the session at the beginning of your file
             if($scuderia == "Ferrari")$immagineScuderia = 'ferrar-removebg-preview.png';
             if($scuderia == "McLaren")$immagineScuderia = 'mclaren-removebg-preview.png';
             if($scuderia == "Aston Martin")$immagineScuderia = 'astonmartin-removebg-preview.png';
-            if($scuderia == "Alpine")$immagineScuderia = 'alpine-removebg-preview.png';
+            if($scuderia == "Alpine")$immagineScuderia = 'alphine-removebg-preview.png';
             if($scuderia == "Williams")$immagineScuderia = 'williams-removebg-preview.png';
             if($scuderia == "Alpha Tauri")$immagineScuderia = 'alphatauri-removebg-preview.png';
             if($scuderia == "Kick Saubern")$immagineScuderia = 'kicksaubern-removebg-preview.png';
@@ -216,7 +216,7 @@ session_start(); // Start the session at the beginning of your file
                         <div class="grid-container">
                             <div class="grid-container-profilo">
                                 <div class="immagine_profilo">
-                                    <img src="media/profilo_vuotio.jpg" alt="immagine non presente"> 
+                                    <img src="'. $_SESSION['profile_image'] .'" alt="immagine non presente"> 
                                     <a href="" class="button1"> cambio immagine</a>
                                 </div>
                                 <div>
@@ -279,7 +279,7 @@ session_start(); // Start the session at the beginning of your file
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/flickity/3.0.0/flickity.pkgd.min.js" integrity="sha512-achKCfKcYJg0u0J7UDJZbtrffUwtTLQMFSn28bDJ1Xl9DWkl/6VDT3LMfVTo09V51hmnjrrOTbtg4rEgg0QArA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     </body>
-</html>
+</php>
 
 
 <!-- dobbiamo inserire i link per le paggine appena le abbiamo crete -->

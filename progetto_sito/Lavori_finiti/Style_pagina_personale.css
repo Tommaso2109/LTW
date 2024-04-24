@@ -384,6 +384,18 @@ body::-webkit-scrollbar{
     margin-top: 90px;
 }
 
+.positive{
+    font-size: 50px;
+    color: greenyellow;
+    margin-top: 5px;
+}
+
+.negative{
+    font-size: 50px;
+    color: rgb(255, 71, 71);
+    margin-top: 5px;
+}
+
 /*footer*/
 footer {
     background:linear-gradient(1deg, rgba(0,0,0,0.9), rgba(170, 4, 4, 0.9), rgba(112,1,1,1));;

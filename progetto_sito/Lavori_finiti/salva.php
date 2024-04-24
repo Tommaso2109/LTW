@@ -1,5 +1,7 @@
 
 <?php
+
+    session_start();
     // Stabilisci la connessione al database
     $conn = new mysqli('localhost', 'root', '', 'statistiche');
 
@@ -14,7 +16,7 @@
         $pilota1 = $_POST['pilota1'];
         $pilota2 = $_POST['pilota2'];
 
-        $utente = "AdviceLOL";
+        $utente = $_SESSION['username'];
 
         // Controlla se l'utente esiste già
         $checkSql = "SELECT * FROM squadra WHERE utente = ?";

@@ -95,3 +95,32 @@ label {
     white-space: nowrap;
 }
 
+.logo2 {
+    transform: scale(0.7) translateY(-35px);
+    margin-top: -40px;
+}
+
+#popup {
+    display: none;
+    position: fixed;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    /* width: 20%;   */
+    /* height: 15%;  */
+    padding: 1.7em; 
+}
+
+#popup-text {
+    text-align: center;
+    margin-top: -55px;
+    margin-bottom: 20px;
+}
+

@@ -1,3 +1,7 @@
+<?php 
+session_start(); // Start the session at the beginning of your file 
+?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -12,58 +16,63 @@
     <body>
         <div class="header">
             <div class="logo">
-                <a href="index.html"><img src="media/logo.png" alt=""></a>
+                <a href="index.php"><img src="media/logo.png" alt=""></a>
             </div>
 
             <ul class="menu">
-                <li><a href="stats.html" class="menu-text">Stats</a></li>
-                <li><a href="piloti.html" class="menu-text">Piloti</a>
+                <li><a href="stats.php" class="menu-text">Stats</a></li>
+                <li><a href="piloti.php" class="menu-text">Piloti</a>
                     <ul>
-                        <li><a href="piloti/verstappen.html">Max Verstappen</a></li> 
-                        <li><a href="piloti/perez.html">Sergio Perez</a></li> 
-                        <li><a href="piloti/Hamilton.html">Lewis Hamilton</a></li> 
-                        <li><a href="piloti/Russel.html">George Russell</a></li> 
-                        <li><a href="piloti/Leclerc.html">Charles Leclerc</a></li>
-                        <li><a href="piloti/sainz.html">Carlos Sainz</a></li> 
-                        <li><a href="piloti/Norris.html">Lando Norris</a></li>
-                        <li><a href="piloti/piastri.html">Oscar Piastri</a></li>
-                        <li><a href="piloti/Alonso.html">Fernando Alonso</a></li>
-                        <li><a href="piloti/Stroll.html">Lance Stroll</a></li>                                       
-                        <li><a href="piloti/Gasly.html">Pierre Gasly</a></li>
-                        <li><a href="piloti/Ocon.html">Esteban Ocon</a></li>
-                        <li><a href="piloti/Albon.html">Alexander Albon</a></li>
-                        <li><a href="piloti/Sargeant.html">Logan Sargeant</a></li>
-                        <li><a href="piloti/Tsunoda.html">Yuki Tsunoda</a></li>
-                        <li><a href="piloti/Ricciardo.html">Daniel Ricciardo</a></li>
-                        <li><a href="piloti/bottas.html">Valterri Bottas</a></li>
-                        <li><a href="piloti/Zhou.html">Ghuanyu Zhou</a></li>
-                        <li><a href="piloti/Hulkenberg.html">Nico Hulkenberg</a></li>
-                        <li><a href="piloti/magnussen.html">Kevin Magnussen</a></li>
+                        <li><a href="piloti/verstappen.php">Max Verstappen</a></li> 
+                        <li><a href="piloti/perez.php">Sergio Perez</a></li> 
+                        <li><a href="piloti/Hamilton.php">Lewis Hamilton</a></li> 
+                        <li><a href="piloti/Russel.php">George Russell</a></li> 
+                        <li><a href="piloti/Leclerc.php">Charles Leclerc</a></li>
+                        <li><a href="piloti/sainz.php">Carlos Sainz</a></li> 
+                        <li><a href="piloti/Norris.php">Lando Norris</a></li>
+                        <li><a href="piloti/piastri.php">Oscar Piastri</a></li>
+                        <li><a href="piloti/Alonso.php">Fernando Alonso</a></li>
+                        <li><a href="piloti/Stroll.php">Lance Stroll</a></li>                                       
+                        <li><a href="piloti/Gasly.php">Pierre Gasly</a></li>
+                        <li><a href="piloti/Ocon.php">Esteban Ocon</a></li>
+                        <li><a href="piloti/Albon.php">Alexander Albon</a></li>
+                        <li><a href="piloti/Sargeant.php">Logan Sargeant</a></li>
+                        <li><a href="piloti/Tsunoda.php">Yuki Tsunoda</a></li>
+                        <li><a href="piloti/Ricciardo.php">Daniel Ricciardo</a></li>
+                        <li><a href="piloti/bottas.php">Valterri Bottas</a></li>
+                        <li><a href="piloti/Zhou.php">Ghuanyu Zhou</a></li>
+                        <li><a href="piloti/Hulkenberg.php">Nico Hulkenberg</a></li>
+                        <li><a href="piloti/magnussen.php">Kevin Magnussen</a></li>
                     </ul>
                 </li>
-                <li><a href="scuderie.html" class="menu-text">Scuderie</a>
+                <li><a href="scuderie.php" class="menu-text">Scuderie</a>
                     <ul>
-                        <span><a href="scuderie/RedBull.html" >Red Bull</a></span>
-                        <span><a href="scuderie/Mercedes.html" >Mercedes</a></span>
-                        <span><a href="scuderie/Ferrari.html" >Ferrari</a></span>
-                        <span><a href="scuderie/McLaren.html" >McLaren</a></span>
-                        <span><a href="scuderie/AstonMartin.html" >Aston Martin</a></span>
-                        <span><a href="scuderie/Alpine.html" >Alpine</a></span>
-                        <span><a href="scuderie/Williams.html" >Williams</a></span>                       
-                        <span><a href="scuderie/AlphaTauri.html" >Alpha Tauri</a></span>
-                        <span><a href="scuderie/KickSaubern.html" >kick Saubern</a></span>
-                        <span><a href="scuderie/Haas.html" >Haas</a></span>
+                        <span><a href="scuderie/RedBull.php" >Red Bull</a></span>
+                        <span><a href="scuderie/Mercedes.php" >Mercedes</a></span>
+                        <span><a href="scuderie/Ferrari.php" >Ferrari</a></span>
+                        <span><a href="scuderie/McLaren.php" >McLaren</a></span>
+                        <span><a href="scuderie/AstonMartin.php" >Aston Martin</a></span>
+                        <span><a href="scuderie/Alpine.php" >Alpine</a></span>
+                        <span><a href="scuderie/Williams.php" >Williams</a></span>                       
+                        <span><a href="scuderie/AlphaTauri.php" >Alpha Tauri</a></span>
+                        <span><a href="scuderie/KickSaubern.php" >kick Saubern</a></span>
+                        <span><a href="scuderie/Haas.php" >Haas</a></span>
                     </ul>
                 </li>
                 <li><a href="fanta-formula.php" class="menu-text">Fanta-Formula</a></li>
-                <label><a href="login.html"class="menu-text">Login</a></label>
-                <label><a href="register.html"class="menu-text">Register</a></label>
+                <label><a href="login.php"class="menu-text">Login</a></label>
+                <label><a href="register.php"class="menu-text">Register</a></label>
             </ul>
 
             <div class="r-l">
-                <a href="login.html" class="button">LOGIN</a>
-                <p>
-                <a href="register.html" class="button">REGISTER</a>
+            <?php if(isset($_SESSION['username'])): ?>
+                    <a href="pagina_personale.php" id="userImage"><img style="width:100px; height:auto" src="<?php echo $_SESSION['profile_image']; ?>" alt="image"></a>
+                    <a href="logout.php" id="logoutButton" class="button">LOGOUT</a>
+                <?php else: ?>
+                    <a href="login.html" id="loginButton" class="button">LOGIN</a>
+                    <p>
+                    <a href="register.html" id="registerButton" class="button">REGISTER</a>
+                <?php endif; ?>
             </div>
 
             <div class="hamburger">
@@ -605,6 +614,18 @@
             //ALLERT DA LEVARE QUANDO FINITO
             //alert('Scuderia: ' + scuderia + '\nPilota 1: ' + pilota1 + '\nPilota 2: ' + pilota2);
 
+            // Controlla se uno qualsiasi dei dati è null o vuoto
+            if (!scuderia || !pilota1 || !pilota2) {
+                if (!scuderia || !pilota1 || !pilota2) {
+                    var popup = document.getElementById('popup');
+                    var popupText = document.getElementById('popup-text');
+                    popupText.textContent = 'Per favore, completa tutti i campi.';
+                    popup.style.display = 'block';
+                    return;
+                }
+
+            }
+
             // Invia i dati al server utilizzando AJAX
             $.ajax({
                 type: 'POST',
@@ -638,7 +659,7 @@
                         popup.style.display = 'block';
                     } else {
                         // Gestisci il caso di successo qui
-                        window.location.href = "index.html";
+                        window.location.href = "index.php";
                     }
                     
                 },
@@ -666,7 +687,7 @@
                         popup.style.display = 'block';
                     } else {
                         // Gestisci il caso di successo qui
-                        window.location.href = "index.html";
+                        window.location.href = "index.php";
                     }
                 },
                 error: function(jqXHR, textStatus, errorThrown) {

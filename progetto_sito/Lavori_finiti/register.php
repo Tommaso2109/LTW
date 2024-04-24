@@ -1,6 +1,6 @@
 <?php
 // Connect to the database
-$conn = new mysqli('127.0.0.1', 'root', '', 'login');
+$conn = new mysqli('127.0.0.1', 'root', '', 'statistiche');
 
 // Check connection
 if ($conn->connect_error) {
@@ -21,7 +21,7 @@ $pass = mysqli_real_escape_string($conn, $pass);
 //$pass = password_hash($pass, PASSWORD_DEFAULT);
 
 // Check if the user already exists
-$sql = "SELECT * FROM info WHERE username = '$user'";
+$sql = "SELECT * FROM utenti WHERE username = '$user'";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
@@ -47,7 +47,8 @@ if ($result->num_rows > 0) {
         echo "</html>";
 } else {
     // User does not exist, insert new user
-    $sql = "INSERT INTO info (username, email, password) VALUES ('$user', '$email', '$pass')";
+    $defaultImage = 'media/profilo_vuoto.jpg';
+    $sql = "INSERT INTO utenti (username, email, password,profile_image) VALUES ('$user', '$email', '$pass','$defaultImage')";
 
     if ($conn->query($sql) === TRUE) {
         // Create a success page

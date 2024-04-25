@@ -33,6 +33,11 @@ body::-webkit-scrollbar{
     text-decoration: none;
 
 }
+.button1:hover{
+    background-color:rgba(141, 140, 140, 0.87);
+    color: #ffffff;
+    text-decoration: none;
+}
 
 
 

@@ -299,8 +299,8 @@ body::-webkit-scrollbar{
 }
 
 .box img {
-    width: 65%;
-    height: 65%;
+    width: 45%;
+    height: 45%;
     object-fit: contain;
 }
 

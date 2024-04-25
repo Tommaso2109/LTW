@@ -1,5 +1,19 @@
-<?php 
-session_start(); // Start the session at the beginning of your file 
+<?php
+session_start();
+if(!isset($_SESSION['username'])) {
+?>
+<script type="text/javascript">
+    window.onload = function() {
+        var popup = document.getElementById('popup1');
+        var popupText = document.getElementById('popup1-text');
+                        
+        popupText.textContent = 'Perfavore fai il Login per usare questa funzione';
+        //popup.innerHTML = '<p>Perfavore fai il Login per usare questa funzione</p><a href="Login.html">Login</a>';
+        popup.style.display = 'block';
+    }
+</script>
+<?php
+}
 ?>
 
 <!DOCTYPE html>
@@ -81,17 +95,19 @@ session_start(); // Start the session at the beginning of your file
                 <span></span>
             </div>
         </div>
-
-        <div class="bunner-budget">
-            <ul class="content-bunner">
-                <li><a id="total" class="menu-text">Budget disponibile: 15000 $</a></li>
-                <li><a id="scelte" class="menu-text">Piloti: 0/2, Scuderie: 0/1</a></li>
-            </ul>
-
-            <div class="conferma-squad"> 
-                <button class="button-squad" name="conferma_squadra">Conferma Squadra</button>
+        
+        <?php if(isset($_SESSION['username'])): ?>
+            <div class="bunner-budget">
+                <ul class="content-bunner">
+                    <li><a id="total" class="menu-text">Budget disponibile: 15000 $</a></li>
+                    <li><a id="scelte" class="menu-text">Piloti: 0/2, Scuderie: 0/1</a></li>
+                </ul>
+            
+                <div class="conferma-squad"> 
+                    <button class="button-squad" name="conferma_squadra">Conferma Squadra</button>
+                </div>
             </div>
-        </div>
+        <?php endif; ?>
         <?php
                     // Stabilisci la connessione al database
                     $conn = new mysqli('localhost', 'root', '', 'statistiche');
@@ -523,8 +539,7 @@ session_start(); // Start the session at the beginning of your file
         });
 
         // Inizializza i contatori di piloti e scuderie
-        var piloti = 0;
-        var scuderie = 0;
+        
 
         var counters = {
             piloti: 0,
@@ -547,12 +562,12 @@ session_start(); // Start the session at the beginning of your file
                 if (price > total) {
                     popupText.textContent = "Non hai abbastanza budget per questo acquisto!";
                     popup.style.display = 'block';
-                    return;
+                    return false;
                 }
                 if (counters[counterName] >= maxCount) {
                     popupText.textContent = "Non puoi scegliere più di " + maxCount + " " + counterName + "!";
                     popup.style.display = 'block';
-                    return;
+                    return false;
                 }
                 total -= price;
                 parentDiv.classList.add('disabled');
@@ -562,19 +577,8 @@ session_start(); // Start the session at the beginning of your file
 
             totalElement.textContent = "Budget disponibile: " + total + " $";
             choicesElement.textContent = "Piloti: " + counters.piloti + "/2, Scuderie: " + counters.scuderie + "/1";
+            return true;
         }
-
-        document.querySelectorAll('.botton_costo_pilota').forEach(function(button) {
-            button.addEventListener('click', function() {
-                handleClick(button, 'piloti', 2);
-            });
-        });
-
-        document.querySelectorAll('.botton_costo_scuderia').forEach(function(button) {
-            button.addEventListener('click', function() {
-                handleClick(button, 'scuderie', 1);
-            });
-        });
         
 
         var scuderia = null;
@@ -583,6 +587,7 @@ session_start(); // Start the session at the beginning of your file
 
         document.querySelectorAll('.botton_costo_scuderia').forEach(function(button) {
             button.addEventListener('click', function() {
+                handleClick(button, 'scuderie', 1);
                 scuderia = this.value; // Salva il valore del pulsante
                 console.log(scuderia); // Stampa il valore del pulsante per verificare che sia corretto
             });
@@ -590,20 +595,19 @@ session_start(); // Start the session at the beginning of your file
 
         document.querySelectorAll('.botton_costo_pilota').forEach(function(button) {
             button.addEventListener('click', function() {
-                var value = this.value;
+                var success = handleClick(button, 'piloti', 2);
+                if (success) {
+                    var value = this.value;
 
-                if (pilota1 === value) {
-                    // Il pilota è già stato selezionato come pilota1, quindi lo deselezioniamo
-                    pilota1 = null;
-                } else if (pilota2 === value) {
-                    // Il pilota è già stato selezionato come pilota2, quindi lo deselezioniamo
-                    pilota2 = null;
-                } else if (pilota1 === null) {
-                    // Il pilota non è stato selezionato e pilota1 è disponibile, quindi lo selezioniamo come pilota1
-                    pilota1 = value;
-                } else if (pilota2 === null) {
-                    // Il pilota non è stato selezionato e pilota2 è disponibile, quindi lo selezioniamo come pilota2
-                    pilota2 = value;
+                    if (pilota1 === value) {
+                        pilota1 = null;
+                    } else if (pilota2 === value) {
+                        pilota2 = null;
+                    } else if (pilota1 === null) {
+                        pilota1 = value;
+                    } else if (pilota2 === null) {
+                        pilota2 = value;
+                    }
                 }
             });
         });
@@ -616,15 +620,23 @@ session_start(); // Start the session at the beginning of your file
 
             // Controlla se uno qualsiasi dei dati è null o vuoto
             if (!scuderia || !pilota1 || !pilota2) {
-                if (!scuderia || !pilota1 || !pilota2) {
-                    var popup = document.getElementById('popup');
-                    var popupText = document.getElementById('popup-text');
-                    popupText.textContent = 'Per favore, completa tutti i campi.';
-                    popup.style.display = 'block';
-                    return;
-                }
-
+                var popup = document.getElementById('popup');
+                var popupText = document.getElementById('popup-text');
+                alert('Scuderia: ' + scuderia + '\nPilota 1: ' + pilota1 + '\nPilota 2: ' + pilota2);
+                popupText.textContent = 'Per favore, completa tutti i campi.';
+                popup.style.display = 'block';
+                return;
             }
+            else if (counters.scuderie != 1 || counters.piloti != 2) {
+                var popup = document.getElementById('popup');
+                var popupText = document.getElementById('popup-text');
+                alert('Scuderia: ' + counters.scuderie + '\nPiloti: ' + counters.piloti );
+                popupText.textContent = 'Per favore, completa tutti i campi.';
+                popup.style.display = 'block';
+                return;
+            }
+
+            
 
             // Invia i dati al server utilizzando AJAX
             $.ajax({
@@ -659,7 +671,7 @@ session_start(); // Start the session at the beginning of your file
                         popup.style.display = 'block';
                     } else {
                         // Gestisci il caso di successo qui
-                        window.location.href = "index.php";
+                        window.location.href = "pagina_personale.php";
                     }
                     
                 },
@@ -682,7 +694,7 @@ session_start(); // Start the session at the beginning of your file
                     if (response.error) {
                         var popup = document.getElementById('popup1');
                         var popupText = document.getElementById('popup1-text');
-                        alert('PopUpText: ' + popupText);
+                        //alert('PopUpText: ' + popupText);
                         popupText.textContent = response.error;
                         popup.style.display = 'block';
                     } else {

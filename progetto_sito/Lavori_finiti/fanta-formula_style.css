@@ -34,7 +34,9 @@ body::-webkit-scrollbar{
 
 }
 
-
+#userImage{
+    border-radius: 25%;
+}
 
 /*header*/
 .header{
@@ -361,6 +363,7 @@ body::-webkit-scrollbar{
     font-size: 20px;
     text-align: center;
     margin-top: 20%;
+    animation-name: flip;
 }
 
 #popup1 {

@@ -16,7 +16,7 @@ session_start(); // Start the session at the beginning of your file
     <body>
         <div class="header">
             <div class="logo">
-                <img src="media/logo.png" alt="">
+                <a href="index.php"><img src="media/logo.png" alt=""></a>
             </div>
 
             <ul class="menu">
@@ -169,7 +169,7 @@ session_start(); // Start the session at the beginning of your file
             //Punteggi
             $puntiPilota1Gara = "0";
             $puntiPilota2Gara = "0";
-            $moltiplicatoreScuderiaGara = "0";
+            $moltiplicatoreScuderiaGara = "1";
 
             $sql = "SELECT posizione, nome, scuderia, fastLap FROM ultimagara";
             $result = $conn->query($sql); 
@@ -211,13 +211,18 @@ session_start(); // Start the session at the beginning of your file
                 if ($result->num_rows > 0) {    
                     $row = $result->fetch_assoc();
                     $email = $row["email"];
+                    //<a href="" class="button1"> cambio immagine</a>
 
                     echo '<div class="mt-4">
                         <div class="grid-container">
                             <div class="grid-container-profilo">
                                 <div class="immagine_profilo">
                                     <img src="'. $_SESSION['profile_image'] .'" alt="immagine non presente"> 
-                                    <a href="" class="button1"> cambio immagine</a>
+                                    
+                                    <form id="uploadForm" action="/login/upload.php" method="post" enctype="multipart/form-data">
+                                        <input id="fileInput" class="button1" type="file" name="profilePicture" accept="image/*" style="display: none;">
+                                        <button class="button1" id="uploadButton" type="button">Cambia immagine</button>
+                                    </form>
                                 </div>
                                 <div>
                                     <div class="info-1"> '. $user .' <br> </div>
@@ -258,9 +263,24 @@ session_start(); // Start the session at the beginning of your file
         }if (!$result) {
             printf("Error: %s\n", $conn->error);
         }
+        else{
+
+        }
         // Chiudi la connessione
         $conn->close();
         ?>
+
+        <script>
+            document.getElementById('uploadButton').addEventListener('click', function() {
+                document.getElementById('fileInput').click();
+            });
+
+            document.getElementById('fileInput').addEventListener('change', function() {
+                if (this.value) {
+                    document.getElementById('uploadForm').submit();
+                }
+            });
+        </script>
 
          <footer class="footer mt-0">        
             <div class="col">

@@ -83,20 +83,54 @@ session_start(); // Start the session at the beginning of your file
         </div>
     </div>
 
-     
-        <div class="grid-container mt-4">
-          <div class="box box-1">
-            <div class="main">
-                <img class="product__image" src="media/versatppen.avif" alt="soda_can" />
-                <div class="container">
-                  <div class="title">Max Verstappen
-                    <span>RedBull</span>
+    <?php 
+      $conn = new mysqli('127.0.0.1', 'root', '', 'statistiche');
+
+      // Controlla la connessione
+      if ($conn->connect_error) {
+          die("Connection failed: " . $conn->connect_error);
+      }
+      
+      // Esegui una query SQL per ottenere i dati della squadra
+      $sql = "SELECT cognome, posizione, gare, vittorie, podi, fastLap, mediaGriglia, mediaFinale FROM fanta ORDER BY posizione";
+      $result = $conn->query($sql);
+      if ($result->num_rows > 0) {
+        $row = $result->fetch_assoc();
+        $cognome = $row["cognome"];
+        $posizone = $row["posizione"];
+        $wins = $row["vittorie"];
+        $gare = $row["gare"];
+        $podi = $row["podi"];
+        $fastLap = $row["fastLap"];
+        $mediaGriglia = $row["mediaGriglia"];
+        $mediaFinale = $row["mediaFinale"];
+      
+        echo ' 
+          <div class="grid-container mt-4">
+            <div class="box box-1">
+              <div class="main">
+                  <img class="product__image" src="media/versatppen.avif" alt="soda_can" />
+                  <div class="container">
+                    <div class="title">Max Verstappen
+                      <span>RedBull</span>
+                    </div>
+                    <p class="desc">Vittorie: '. $wins .'</br> Gare: '. $gare .'</br> Podi: '. $podi .'</br> Giro più veloce: '. $fastLap .'</br> Media Griglia inizio gara: '. $mediaGriglia .'</br> Media Griglia fine gara: '. $mediaFinale .'</p>
+                    <a href="piloti/verstappen.php" class="button_grid">Leggi di più</a>
                   </div>
-                  <p class="desc">wins: </br> polposition: </p>
-                  <a href="piloti/verstappen.php" class="button_grid">Leggi di più</a>
                 </div>
-              </div>
-        </div>
+            </div>';
+
+            $row = $result->fetch_assoc();
+            $cognome = $row["cognome"];
+            $posizone = $row["posizione"];
+            $wins = $row["vittorie"];
+            $gare = $row["gare"];
+            $podi = $row["podi"];
+            $fastLap = $row["fastLap"];
+            $mediaGriglia = $row["mediaGriglia"];
+            $mediaFinale = $row["mediaFinale"];
+
+            echo '
             <div class="box box-2">
                 <div class="main">
                     <img class="product__image" src="media/perez.avif" alt="soda_can" />
@@ -104,255 +138,285 @@ session_start(); // Start the session at the beginning of your file
                       <div class="title">Sergio Perez
                         <span>RedBull</span>
                       </div>
-                      <p class="desc">wins: </br> polposition: </p>
+                      <p class="desc">Vittorie: '. $wins .'</br> Gare: '. $gare .'</br> Podi: '. $podi .'</br> Giro più veloce: '. $fastLap .'</br> Media Griglia inizio gara: '. $mediaGriglia .'</br> Media Griglia fine gara: '. $mediaFinale .'</p>
                       <a href="piloti/perez.php" class="button_grid">Leggi di più</a>
                     </div>
                   </div>
             </div>
-        </div>
+          </div>';
+  
+        $row = $result->fetch_assoc();
+        $cognome = $row["cognome"];
+        $posizone = $row["posizione"];
+        $wins = $row["vittorie"];
+        $gare = $row["gare"];
+        $podi = $row["podi"];
+        $fastLap = $row["fastLap"];
+        $mediaGriglia = $row["mediaGriglia"];
+        $mediaFinale = $row["mediaFinale"];
 
-        <div class="grid-container">
-            <div class="box box-1">
-                <div class="main">
-                    <img class="product__image" src="media/hamilton.avif" alt="soda_can" />
-                    <div class="container">
-                      <div class="title">Lewis Hamilton
-                        <span>Mercedes</span>
+        echo '
+          <div class="grid-container">
+              <div class="box box-1">
+                  <div class="main">
+                      <img class="product__image" src="media/hamilton.avif" alt="soda_can" />
+                      <div class="container">
+                        <div class="title">Lewis Hamilton
+                          <span>Mercedes</span>
+                        </div>
+                        <p class="desc">Vittorie: '. $wins .'</br> Gare: '. $gare .'</br> Podi: '. $podi .'</br> Giro più veloce: '. $fastLap .'</br> Media Griglia inizio gara: '. $mediaGriglia .'</br> Media Griglia fine gara: '. $mediaFinale .'</p>
+                        <a href="piloti/Hamilton.php" class="button_grid">Leggi di più</a>
                       </div>
-                      <p class="desc">wins: </br> polposition: </p>
-                      <a href="piloti/Hamilton.php" class="button_grid">Leggi di più</a>
                     </div>
-                  </div>
-            </div>
-            <div class="box box-2">
-                <div class="main">
-                    <img class="product__image" src="media/russel.avif" alt="soda_can" />
-                    <div class="container">
-                      <div class="title">George Russell
-                        <span>Mercedes</span>
-                      </div>
-                      <p class="desc">wins: </br> polposition: </p>
-                      <a href="Russel.php" class="button_grid">Leggi di più</a>
-                    </div>
-                  </div>
-            </div>
-        </div>
+              </div>';
 
-        <div class="grid-container">
-            <div class="box box-1">
-                <div class="main">
-                    <img class="product__image" src="media/leclerc.avif" alt="soda_can" />
-                    <div class="container">
-                      <div class="title">Charles Leclerc
-                        <span>Ferrari</span>
-                      </div>
-                      <p class="desc">wins: </br> polposition: </p>
-                      <a href="piloti/Leclerc.php" class="button_grid">Leggi di più</a>
-                    </div>
-                  </div>
-            </div>
-            <div class="box box-2">
-                <div class="main">
-                    <img class="product__image" src="media/sainz.avif" alt="soda_can" />
-                    <div class="container">
-                      <div class="title">Carlos Sainz
-                        <span>Ferrari</span>
-                      </div>
-                      <p class="desc">wins: </br> polposition: </p>
-                      <a href="piloti/sainz.php" class="button_grid">Leggi di più</a>
-                    </div>
-                  </div>
-            </div>
-        </div>
+              $row = $result->fetch_assoc();
+              $cognome = $row["cognome"];
+              $posizone = $row["posizione"];
+              $wins = $row["vittorie"];
+              $gare = $row["gare"];
+              $podi = $row["podi"];
+              $fastLap = $row["fastLap"];
+              $mediaGriglia = $row["mediaGriglia"];
+              $mediaFinale = $row["mediaFinale"];
 
-        <div class="grid-container">
-            <div class="box box-1">
-                <div class="main">
-                    <img class="product__image" src="media/Norris.avif" alt="soda_can" />
-                    <div class="container">
-                      <div class="title">Lando Norris
-                        <span>McLaren</span>
+              echo '
+              <div class="box box-2">
+                  <div class="main">
+                      <img class="product__image" src="media/russel.avif" alt="soda_can" />
+                      <div class="container">
+                        <div class="title">George Russell
+                          <span>Mercedes</span>
+                        </div>
+                        <p class="desc">Vittorie: '. $wins .'</br> Gare: '. $gare .'</br> Podi: '. $podi .'</br> Giro più veloce: '. $fastLap .'</br> Media Griglia inizio gara: '. $mediaGriglia .'</br> Media Griglia fine gara: '. $mediaFinale .'</p>
+                        <a href="Russel.php" class="button_grid">Leggi di più</a>
                       </div>
-                      <p class="desc">wins: </br> polposition: </p>
-                      <a href="piloti/Norris.php" class="button_grid">Leggi di più</a>
                     </div>
-                  </div>
-            </div>
-            <div class="box box-2">
-                <div class="main">
-                    <img class="product__image" src="media/Piastri.avif" alt="soda_can" />
-                    <div class="container">
-                      <div class="title">Oscar Piastri
-                        <span>McLaren</span>
-                      </div>
-                      <p class="desc">wins: </br> polposition: </p>
-                      <a href="piloti/piastri.php" class="button_grid">Leggi di più</a>
-                    </div>
-                  </div>
-            </div>
-        </div>
+              </div>
+          </div>
 
-        <div class="grid-container">
-            <div class="box box-1">
-                <div class="main">
-                    <img class="product__image" src="media/alonso.avif" alt="soda_can" />
-                    <div class="container">
-                      <div class="title">Fernando Alonso
-                        <span>Aston Martin</span>
+          <div class="grid-container">
+              <div class="box box-1">
+                  <div class="main">
+                      <img class="product__image" src="media/leclerc.avif" alt="soda_can" />
+                      <div class="container">
+                        <div class="title">Charles Leclerc
+                          <span>Ferrari</span>
+                        </div>
+                        <p class="desc">wins: </br> polposition: </p>
+                        <a href="piloti/Leclerc.php" class="button_grid">Leggi di più</a>
                       </div>
-                      <p class="desc">wins: </br> polposition: </p>
-                      <a href="piloti/Alonso.php" class="button_grid">Leggi di più</a>
                     </div>
-                  </div>
-            </div>
-            <div class="box box-2">
-                <div class="main">
-                    <img class="product__image" src="media/stroll.avif" alt="soda_can" />
-                    <div class="container">
-                      <div class="title">Lance Stroll
-                        <span>Aston Martin</span>
+              </div>
+              <div class="box box-2">
+                  <div class="main">
+                      <img class="product__image" src="media/sainz.avif" alt="soda_can" />
+                      <div class="container">
+                        <div class="title">Carlos Sainz
+                          <span>Ferrari</span>
+                        </div>
+                        <p class="desc">wins: </br> polposition: </p>
+                        <a href="piloti/sainz.php" class="button_grid">Leggi di più</a>
                       </div>
-                      <p class="desc">wins: </br> polposition: </p>
-                      <a href="piloti/Stroll.php" class="button_grid">Leggi di più</a>
                     </div>
-                  </div>
-            </div>
-        </div>
+              </div>
+          </div>
 
-        <div class="grid-container">
-            <div class="box box-1">
-                <div class="main">
-                    <img class="product__image" src="media/gasly.avif" alt="soda_can" />
-                    <div class="container">
-                      <div class="title">Pierre Gasly
-                        <span>Alpha</span>
+          <div class="grid-container">
+              <div class="box box-1">
+                  <div class="main">
+                      <img class="product__image" src="media/Norris.avif" alt="soda_can" />
+                      <div class="container">
+                        <div class="title">Lando Norris
+                          <span>McLaren</span>
+                        </div>
+                        <p class="desc">wins: </br> polposition: </p>
+                        <a href="piloti/Norris.php" class="button_grid">Leggi di più</a>
                       </div>
-                      <p class="desc">wins: </br> polposition: </p>
-                      <a href="piloti/Gasly.php" class="button_grid">Leggi di più</a>
                     </div>
-                  </div>
-            </div>
-            <div class="box box-2">
-                <div class="main">
-                    <img class="product__image" src="media/ocon.avif" alt="soda_can" />
-                    <div class="container">
-                      <div class="title">Esteban Ocon
-                        <span>Alphine</span>
+              </div>
+              <div class="box box-2">
+                  <div class="main">
+                      <img class="product__image" src="media/Piastri.avif" alt="soda_can" />
+                      <div class="container">
+                        <div class="title">Oscar Piastri
+                          <span>McLaren</span>
+                        </div>
+                        <p class="desc">wins: </br> polposition: </p>
+                        <a href="piloti/piastri.php" class="button_grid">Leggi di più</a>
                       </div>
-                      <p class="desc">wins: </br> polposition: </p>
-                      <a href="piloti/Ocon.php" class="button_grid">Leggi di più</a>
                     </div>
-                  </div>
-            </div>
-        </div>
+              </div>
+          </div>
 
-        <div class="grid-container">
-            <div class="box box-1">
-                <div class="main">
-                    <img class="product__image" src="media/albon.avif" alt="soda_can" />
-                    <div class="container">
-                      <div class="title">Alexander Albon
-                        <span>Williams</span>
+          <div class="grid-container">
+              <div class="box box-1">
+                  <div class="main">
+                      <img class="product__image" src="media/alonso.avif" alt="soda_can" />
+                      <div class="container">
+                        <div class="title">Fernando Alonso
+                          <span>Aston Martin</span>
+                        </div>
+                        <p class="desc">wins: </br> polposition: </p>
+                        <a href="piloti/Alonso.php" class="button_grid">Leggi di più</a>
                       </div>
-                      <p class="desc">wins: </br> polposition: </p>
-                      <a href="piloti/Albon.php" class="button_grid">Leggi di più</a>
                     </div>
-                  </div>
-            </div>
-            <div class="box box-2">
-                <div class="main">
-                    <img class="product__image" src="media/sargent.avif" alt="soda_can" />
-                    <div class="container">
-                      <div class="title">Logan Sargeant
-                        <span>Williams</span>
+              </div>
+              <div class="box box-2">
+                  <div class="main">
+                      <img class="product__image" src="media/stroll.avif" alt="soda_can" />
+                      <div class="container">
+                        <div class="title">Lance Stroll
+                          <span>Aston Martin</span>
+                        </div>
+                        <p class="desc">wins: </br> polposition: </p>
+                        <a href="piloti/Stroll.php" class="button_grid">Leggi di più</a>
                       </div>
-                      <p class="desc">wins: </br> polposition: </p>
-                      <a href="piloti/Sargeant.php" class="button_grid">Leggi di più</a>
                     </div>
-                  </div>
-            </div>
-        </div>
+              </div>
+          </div>
 
-        <div class="grid-container">
-            <div class="box box-1">
-                <div class="main">
-                    <img class="product__image" src="media/tunoda.avif" alt="soda_can" />
-                    <div class="container">
-                      <div class="title">Yuki Tsunoda
-                        <span>Alpha Tauri</span>
+          <div class="grid-container">
+              <div class="box box-1">
+                  <div class="main">
+                      <img class="product__image" src="media/gasly.avif" alt="soda_can" />
+                      <div class="container">
+                        <div class="title">Pierre Gasly
+                          <span>Alpha</span>
+                        </div>
+                        <p class="desc">wins: </br> polposition: </p>
+                        <a href="piloti/Gasly.php" class="button_grid">Leggi di più</a>
                       </div>
-                      <p class="desc">wins: </br> polposition: </p>
-                      <a href="piloti/Tsunoda.php" class="button_grid">Leggi di più</a>
                     </div>
-                  </div>
-            </div>
-            <div class="box box-2">
-                <div class="main">
-                    <img class="product__image" src="media/riccardo.avif" alt="soda_can" />
-                    <div class="container">
-                      <div class="title">Daniel Ricciardo
-                        <span>Alpha Tauri</span>
+              </div>
+              <div class="box box-2">
+                  <div class="main">
+                      <img class="product__image" src="media/ocon.avif" alt="soda_can" />
+                      <div class="container">
+                        <div class="title">Esteban Ocon
+                          <span>Alphine</span>
+                        </div>
+                        <p class="desc">wins: </br> polposition: </p>
+                        <a href="piloti/Ocon.php" class="button_grid">Leggi di più</a>
                       </div>
-                      <p class="desc">wins: </br> polposition: </p>
-                      <a href="piloti/Ricciardo.php" class="button_grid">Leggi di più</a>
                     </div>
-                  </div>
-            </div>
-        </div>
+              </div>
+          </div>
 
-        <div class="grid-container">
-            <div class="box box-1">
-                <div class="main">
-                    <img class="product__image" src="media/bottas.avif" alt="soda_can" />
-                    <div class="container">
-                      <div class="title">Valterri Bottas
-                        <span>kick Saubern</span>
+          <div class="grid-container">
+              <div class="box box-1">
+                  <div class="main">
+                      <img class="product__image" src="media/albon.avif" alt="soda_can" />
+                      <div class="container">
+                        <div class="title">Alexander Albon
+                          <span>Williams</span>
+                        </div>
+                        <p class="desc">wins: </br> polposition: </p>
+                        <a href="piloti/Albon.php" class="button_grid">Leggi di più</a>
                       </div>
-                      <p class="desc">wins: </br> polposition: </p>
-                      <a href="piloti/bottas.php" class="button_grid">Leggi di più</a>
                     </div>
-                  </div>
-            </div>
-            <div class="box box-2">
-                <div class="main">
-                    <img class="product__image" src="media/zhou.avif" alt="soda_can" />
-                    <div class="container">
-                      <div class="title">Ghuanyu Zhou
-                        <span>kick Saubern</span>
+              </div>
+              <div class="box box-2">
+                  <div class="main">
+                      <img class="product__image" src="media/sargent.avif" alt="soda_can" />
+                      <div class="container">
+                        <div class="title">Logan Sargeant
+                          <span>Williams</span>
+                        </div>
+                        <p class="desc">wins: </br> polposition: </p>
+                        <a href="piloti/Sargeant.php" class="button_grid">Leggi di più</a>
                       </div>
-                      <p class="desc">wins: </br> polposition: </p>
-                      <a href="piloti/Zhou.php" class="button_grid">Leggi di più</a>
                     </div>
-                  </div>
-            </div>
-        </div>
+              </div>
+          </div>
 
-        <div class="grid-container">
-            <div class="box box-1">
-                <div class="main">
-                    <img class="product__image" src="media/hulkenberg.avif" alt="soda_can" />
-                    <div class="container">
-                      <div class="title">Nico Hulkenberg
-                        <span>Haas</span>
+          <div class="grid-container">
+              <div class="box box-1">
+                  <div class="main">
+                      <img class="product__image" src="media/tunoda.avif" alt="soda_can" />
+                      <div class="container">
+                        <div class="title">Yuki Tsunoda
+                          <span>Alpha Tauri</span>
+                        </div>
+                        <p class="desc">wins: </br> polposition: </p>
+                        <a href="piloti/Tsunoda.php" class="button_grid">Leggi di più</a>
                       </div>
-                      <p class="desc">wins: </br> polposition: </p>
-                      <a href="piloti/Hulkenberg.php" class="button_grid">Leggi di più</a>
                     </div>
-                  </div>
-            </div>
-            <div class="box box-2">
-                <div class="main">
-                    <img class="product__image" src="media/magnussen.avif" alt="soda_can" />
-                    <div class="container">
-                      <div class="title">Kevin Magnussen
-                        <span>Haas</span>
+              </div>
+              <div class="box box-2">
+                  <div class="main">
+                      <img class="product__image" src="media/riccardo.avif" alt="soda_can" />
+                      <div class="container">
+                        <div class="title">Daniel Ricciardo
+                          <span>Alpha Tauri</span>
+                        </div>
+                        <p class="desc">wins: </br> polposition: </p>
+                        <a href="piloti/Ricciardo.php" class="button_grid">Leggi di più</a>
                       </div>
-                      <p class="desc">wins: </br> polposition: </p>
-                      <a href="piloti/magnussen.php" class="button_grid">Leggi di più</a>
                     </div>
-                  </div>
-            </div>
-        </div>
+              </div>
+          </div>
+
+          <div class="grid-container">
+              <div class="box box-1">
+                  <div class="main">
+                      <img class="product__image" src="media/bottas.avif" alt="soda_can" />
+                      <div class="container">
+                        <div class="title">Valterri Bottas
+                          <span>kick Saubern</span>
+                        </div>
+                        <p class="desc">wins: </br> polposition: </p>
+                        <a href="piloti/bottas.php" class="button_grid">Leggi di più</a>
+                      </div>
+                    </div>
+              </div>
+              <div class="box box-2">
+                  <div class="main">
+                      <img class="product__image" src="media/zhou.avif" alt="soda_can" />
+                      <div class="container">
+                        <div class="title">Ghuanyu Zhou
+                          <span>kick Saubern</span>
+                        </div>
+                        <p class="desc">wins: </br> polposition: </p>
+                        <a href="piloti/Zhou.php" class="button_grid">Leggi di più</a>
+                      </div>
+                    </div>
+              </div>
+          </div>
+
+          <div class="grid-container">
+              <div class="box box-1">
+                  <div class="main">
+                      <img class="product__image" src="media/hulkenberg.avif" alt="soda_can" />
+                      <div class="container">
+                        <div class="title">Nico Hulkenberg
+                          <span>Haas</span>
+                        </div>
+                        <p class="desc">wins: </br> polposition: </p>
+                        <a href="piloti/Hulkenberg.php" class="button_grid">Leggi di più</a>
+                      </div>
+                    </div>
+              </div>
+              <div class="box box-2">
+                  <div class="main">
+                      <img class="product__image" src="media/magnussen.avif" alt="soda_can" />
+                      <div class="container">
+                        <div class="title">Kevin Magnussen
+                          <span>Haas</span>
+                        </div>
+                        <p class="desc">wins: </br> polposition: </p>
+                        <a href="piloti/magnussen.php" class="button_grid">Leggi di più</a>
+                      </div>
+                    </div>
+              </div>
+          </div>';
+
+        }else{
+
+        }
+      // Chiudi la connessione
+      $conn->close();
+      ?>
 
     <footer class="footer">        
         <div class="col">

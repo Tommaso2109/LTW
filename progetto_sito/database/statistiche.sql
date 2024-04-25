@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Apr 23, 2024 alle 10:40
+-- Creato il: Apr 24, 2024 alle 16:39
 -- Versione del server: 10.4.32-MariaDB
--- Versione PHP: 8.0.30
+-- Versione PHP: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -164,6 +164,35 @@ INSERT INTO `squadra` (`utente`, `scuderia`, `pilota1`, `pilota2`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Struttura della tabella `ultimagara`
+--
+
+CREATE TABLE `ultimagara` (
+  `posizione` int(191) NOT NULL,
+  `nome` varchar(191) NOT NULL,
+  `scuderia` varchar(191) NOT NULL,
+  `fastLap` tinyint(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dump dei dati per la tabella `ultimagara`
+--
+
+INSERT INTO `ultimagara` (`posizione`, `nome`, `scuderia`, `fastLap`) VALUES
+(1, 'Max Verstappen', 'RedBull', 0),
+(2, 'Lando Norris', 'McLaren', 0),
+(3, 'Sergio Perez', 'RedBull', 0),
+(4, 'Charles Leclerc', 'Ferrari', 0),
+(5, 'Carlos Sainz', 'Ferrari', 0),
+(6, 'George Russell', 'Mercedes', 0),
+(7, 'Fernando Alonso', 'Aston Martin', 1),
+(8, 'Oscar Piastri', 'McLaren', 0),
+(9, 'Lewis Hamilton', 'Mercedes', 0),
+(10, 'Nico Hulkenberg', 'Haas', 0);
+
+-- --------------------------------------------------------
+
+--
 -- Struttura della tabella `utenti`
 --
 
@@ -207,6 +236,12 @@ ALTER TABLE `scuderie`
 --
 ALTER TABLE `squadra`
   ADD PRIMARY KEY (`utente`);
+
+--
+-- Indici per le tabelle `ultimagara`
+--
+ALTER TABLE `ultimagara`
+  ADD PRIMARY KEY (`posizione`);
 
 --
 -- Indici per le tabelle `utenti`

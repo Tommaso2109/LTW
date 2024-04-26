@@ -259,41 +259,6 @@ session_start(); // Start the session at the beginning of your file
             printf("Error: %s\n", $conn->error);
         }
         else{
-            echo '<div class="mt-4">
-                        <div class="grid-container">
-                            <div class="grid-container-profilo">
-                                <div class="immagine_profilo">
-                                    <img src="'. $_SESSION['profile_image'] .'" alt="immagine non presente"> 
-                                    
-                                    <form id="uploadForm" action="/login/upload.php" method="post" enctype="multipart/form-data">
-                                        <input id="fileInput" class="button1" type="file" name="profilePicture" accept="image/*" style="display: none;">
-                                        <button class="button1" id="uploadButton" type="button">Cambia immagine</button>
-                                    </form>
-                                </div>
-                                <div>
-                                    <div class="info-1"> '. $_SESSION['username'] .' <br> </div>
-                                    <div class="info-2"> '. $_SESSION['email'] .' <br> </div>
-                                    <div class="info-2"> DarGay <br> </div>
-                                    <div class="info-2"> DarGay <br> </div>
-                                    <div class="info-2"> DarGay <br> </div>
-                                </div>
-                            </div>
-                            <div class="grid-container-squad">
-                                <div class="grid-container-squad-interno">
-                                    <div class="grid-container-piloti">
-                                        <div class="info"> NESSUN PILOTA SCELTO</div>
-                                        <div class="info"> NESSUN PILOTA SCELTO</div>
-                                    </div>
-                                    <div class="grid-container-scuderie">
-                                        <div class="info">NESSUNA SCUDERIA SCELTA</div>
-                                    </div>
-                                </div>
-                                <div class="grid-container-punti">
-                                    <div class="info"> NONHAI FATTO ANCORALA TUA SQUADRA</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>';
 
         }
         // Chiudi la connessione

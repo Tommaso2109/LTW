@@ -539,8 +539,7 @@ if(!isset($_SESSION['username'])) {
         });
 
         // Inizializza i contatori di piloti e scuderie
-        var piloti = 0;
-        var scuderie = 0;
+        
 
         var counters = {
             piloti: 0,
@@ -563,12 +562,12 @@ if(!isset($_SESSION['username'])) {
                 if (price > total) {
                     popupText.textContent = "Non hai abbastanza budget per questo acquisto!";
                     popup.style.display = 'block';
-                    return;
+                    return false;
                 }
                 if (counters[counterName] >= maxCount) {
                     popupText.textContent = "Non puoi scegliere più di " + maxCount + " " + counterName + "!";
                     popup.style.display = 'block';
-                    return;
+                    return false;
                 }
                 total -= price;
                 parentDiv.classList.add('disabled');
@@ -578,19 +577,8 @@ if(!isset($_SESSION['username'])) {
 
             totalElement.textContent = "Budget disponibile: " + total + " $";
             choicesElement.textContent = "Piloti: " + counters.piloti + "/2, Scuderie: " + counters.scuderie + "/1";
+            return true;
         }
-
-        document.querySelectorAll('.botton_costo_pilota').forEach(function(button) {
-            button.addEventListener('click', function() {
-                handleClick(button, 'piloti', 2);
-            });
-        });
-
-        document.querySelectorAll('.botton_costo_scuderia').forEach(function(button) {
-            button.addEventListener('click', function() {
-                handleClick(button, 'scuderie', 1);
-            });
-        });
         
 
         var scuderia = null;
@@ -599,6 +587,7 @@ if(!isset($_SESSION['username'])) {
 
         document.querySelectorAll('.botton_costo_scuderia').forEach(function(button) {
             button.addEventListener('click', function() {
+                handleClick(button, 'scuderie', 1);
                 scuderia = this.value; // Salva il valore del pulsante
                 console.log(scuderia); // Stampa il valore del pulsante per verificare che sia corretto
             });
@@ -606,20 +595,19 @@ if(!isset($_SESSION['username'])) {
 
         document.querySelectorAll('.botton_costo_pilota').forEach(function(button) {
             button.addEventListener('click', function() {
-                var value = this.value;
+                var success = handleClick(button, 'piloti', 2);
+                if (success) {
+                    var value = this.value;
 
-                if (pilota1 === value) {
-                    // Il pilota è già stato selezionato come pilota1, quindi lo deselezioniamo
-                    pilota1 = null;
-                } else if (pilota2 === value) {
-                    // Il pilota è già stato selezionato come pilota2, quindi lo deselezioniamo
-                    pilota2 = null;
-                } else if (pilota1 === null) {
-                    // Il pilota non è stato selezionato e pilota1 è disponibile, quindi lo selezioniamo come pilota1
-                    pilota1 = value;
-                } else if (pilota2 === null) {
-                    // Il pilota non è stato selezionato e pilota2 è disponibile, quindi lo selezioniamo come pilota2
-                    pilota2 = value;
+                    if (pilota1 === value) {
+                        pilota1 = null;
+                    } else if (pilota2 === value) {
+                        pilota2 = null;
+                    } else if (pilota1 === null) {
+                        pilota1 = value;
+                    } else if (pilota2 === null) {
+                        pilota2 = value;
+                    }
                 }
             });
         });
@@ -632,15 +620,23 @@ if(!isset($_SESSION['username'])) {
 
             // Controlla se uno qualsiasi dei dati è null o vuoto
             if (!scuderia || !pilota1 || !pilota2) {
-                if (!scuderia || !pilota1 || !pilota2) {
-                    var popup = document.getElementById('popup');
-                    var popupText = document.getElementById('popup-text');
-                    popupText.textContent = 'Per favore, completa tutti i campi.';
-                    popup.style.display = 'block';
-                    return;
-                }
-
+                var popup = document.getElementById('popup');
+                var popupText = document.getElementById('popup-text');
+                alert('Scuderia: ' + scuderia + '\nPilota 1: ' + pilota1 + '\nPilota 2: ' + pilota2);
+                popupText.textContent = 'Per favore, completa tutti i campi.';
+                popup.style.display = 'block';
+                return;
             }
+            else if (counters.scuderie != 1 || counters.piloti != 2) {
+                var popup = document.getElementById('popup');
+                var popupText = document.getElementById('popup-text');
+                alert('Scuderia: ' + counters.scuderie + '\nPiloti: ' + counters.piloti );
+                popupText.textContent = 'Per favore, completa tutti i campi.';
+                popup.style.display = 'block';
+                return;
+            }
+
+            
 
             // Invia i dati al server utilizzando AJAX
             $.ajax({
@@ -698,7 +694,7 @@ if(!isset($_SESSION['username'])) {
                     if (response.error) {
                         var popup = document.getElementById('popup1');
                         var popupText = document.getElementById('popup1-text');
-                        alert('PopUpText: ' + popupText);
+                        //alert('PopUpText: ' + popupText);
                         popupText.textContent = response.error;
                         popup.style.display = 'block';
                     } else {

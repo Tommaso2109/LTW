@@ -256,6 +256,12 @@ body::-webkit-scrollbar{
     text-decoration: none;
 }
 
+.r-l a img {
+    width: 100px;
+    height: auto;
+    border-radius: 100%;
+}
+
 .hamburger{display: none;}
 
 

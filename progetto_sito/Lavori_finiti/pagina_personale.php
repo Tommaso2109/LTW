@@ -75,6 +75,11 @@ session_start(); // Start the session at the beginning of your file
                 <span></span>
                 <span></span>
             </div>
+            <div id="popup">
+                <img src="media/logo.png" alt="logo" class="logo2">
+                <p id="popup-text"></p>
+                <button id="popup-close">Chiudi</button>
+            </div>
         </div>
 
         <?php
@@ -200,13 +205,49 @@ session_start(); // Start the session at the beginning of your file
                 $puntiPilota1Gara *= $moltiplicatoreScuderiaGara;
                 $puntiPilota2Gara *= $moltiplicatoreScuderiaGara;
 
-                //Email
+                //!Email
                 $sql = "SELECT email FROM utenti WHERE username = '$user'";
                 $result = $conn->query($sql); 
                 if ($result->num_rows > 0) {    
                     $row = $result->fetch_assoc();
                     $email = $row["email"];
                     //<a href="" class="button1"> cambio immagine</a>
+
+                    //!Lista Amici
+                    // Verifica se il form è stato inviato
+                    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+                        // Prendi il termine di ricerca dall'input del form
+                        $searchTerm = $_POST['search'];
+
+                        // Query SQL per cercare l'utente nella tabella "squadra" che non è già nella tabella "amici"
+                        $sql = "SELECT * FROM squadra WHERE utente LIKE ? AND utente NOT IN (SELECT utente FROM amici)";
+                        $stmt = $conn->prepare($sql);
+                        $stmt->bind_param("s", $searchTerm);
+                        $stmt->execute();
+                        $result = $stmt->get_result();
+
+                        // Se l'utente esiste
+                        if ($result->num_rows > 0) {
+                            while($row = $result->fetch_assoc()) {
+                                // Inserisci l'utente nella tabella "amici"
+                                $sql = "INSERT INTO amici (utente, punteggioTotale) VALUES (?, ?)";
+                                $stmt = $conn->prepare($sql);
+                                $stmt->bind_param("si", $row["utente"], $row["punteggioTotale"]);
+                                $stmt->execute();
+
+                                echo "User: " . $row["utente"]. " added to friends.<br>";
+                            }
+                        } else {
+                            echo "<script>
+                                    document.getElementById('popup-text').textContent = 'User not found or already in friends';
+                                    document.getElementById('popup').style.display = 'block';
+                                </script>";
+                        }
+                    }
+
+                    // Query SQL per ottenere tutti gli utenti da "amici" ordinati per punteggio
+                    $sql = "SELECT * FROM amici ORDER BY punteggioTotale DESC";
+                    $result = $conn->query($sql);
 
                     echo '<div class="mt-4">
                         <div class="grid-container">
@@ -222,10 +263,34 @@ session_start(); // Start the session at the beginning of your file
                                 <div>
                                     <div class="info-1"> '. $user .' <br> </div>
                                     <div class="info-2"> '. $email .' <br> </div>
-                                    <div class="info-2"> DarGay <br> </div>
-                                    <div class="info-2"> DarGay <br> </div>
+                                    <div class="info-2"> 
+                                    <table border="1">
+                                    <tr>
+                                        <th>User</th>
+                                        <th>Score</th>
+                                    </tr>';
+            while($row = $result->fetch_assoc()) {
+                echo "<tr><td>" . $row["utente"]. "</td><td>" . $row["punteggioTotale"]. "</td><td>
+                <form action='remove_friend.php' method='post'>
+                    <input type='hidden' name='utente' value='".$row["utente"]."'>
+                    <input type='submit' value='Remove'>
+                </form>
+                </td></tr>";
+            }
+            echo '          </table>
+                                    </div>
+                                    <div class="info-2">                                         
+                                        <form method="post">
+                                            <label for="search">Cerca amici:</label><br><br>
+                                            <input type="text" id="search" name="search"><br><br>
+                                            <input type="submit" value="Submit">
+                                        </form> 
+                                    <br> 
+                                    
                                     <div class="info-2"> DarGay <br> </div>
                                 </div>
+                            </div>
+                
                             </div>
                             <div class="grid-container-squad">
                                 <div class="grid-container-squad-interno">
@@ -274,6 +339,10 @@ session_start(); // Start the session at the beginning of your file
                 if (this.value) {
                     document.getElementById('uploadForm').submit();
                 }
+            });
+
+            document.getElementById('popup-close').addEventListener('click', function() {
+                document.getElementById('popup').style.display = 'none';
             });
         </script>
 

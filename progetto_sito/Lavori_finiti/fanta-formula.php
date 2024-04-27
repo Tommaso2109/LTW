@@ -80,7 +80,7 @@ if(!isset($_SESSION['username'])) {
 
             <div class="r-l">
             <?php if(isset($_SESSION['username'])): ?>
-                    <a href="pagina_personale.php" id="userImage"><img style="width:100px; height:auto" src="<?php echo $_SESSION['profile_image']; ?>" alt="image"></a>
+                    <a href="pagina_personale.php" id="userImage"><img src="<?php echo $_SESSION['profile_image']; ?>" alt="image"></a>
                     <a href="logout.php" id="logoutButton" class="button">LOGOUT</a>
                 <?php else: ?>
                     <a href="login.html" id="loginButton" class="button">LOGIN</a>

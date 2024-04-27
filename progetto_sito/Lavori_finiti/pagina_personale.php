@@ -65,13 +65,8 @@ session_start(); // Start the session at the beginning of your file
             </ul>
 
             <div class="r-l">
-            <?php if(isset($_SESSION['username'])): ?>
-                    <a href="pagina_personale.php" id="userImage"><img style="width:100px; height:auto" src="<?php echo $_SESSION['profile_image']; ?>" alt="image"></a>
+                <?php if(isset($_SESSION['username'])): ?>
                     <a href="logout.php" id="logoutButton" class="button">LOGOUT</a>
-                <?php else: ?>
-                    <a href="login.html" id="loginButton" class="button">LOGIN</a>
-                    <p>
-                    <a href="register.html" id="registerButton" class="button">REGISTER</a>
                 <?php endif; ?>    
             </div>
 
@@ -325,7 +320,7 @@ session_start(); // Start the session at the beginning of your file
                 }
             }
 
-        }if (!$result) {
+        }else if (!$result) {
             printf("Error: %s\n", $conn->error);
         }
         else{

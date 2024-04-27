@@ -263,6 +263,13 @@ body::-webkit-scrollbar{
     color: #FFFFFF;
     text-decoration: none;
 }
+
+.r-l a img {
+    width: 100px;
+    height: auto;
+    border-radius: 100%;
+}
+
 .menu label a {color: white; padding: 15px;display:none}
 .hamburger{display: none;}
 

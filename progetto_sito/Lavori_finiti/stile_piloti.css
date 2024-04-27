@@ -157,6 +157,12 @@ body::-webkit-scrollbar{
     color: #FFFFFF;
     text-decoration: none;
 }
+
+.r-l a img {
+    width: 100px;
+    height: auto;
+    border-radius: 100%;
+}
 /*contet*/
 .center{
     display: flex;

@@ -18,6 +18,8 @@ if (isset($_SESSION['username'])) {
         $row = mysqli_fetch_assoc($result);
         $_SESSION['username'] = $row['username']; // Set the session variable
         $_SESSION['profile_image'] = $row['profile_image']; // Set the session variable
+        $_SESSION['email'] = $row['email']; // Set the session variable
+        
     }
 }
 ?>
@@ -85,7 +87,7 @@ if (isset($_SESSION['username'])) {
 
             <div class="r-l">
                 <?php if(isset($_SESSION['username'])): ?>
-                    <a href="pagina_personale.php" id="userImage"><img style="width:100px; height:auto" src="<?php echo $row['profile_image']; ?>" alt="image"></a>
+                    <a href="pagina_personale.php" id="userImage"><img src="<?php echo $row['profile_image']; ?>" alt="image"></a>
                     <a href="logout.php" id="logoutButton" class="button">LOGOUT</a>
                 <?php else: ?>
                     <a href="login.html" id="loginButton" class="button">LOGIN</a>

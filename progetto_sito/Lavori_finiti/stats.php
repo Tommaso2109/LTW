@@ -10,7 +10,8 @@ session_start(); // Start the session at the beginning of your file
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <title>FormulaForFun</title>
       <link rel="stylesheet" href="Style_stats.css">
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flickity/3.0.0/flickity.min.css" integrity="sha512-fJcFDOQo2+/Ke365m0NMCZt5uGYEWSxth3wg2i0dXu7A1jQhdzz6nkzwmJdOdkcS8jmy2lWGaRXl+nFMQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+      <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flickity/3.0.0/flickity.min.css" integrity="sha512-fJcFDOQo2+/Ke365m0NMCZt5uGYEWSxth3wg2i0dXu7A1jQhdzz6nkzwmJdOdkcS8jmy2lWGaRXl+nFMQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+-->
     </head>
 
     
@@ -104,12 +105,14 @@ session_start(); // Start the session at the beginning of your file
         $fastLap = $row["fastLap"];
         $mediaGriglia = $row["mediaGriglia"];
         $mediaFinale = $row["mediaFinale"];
+        $counter = 1;
       
         echo ' 
           <div class="grid-container mt-4">
             <div class="box box-1">
               <div class="main">
-                  <img class="product__image" src="media/versatppen.avif" alt="soda_can" />
+                <div class="position">'.$counter.'</div>
+                <img class="product__image" src="media/versatppen.avif" alt="soda_can" />
                   <div class="container">
                     <div class="title">Max Verstappen
                       <span>RedBull</span>
@@ -129,6 +132,7 @@ session_start(); // Start the session at the beginning of your file
             $fastLap = $row["fastLap"];
             $mediaGriglia = $row["mediaGriglia"];
             $mediaFinale = $row["mediaFinale"];
+            $counter++;
 
             echo '
             <div class="box box-2">
@@ -193,7 +197,19 @@ session_start(); // Start the session at the beginning of your file
                       </div>
                     </div>
               </div>
-          </div>
+          </div>';
+  
+          $row = $result->fetch_assoc();
+          $cognome = $row["cognome"];
+          $posizone = $row["posizione"];
+          $wins = $row["vittorie"];
+          $gare = $row["gare"];
+          $podi = $row["podi"];
+          $fastLap = $row["fastLap"];
+          $mediaGriglia = $row["mediaGriglia"];
+          $mediaFinale = $row["mediaFinale"];
+  
+          echo '
 
           <div class="grid-container">
               <div class="box box-1">
@@ -203,11 +219,23 @@ session_start(); // Start the session at the beginning of your file
                         <div class="title">Charles Leclerc
                           <span>Ferrari</span>
                         </div>
-                        <p class="desc">wins: </br> polposition: </p>
+                        <p class="desc">Vittorie: '. $wins .'</br> Gare: '. $gare .'</br> Podi: '. $podi .'</br> Giro più veloce: '. $fastLap .'</br> Media Griglia inizio gara: '. $mediaGriglia .'</br> Media Griglia fine gara: '. $mediaFinale .'</p>
                         <a href="piloti/Leclerc.php" class="button_grid">Leggi di più</a>
                       </div>
                     </div>
-              </div>
+              </div>';
+  
+              $row = $result->fetch_assoc();
+              $cognome = $row["cognome"];
+              $posizone = $row["posizione"];
+              $wins = $row["vittorie"];
+              $gare = $row["gare"];
+              $podi = $row["podi"];
+              $fastLap = $row["fastLap"];
+              $mediaGriglia = $row["mediaGriglia"];
+              $mediaFinale = $row["mediaFinale"];
+      
+              echo '
               <div class="box box-2">
                   <div class="main">
                       <img class="product__image" src="media/sainz.avif" alt="soda_can" />
@@ -215,12 +243,24 @@ session_start(); // Start the session at the beginning of your file
                         <div class="title">Carlos Sainz
                           <span>Ferrari</span>
                         </div>
-                        <p class="desc">wins: </br> polposition: </p>
+                        <p class="desc">Vittorie: '. $wins .'</br> Gare: '. $gare .'</br> Podi: '. $podi .'</br> Giro più veloce: '. $fastLap .'</br> Media Griglia inizio gara: '. $mediaGriglia .'</br> Media Griglia fine gara: '. $mediaFinale .'</p>
                         <a href="piloti/sainz.php" class="button_grid">Leggi di più</a>
                       </div>
                     </div>
               </div>
-          </div>
+          </div>';
+  
+          $row = $result->fetch_assoc();
+          $cognome = $row["cognome"];
+          $posizone = $row["posizione"];
+          $wins = $row["vittorie"];
+          $gare = $row["gare"];
+          $podi = $row["podi"];
+          $fastLap = $row["fastLap"];
+          $mediaGriglia = $row["mediaGriglia"];
+          $mediaFinale = $row["mediaFinale"];
+  
+          echo '
 
           <div class="grid-container">
               <div class="box box-1">
@@ -230,11 +270,23 @@ session_start(); // Start the session at the beginning of your file
                         <div class="title">Lando Norris
                           <span>McLaren</span>
                         </div>
-                        <p class="desc">wins: </br> polposition: </p>
+                        <p class="desc">Vittorie: '. $wins .'</br> Gare: '. $gare .'</br> Podi: '. $podi .'</br> Giro più veloce: '. $fastLap .'</br> Media Griglia inizio gara: '. $mediaGriglia .'</br> Media Griglia fine gara: '. $mediaFinale .'</p>
                         <a href="piloti/Norris.php" class="button_grid">Leggi di più</a>
                       </div>
                     </div>
-              </div>
+              </div>';
+  
+              $row = $result->fetch_assoc();
+              $cognome = $row["cognome"];
+              $posizone = $row["posizione"];
+              $wins = $row["vittorie"];
+              $gare = $row["gare"];
+              $podi = $row["podi"];
+              $fastLap = $row["fastLap"];
+              $mediaGriglia = $row["mediaGriglia"];
+              $mediaFinale = $row["mediaFinale"];
+      
+              echo '
               <div class="box box-2">
                   <div class="main">
                       <img class="product__image" src="media/Piastri.avif" alt="soda_can" />
@@ -242,12 +294,24 @@ session_start(); // Start the session at the beginning of your file
                         <div class="title">Oscar Piastri
                           <span>McLaren</span>
                         </div>
-                        <p class="desc">wins: </br> polposition: </p>
+                        <p class="desc">Vittorie: '. $wins .'</br> Gare: '. $gare .'</br> Podi: '. $podi .'</br> Giro più veloce: '. $fastLap .'</br> Media Griglia inizio gara: '. $mediaGriglia .'</br> Media Griglia fine gara: '. $mediaFinale .'</p>
                         <a href="piloti/piastri.php" class="button_grid">Leggi di più</a>
                       </div>
                     </div>
               </div>
-          </div>
+          </div>';
+  
+          $row = $result->fetch_assoc();
+          $cognome = $row["cognome"];
+          $posizone = $row["posizione"];
+          $wins = $row["vittorie"];
+          $gare = $row["gare"];
+          $podi = $row["podi"];
+          $fastLap = $row["fastLap"];
+          $mediaGriglia = $row["mediaGriglia"];
+          $mediaFinale = $row["mediaFinale"];
+  
+          echo '
 
           <div class="grid-container">
               <div class="box box-1">
@@ -257,11 +321,23 @@ session_start(); // Start the session at the beginning of your file
                         <div class="title">Fernando Alonso
                           <span>Aston Martin</span>
                         </div>
-                        <p class="desc">wins: </br> polposition: </p>
+                        <p class="desc">Vittorie: '. $wins .'</br> Gare: '. $gare .'</br> Podi: '. $podi .'</br> Giro più veloce: '. $fastLap .'</br> Media Griglia inizio gara: '. $mediaGriglia .'</br> Media Griglia fine gara: '. $mediaFinale .'</p>
                         <a href="piloti/Alonso.php" class="button_grid">Leggi di più</a>
                       </div>
                     </div>
-              </div>
+              </div>';
+  
+              $row = $result->fetch_assoc();
+              $cognome = $row["cognome"];
+              $posizone = $row["posizione"];
+              $wins = $row["vittorie"];
+              $gare = $row["gare"];
+              $podi = $row["podi"];
+              $fastLap = $row["fastLap"];
+              $mediaGriglia = $row["mediaGriglia"];
+              $mediaFinale = $row["mediaFinale"];
+      
+              echo '
               <div class="box box-2">
                   <div class="main">
                       <img class="product__image" src="media/stroll.avif" alt="soda_can" />
@@ -269,12 +345,24 @@ session_start(); // Start the session at the beginning of your file
                         <div class="title">Lance Stroll
                           <span>Aston Martin</span>
                         </div>
-                        <p class="desc">wins: </br> polposition: </p>
+                        <p class="desc">Vittorie: '. $wins .'</br> Gare: '. $gare .'</br> Podi: '. $podi .'</br> Giro più veloce: '. $fastLap .'</br> Media Griglia inizio gara: '. $mediaGriglia .'</br> Media Griglia fine gara: '. $mediaFinale .'</p>
                         <a href="piloti/Stroll.php" class="button_grid">Leggi di più</a>
                       </div>
                     </div>
               </div>
-          </div>
+          </div>';
+  
+          $row = $result->fetch_assoc();
+          $cognome = $row["cognome"];
+          $posizone = $row["posizione"];
+          $wins = $row["vittorie"];
+          $gare = $row["gare"];
+          $podi = $row["podi"];
+          $fastLap = $row["fastLap"];
+          $mediaGriglia = $row["mediaGriglia"];
+          $mediaFinale = $row["mediaFinale"];
+  
+          echo '
 
           <div class="grid-container">
               <div class="box box-1">
@@ -284,11 +372,23 @@ session_start(); // Start the session at the beginning of your file
                         <div class="title">Pierre Gasly
                           <span>Alpha</span>
                         </div>
-                        <p class="desc">wins: </br> polposition: </p>
+                        <p class="desc">Vittorie: '. $wins .'</br> Gare: '. $gare .'</br> Podi: '. $podi .'</br> Giro più veloce: '. $fastLap .'</br> Media Griglia inizio gara: '. $mediaGriglia .'</br> Media Griglia fine gara: '. $mediaFinale .'</p>
                         <a href="piloti/Gasly.php" class="button_grid">Leggi di più</a>
                       </div>
                     </div>
-              </div>
+              </div>';
+  
+              $row = $result->fetch_assoc();
+              $cognome = $row["cognome"];
+              $posizone = $row["posizione"];
+              $wins = $row["vittorie"];
+              $gare = $row["gare"];
+              $podi = $row["podi"];
+              $fastLap = $row["fastLap"];
+              $mediaGriglia = $row["mediaGriglia"];
+              $mediaFinale = $row["mediaFinale"];
+      
+              echo '
               <div class="box box-2">
                   <div class="main">
                       <img class="product__image" src="media/ocon.avif" alt="soda_can" />
@@ -296,12 +396,24 @@ session_start(); // Start the session at the beginning of your file
                         <div class="title">Esteban Ocon
                           <span>Alphine</span>
                         </div>
-                        <p class="desc">wins: </br> polposition: </p>
+                        <p class="desc">Vittorie: '. $wins .'</br> Gare: '. $gare .'</br> Podi: '. $podi .'</br> Giro più veloce: '. $fastLap .'</br> Media Griglia inizio gara: '. $mediaGriglia .'</br> Media Griglia fine gara: '. $mediaFinale .'</p>
                         <a href="piloti/Ocon.php" class="button_grid">Leggi di più</a>
                       </div>
                     </div>
               </div>
-          </div>
+          </div>';
+  
+          $row = $result->fetch_assoc();
+          $cognome = $row["cognome"];
+          $posizone = $row["posizione"];
+          $wins = $row["vittorie"];
+          $gare = $row["gare"];
+          $podi = $row["podi"];
+          $fastLap = $row["fastLap"];
+          $mediaGriglia = $row["mediaGriglia"];
+          $mediaFinale = $row["mediaFinale"];
+  
+          echo '
 
           <div class="grid-container">
               <div class="box box-1">
@@ -311,11 +423,23 @@ session_start(); // Start the session at the beginning of your file
                         <div class="title">Alexander Albon
                           <span>Williams</span>
                         </div>
-                        <p class="desc">wins: </br> polposition: </p>
+                        <p class="desc">Vittorie: '. $wins .'</br> Gare: '. $gare .'</br> Podi: '. $podi .'</br> Giro più veloce: '. $fastLap .'</br> Media Griglia inizio gara: '. $mediaGriglia .'</br> Media Griglia fine gara: '. $mediaFinale .'</p>
                         <a href="piloti/Albon.php" class="button_grid">Leggi di più</a>
                       </div>
                     </div>
-              </div>
+              </div>';
+  
+              $row = $result->fetch_assoc();
+              $cognome = $row["cognome"];
+              $posizone = $row["posizione"];
+              $wins = $row["vittorie"];
+              $gare = $row["gare"];
+              $podi = $row["podi"];
+              $fastLap = $row["fastLap"];
+              $mediaGriglia = $row["mediaGriglia"];
+              $mediaFinale = $row["mediaFinale"];
+      
+              echo '
               <div class="box box-2">
                   <div class="main">
                       <img class="product__image" src="media/sargent.avif" alt="soda_can" />
@@ -323,12 +447,24 @@ session_start(); // Start the session at the beginning of your file
                         <div class="title">Logan Sargeant
                           <span>Williams</span>
                         </div>
-                        <p class="desc">wins: </br> polposition: </p>
+                        <p class="desc">Vittorie: '. $wins .'</br> Gare: '. $gare .'</br> Podi: '. $podi .'</br> Giro più veloce: '. $fastLap .'</br> Media Griglia inizio gara: '. $mediaGriglia .'</br> Media Griglia fine gara: '. $mediaFinale .'</p>
                         <a href="piloti/Sargeant.php" class="button_grid">Leggi di più</a>
                       </div>
                     </div>
               </div>
-          </div>
+          </div>';
+  
+          $row = $result->fetch_assoc();
+          $cognome = $row["cognome"];
+          $posizone = $row["posizione"];
+          $wins = $row["vittorie"];
+          $gare = $row["gare"];
+          $podi = $row["podi"];
+          $fastLap = $row["fastLap"];
+          $mediaGriglia = $row["mediaGriglia"];
+          $mediaFinale = $row["mediaFinale"];
+  
+          echo '
 
           <div class="grid-container">
               <div class="box box-1">
@@ -338,11 +474,23 @@ session_start(); // Start the session at the beginning of your file
                         <div class="title">Yuki Tsunoda
                           <span>Alpha Tauri</span>
                         </div>
-                        <p class="desc">wins: </br> polposition: </p>
+                        <p class="desc">Vittorie: '. $wins .'</br> Gare: '. $gare .'</br> Podi: '. $podi .'</br> Giro più veloce: '. $fastLap .'</br> Media Griglia inizio gara: '. $mediaGriglia .'</br> Media Griglia fine gara: '. $mediaFinale .'</p>
                         <a href="piloti/Tsunoda.php" class="button_grid">Leggi di più</a>
                       </div>
                     </div>
-              </div>
+              </div>';
+  
+              $row = $result->fetch_assoc();
+              $cognome = $row["cognome"];
+              $posizone = $row["posizione"];
+              $wins = $row["vittorie"];
+              $gare = $row["gare"];
+              $podi = $row["podi"];
+              $fastLap = $row["fastLap"];
+              $mediaGriglia = $row["mediaGriglia"];
+              $mediaFinale = $row["mediaFinale"];
+      
+              echo '
               <div class="box box-2">
                   <div class="main">
                       <img class="product__image" src="media/riccardo.avif" alt="soda_can" />
@@ -350,12 +498,24 @@ session_start(); // Start the session at the beginning of your file
                         <div class="title">Daniel Ricciardo
                           <span>Alpha Tauri</span>
                         </div>
-                        <p class="desc">wins: </br> polposition: </p>
+                        <p class="desc">Vittorie: '. $wins .'</br> Gare: '. $gare .'</br> Podi: '. $podi .'</br> Giro più veloce: '. $fastLap .'</br> Media Griglia inizio gara: '. $mediaGriglia .'</br> Media Griglia fine gara: '. $mediaFinale .'</p>
                         <a href="piloti/Ricciardo.php" class="button_grid">Leggi di più</a>
                       </div>
                     </div>
               </div>
-          </div>
+          </div>';
+  
+          $row = $result->fetch_assoc();
+          $cognome = $row["cognome"];
+          $posizone = $row["posizione"];
+          $wins = $row["vittorie"];
+          $gare = $row["gare"];
+          $podi = $row["podi"];
+          $fastLap = $row["fastLap"];
+          $mediaGriglia = $row["mediaGriglia"];
+          $mediaFinale = $row["mediaFinale"];
+  
+          echo '
 
           <div class="grid-container">
               <div class="box box-1">
@@ -365,11 +525,23 @@ session_start(); // Start the session at the beginning of your file
                         <div class="title">Valterri Bottas
                           <span>kick Saubern</span>
                         </div>
-                        <p class="desc">wins: </br> polposition: </p>
+                        <p class="desc">Vittorie: '. $wins .'</br> Gare: '. $gare .'</br> Podi: '. $podi .'</br> Giro più veloce: '. $fastLap .'</br> Media Griglia inizio gara: '. $mediaGriglia .'</br> Media Griglia fine gara: '. $mediaFinale .'</p>
                         <a href="piloti/bottas.php" class="button_grid">Leggi di più</a>
                       </div>
                     </div>
-              </div>
+              </div>';
+  
+              $row = $result->fetch_assoc();
+              $cognome = $row["cognome"];
+              $posizone = $row["posizione"];
+              $wins = $row["vittorie"];
+              $gare = $row["gare"];
+              $podi = $row["podi"];
+              $fastLap = $row["fastLap"];
+              $mediaGriglia = $row["mediaGriglia"];
+              $mediaFinale = $row["mediaFinale"];
+      
+              echo '
               <div class="box box-2">
                   <div class="main">
                       <img class="product__image" src="media/zhou.avif" alt="soda_can" />
@@ -377,12 +549,24 @@ session_start(); // Start the session at the beginning of your file
                         <div class="title">Ghuanyu Zhou
                           <span>kick Saubern</span>
                         </div>
-                        <p class="desc">wins: </br> polposition: </p>
+                        <p class="desc">Vittorie: '. $wins .'</br> Gare: '. $gare .'</br> Podi: '. $podi .'</br> Giro più veloce: '. $fastLap .'</br> Media Griglia inizio gara: '. $mediaGriglia .'</br> Media Griglia fine gara: '. $mediaFinale .'</p>
                         <a href="piloti/Zhou.php" class="button_grid">Leggi di più</a>
                       </div>
                     </div>
               </div>
-          </div>
+          </div>';
+  
+          $row = $result->fetch_assoc();
+          $cognome = $row["cognome"];
+          $posizone = $row["posizione"];
+          $wins = $row["vittorie"];
+          $gare = $row["gare"];
+          $podi = $row["podi"];
+          $fastLap = $row["fastLap"];
+          $mediaGriglia = $row["mediaGriglia"];
+          $mediaFinale = $row["mediaFinale"];
+  
+          echo '
 
           <div class="grid-container">
               <div class="box box-1">
@@ -392,11 +576,23 @@ session_start(); // Start the session at the beginning of your file
                         <div class="title">Nico Hulkenberg
                           <span>Haas</span>
                         </div>
-                        <p class="desc">wins: </br> polposition: </p>
+                        <p class="desc">Vittorie: '. $wins .'</br> Gare: '. $gare .'</br> Podi: '. $podi .'</br> Giro più veloce: '. $fastLap .'</br> Media Griglia inizio gara: '. $mediaGriglia .'</br> Media Griglia fine gara: '. $mediaFinale .'</p>
                         <a href="piloti/Hulkenberg.php" class="button_grid">Leggi di più</a>
                       </div>
                     </div>
-              </div>
+              </div>';
+  
+              $row = $result->fetch_assoc();
+              $cognome = $row["cognome"];
+              $posizone = $row["posizione"];
+              $wins = $row["vittorie"];
+              $gare = $row["gare"];
+              $podi = $row["podi"];
+              $fastLap = $row["fastLap"];
+              $mediaGriglia = $row["mediaGriglia"];
+              $mediaFinale = $row["mediaFinale"];
+      
+              echo '
               <div class="box box-2">
                   <div class="main">
                       <img class="product__image" src="media/magnussen.avif" alt="soda_can" />
@@ -404,7 +600,7 @@ session_start(); // Start the session at the beginning of your file
                         <div class="title">Kevin Magnussen
                           <span>Haas</span>
                         </div>
-                        <p class="desc">wins: </br> polposition: </p>
+                        <p class="desc">Vittorie: '. $wins .'</br> Gare: '. $gare .'</br> Podi: '. $podi .'</br> Giro più veloce: '. $fastLap .'</br> Media Griglia inizio gara: '. $mediaGriglia .'</br> Media Griglia fine gara: '. $mediaFinale .'</p>
                         <a href="piloti/magnussen.php" class="button_grid">Leggi di più</a>
                       </div>
                     </div>
@@ -429,11 +625,12 @@ session_start(); // Start the session at the beginning of your file
     <!-- Jquery-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/flickity/3.0.0/flickity.pkgd.min.js" integrity="sha512-achKCfKcYJg0u0J7UDJZbtrffUwtTLQMFSn28bDJ1Xl9DWkl/6VDT3LMfVTo09V51hmnjrrOTbtg4rEgg0QArA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
+     <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/flickity/3.0.0/flickity.pkgd.min.js" integrity="sha512-achKCfKcYJg0u0J7UDJZbtrffUwtTLQMFSn28bDJ1Xl9DWkl/6VDT3LMfVTo09V51hmnjrrOTbtg4rEgg0QArA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    -->
     <script src="hamburger.js"></script>    
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/flickity/3.0.0/flickity.pkgd.min.js" integrity="sha512-achKCfKcYJg0u0J7UDJZbtrffUwtTLQMFSn28bDJ1Xl9DWkl/6VDT3LMfVTo09V51hmnjrrOrEgg0QArA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/flickity/3.0.0/flickity.pkgd.min.js" integrity="sha512-achKCfKcYJg0u0J7UDJZbtrffUwtTLQMFSn28bDJ1Xl9DWkl/6VDT3LMfVTo09V51hmnjrrOrEgg0QArA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    -->
 </body>
 </html>
 

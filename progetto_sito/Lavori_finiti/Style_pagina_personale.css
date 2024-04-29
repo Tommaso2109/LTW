@@ -342,7 +342,7 @@ body::-webkit-scrollbar{
 
 .grid-container-squad {
     display: grid;
-    grid-template-rows: 1fr 1fr;
+    grid-template-rows: 30% 30% 40%;
 }
 
 .grid-container-squad-interno {
@@ -353,7 +353,7 @@ body::-webkit-scrollbar{
 
 .grid-container-piloti{
     display: grid;
-    grid-template-rows: 1fr 1fr;
+    grid-template-rows: 50% 50%;
     grid-template-columns: 1fr 1fr;
     border: 2px solid gray;
     
@@ -407,6 +407,47 @@ body::-webkit-scrollbar{
     height: 100%; 
     margin-left: 2%;
     object-fit: contain; 
+}
+
+@font-face {
+    font-family: 'MyCustomFont'; /* Sostituisci con il nome del tuo font */
+    src: url('myfontcast/ds-digit-webfont.woff2') format('woff2'),
+         url('myfontcast/ds-digit-webfont.woff') format('woff');
+}
+.timer {
+    position: relative;
+    font-size: 80px;
+    color: rgb(255, 255, 255);
+    border: 2px solid gray;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.767);
+}
+
+.timer::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('media/timer.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    filter: blur(5px);
+    z-index: -1;
+}
+
+.timer p {
+    margin-top: 5%;
+    font-family: 'MyCustomFont', sans-serif;
+}
+
+#countdown{
+    color: rgb(255, 255, 255);
+    font-family: 'MyCustomFont', sans-serif;
+    font-size: 150px;
+    
+    
 }
 
 .info{

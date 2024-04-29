@@ -559,6 +559,24 @@ body::-webkit-scrollbar{
 
 .bg-cover__title a { background-color:white;color:#000;}
 
+.bg-cover_2{
+    height: 90vh;
+    display: flex;
+    width: 90%;
+    align-items: center;
+    background: linear-gradient(0deg, rgba(0,0,0,.2), rgba(0,0,0,0.5)), url('media/reaction.png')no-repeat center center;
+    background-size:cover; 
+    align-items: center; 
+    padding-left: 10%;
+   
+}
+
+.bg-cover_2__title{width: 50%;}
+
+.bg-cover_2__title h1 {color: azure;}
+
+.bg-cover_2__title a { background-color:white;color:#000;}
+
 
 /*footer*/
 footer {

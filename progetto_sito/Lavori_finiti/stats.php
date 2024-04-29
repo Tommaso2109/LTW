@@ -119,7 +119,7 @@ session_start(); // Start the session at the beginning of your file
                       <span>RedBull</span>
                     </div>
                     <p class="desc">Vittorie: '. $wins .'</br> Gare: '. $gare .'</br> Podi: '. $podi .'</br> Giro più veloce: '. $fastLap .'</br> Media Griglia inizio gara: '. $mediaGriglia .'</br> Media Griglia fine gara: '. $mediaFinale .'</p>
-                    <a href="piloti/verstappen.php" class="button_grid">Leggi di più</a>
+                    
                   </div>
                 </div>
             </div>';
@@ -144,7 +144,7 @@ session_start(); // Start the session at the beginning of your file
                         <span>RedBull</span>
                       </div>
                       <p class="desc">Vittorie: '. $wins .'</br> Gare: '. $gare .'</br> Podi: '. $podi .'</br> Giro più veloce: '. $fastLap .'</br> Media Griglia inizio gara: '. $mediaGriglia .'</br> Media Griglia fine gara: '. $mediaFinale .'</p>
-                      <a href="piloti/perez.php" class="button_grid">Leggi di più</a>
+            
                     </div>
                   </div>
             </div>
@@ -170,7 +170,7 @@ session_start(); // Start the session at the beginning of your file
                           <span>Mercedes</span>
                         </div>
                         <p class="desc">Vittorie: '. $wins .'</br> Gare: '. $gare .'</br> Podi: '. $podi .'</br> Giro più veloce: '. $fastLap .'</br> Media Griglia inizio gara: '. $mediaGriglia .'</br> Media Griglia fine gara: '. $mediaFinale .'</p>
-                        <a href="piloti/Hamilton.php" class="button_grid">Leggi di più</a>
+                    
                       </div>
                     </div>
               </div>';
@@ -194,7 +194,7 @@ session_start(); // Start the session at the beginning of your file
                           <span>Mercedes</span>
                         </div>
                         <p class="desc">Vittorie: '. $wins .'</br> Gare: '. $gare .'</br> Podi: '. $podi .'</br> Giro più veloce: '. $fastLap .'</br> Media Griglia inizio gara: '. $mediaGriglia .'</br> Media Griglia fine gara: '. $mediaFinale .'</p>
-                        <a href="Russel.php" class="button_grid">Leggi di più</a>
+  
                       </div>
                     </div>
               </div>
@@ -221,7 +221,7 @@ session_start(); // Start the session at the beginning of your file
                           <span>Ferrari</span>
                         </div>
                         <p class="desc">Vittorie: '. $wins .'</br> Gare: '. $gare .'</br> Podi: '. $podi .'</br> Giro più veloce: '. $fastLap .'</br> Media Griglia inizio gara: '. $mediaGriglia .'</br> Media Griglia fine gara: '. $mediaFinale .'</p>
-                        <a href="piloti/Leclerc.php" class="button_grid">Leggi di più</a>
+                  
                       </div>
                     </div>
               </div>';
@@ -245,7 +245,7 @@ session_start(); // Start the session at the beginning of your file
                           <span>Ferrari</span>
                         </div>
                         <p class="desc">Vittorie: '. $wins .'</br> Gare: '. $gare .'</br> Podi: '. $podi .'</br> Giro più veloce: '. $fastLap .'</br> Media Griglia inizio gara: '. $mediaGriglia .'</br> Media Griglia fine gara: '. $mediaFinale .'</p>
-                        <a href="piloti/sainz.php" class="button_grid">Leggi di più</a>
+              
                       </div>
                     </div>
               </div>
@@ -272,7 +272,7 @@ session_start(); // Start the session at the beginning of your file
                           <span>McLaren</span>
                         </div>
                         <p class="desc">Vittorie: '. $wins .'</br> Gare: '. $gare .'</br> Podi: '. $podi .'</br> Giro più veloce: '. $fastLap .'</br> Media Griglia inizio gara: '. $mediaGriglia .'</br> Media Griglia fine gara: '. $mediaFinale .'</p>
-                        <a href="piloti/Norris.php" class="button_grid">Leggi di più</a>
+                
                       </div>
                     </div>
               </div>';
@@ -296,7 +296,7 @@ session_start(); // Start the session at the beginning of your file
                           <span>McLaren</span>
                         </div>
                         <p class="desc">Vittorie: '. $wins .'</br> Gare: '. $gare .'</br> Podi: '. $podi .'</br> Giro più veloce: '. $fastLap .'</br> Media Griglia inizio gara: '. $mediaGriglia .'</br> Media Griglia fine gara: '. $mediaFinale .'</p>
-                        <a href="piloti/piastri.php" class="button_grid">Leggi di più</a>
+                  
                       </div>
                     </div>
               </div>
@@ -323,7 +323,7 @@ session_start(); // Start the session at the beginning of your file
                           <span>Aston Martin</span>
                         </div>
                         <p class="desc">Vittorie: '. $wins .'</br> Gare: '. $gare .'</br> Podi: '. $podi .'</br> Giro più veloce: '. $fastLap .'</br> Media Griglia inizio gara: '. $mediaGriglia .'</br> Media Griglia fine gara: '. $mediaFinale .'</p>
-                        <a href="piloti/Alonso.php" class="button_grid">Leggi di più</a>
+                
                       </div>
                     </div>
               </div>';
@@ -347,7 +347,7 @@ session_start(); // Start the session at the beginning of your file
                           <span>Aston Martin</span>
                         </div>
                         <p class="desc">Vittorie: '. $wins .'</br> Gare: '. $gare .'</br> Podi: '. $podi .'</br> Giro più veloce: '. $fastLap .'</br> Media Griglia inizio gara: '. $mediaGriglia .'</br> Media Griglia fine gara: '. $mediaFinale .'</p>
-                        <a href="piloti/Stroll.php" class="button_grid">Leggi di più</a>
+                
                       </div>
                     </div>
               </div>
@@ -374,7 +374,7 @@ session_start(); // Start the session at the beginning of your file
                           <span>Alpha</span>
                         </div>
                         <p class="desc">Vittorie: '. $wins .'</br> Gare: '. $gare .'</br> Podi: '. $podi .'</br> Giro più veloce: '. $fastLap .'</br> Media Griglia inizio gara: '. $mediaGriglia .'</br> Media Griglia fine gara: '. $mediaFinale .'</p>
-                        <a href="piloti/Gasly.php" class="button_grid">Leggi di più</a>
+              
                       </div>
                     </div>
               </div>';
@@ -398,7 +398,7 @@ session_start(); // Start the session at the beginning of your file
                           <span>Alphine</span>
                         </div>
                         <p class="desc">Vittorie: '. $wins .'</br> Gare: '. $gare .'</br> Podi: '. $podi .'</br> Giro più veloce: '. $fastLap .'</br> Media Griglia inizio gara: '. $mediaGriglia .'</br> Media Griglia fine gara: '. $mediaFinale .'</p>
-                        <a href="piloti/Ocon.php" class="button_grid">Leggi di più</a>
+            
                       </div>
                     </div>
               </div>
@@ -425,7 +425,7 @@ session_start(); // Start the session at the beginning of your file
                           <span>Williams</span>
                         </div>
                         <p class="desc">Vittorie: '. $wins .'</br> Gare: '. $gare .'</br> Podi: '. $podi .'</br> Giro più veloce: '. $fastLap .'</br> Media Griglia inizio gara: '. $mediaGriglia .'</br> Media Griglia fine gara: '. $mediaFinale .'</p>
-                        <a href="piloti/Albon.php" class="button_grid">Leggi di più</a>
+              
                       </div>
                     </div>
               </div>';
@@ -449,7 +449,7 @@ session_start(); // Start the session at the beginning of your file
                           <span>Williams</span>
                         </div>
                         <p class="desc">Vittorie: '. $wins .'</br> Gare: '. $gare .'</br> Podi: '. $podi .'</br> Giro più veloce: '. $fastLap .'</br> Media Griglia inizio gara: '. $mediaGriglia .'</br> Media Griglia fine gara: '. $mediaFinale .'</p>
-                        <a href="piloti/Sargeant.php" class="button_grid">Leggi di più</a>
+                    
                       </div>
                     </div>
               </div>
@@ -476,7 +476,7 @@ session_start(); // Start the session at the beginning of your file
                           <span>Alpha Tauri</span>
                         </div>
                         <p class="desc">Vittorie: '. $wins .'</br> Gare: '. $gare .'</br> Podi: '. $podi .'</br> Giro più veloce: '. $fastLap .'</br> Media Griglia inizio gara: '. $mediaGriglia .'</br> Media Griglia fine gara: '. $mediaFinale .'</p>
-                        <a href="piloti/Tsunoda.php" class="button_grid">Leggi di più</a>
+                  
                       </div>
                     </div>
               </div>';
@@ -500,7 +500,7 @@ session_start(); // Start the session at the beginning of your file
                           <span>Alpha Tauri</span>
                         </div>
                         <p class="desc">Vittorie: '. $wins .'</br> Gare: '. $gare .'</br> Podi: '. $podi .'</br> Giro più veloce: '. $fastLap .'</br> Media Griglia inizio gara: '. $mediaGriglia .'</br> Media Griglia fine gara: '. $mediaFinale .'</p>
-                        <a href="piloti/Ricciardo.php" class="button_grid">Leggi di più</a>
+                      
                       </div>
                     </div>
               </div>
@@ -527,7 +527,7 @@ session_start(); // Start the session at the beginning of your file
                           <span>kick Saubern</span>
                         </div>
                         <p class="desc">Vittorie: '. $wins .'</br> Gare: '. $gare .'</br> Podi: '. $podi .'</br> Giro più veloce: '. $fastLap .'</br> Media Griglia inizio gara: '. $mediaGriglia .'</br> Media Griglia fine gara: '. $mediaFinale .'</p>
-                        <a href="piloti/bottas.php" class="button_grid">Leggi di più</a>
+                
                       </div>
                     </div>
               </div>';
@@ -551,7 +551,7 @@ session_start(); // Start the session at the beginning of your file
                           <span>kick Saubern</span>
                         </div>
                         <p class="desc">Vittorie: '. $wins .'</br> Gare: '. $gare .'</br> Podi: '. $podi .'</br> Giro più veloce: '. $fastLap .'</br> Media Griglia inizio gara: '. $mediaGriglia .'</br> Media Griglia fine gara: '. $mediaFinale .'</p>
-                        <a href="piloti/Zhou.php" class="button_grid">Leggi di più</a>
+            
                       </div>
                     </div>
               </div>
@@ -578,7 +578,7 @@ session_start(); // Start the session at the beginning of your file
                           <span>Haas</span>
                         </div>
                         <p class="desc">Vittorie: '. $wins .'</br> Gare: '. $gare .'</br> Podi: '. $podi .'</br> Giro più veloce: '. $fastLap .'</br> Media Griglia inizio gara: '. $mediaGriglia .'</br> Media Griglia fine gara: '. $mediaFinale .'</p>
-                        <a href="piloti/Hulkenberg.php" class="button_grid">Leggi di più</a>
+                        
                       </div>
                     </div>
               </div>';
@@ -602,7 +602,7 @@ session_start(); // Start the session at the beginning of your file
                           <span>Haas</span>
                         </div>
                         <p class="desc">Vittorie: '. $wins .'</br> Gare: '. $gare .'</br> Podi: '. $podi .'</br> Giro più veloce: '. $fastLap .'</br> Media Griglia inizio gara: '. $mediaGriglia .'</br> Media Griglia fine gara: '. $mediaFinale .'</p>
-                        <a href="piloti/magnussen.php" class="button_grid">Leggi di più</a>
+                      
                       </div>
                     </div>
               </div>

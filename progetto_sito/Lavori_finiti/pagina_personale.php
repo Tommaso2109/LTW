@@ -47,16 +47,16 @@ session_start(); // Start the session at the beginning of your file
                 </li>
                 <li><a href="scuderie.php" class="menu-text">Scuderie</a>
                     <ul>
-                        <span><a href="scuderie/RedBull.php" >Red Bull</a></span>
-                        <span><a href="scuderie/Mercedes.php" >Mercedes</a></span>
-                        <span><a href="scuderie/Ferrari.php" >Ferrari</a></span>
-                        <span><a href="scuderie/McLaren.php" >McLaren</a></span>
-                        <span><a href="scuderie/AstonMartin.php" >Aston Martin</a></span>
-                        <span><a href="scuderie/Alpine.php" >Alpine</a></span>
-                        <span><a href="scuderie/Williams.php" >Williams</a></span>                       
-                        <span><a href="scuderie/AlphaTauri.php" >Alpha Tauri</a></span>
-                        <span><a href="scuderie/KickSaubern.php" >kick Saubern</a></span>
-                        <span><a href="scuderie/Haas.php" >Haas</a></span>
+                        <span><a href="RedBull.php" >Red Bull</a></span>
+                        <span><a href="Mercedes.php" >Mercedes</a></span>
+                        <span><a href="Ferrari.php" >Ferrari</a></span>
+                        <span><a href="McLaren.php" >McLaren</a></span>
+                        <span><a href="AstonMartin.php" >Aston Martin</a></span>
+                        <span><a href="Alpine.php" >Alpine</a></span>
+                        <span><a href="Williams.php" >Williams</a></span>                       
+                        <span><a href="AlphaTauri.php" >Alpha Tauri</a></span>
+                        <span><a href="KickSaubern.php" >kick Saubern</a></span>
+                        <span><a href="Haas.php" >Haas</a></span>
                     </ul>
                 </li>
                 <li><a href="fanta-formula.php" class="menu-text">Fanta-Formula</a></li>

@@ -263,32 +263,31 @@ session_start(); // Start the session at the beginning of your file
                                 <div>
                                     <div class="info-1"> '. $user .' <br> </div>
                                     <div class="info-2"> '. $email .' <br> </div>
-                                    <div class="info-2"> 
-                                    <table border="1">
-                                    <tr>
-                                        <th>User</th>
-                                        <th>Score</th>
-                                    </tr>';
-            while($row = $result->fetch_assoc()) {
-                echo "<tr><td>" . $row["utente"]. "</td><td>" . $row["punteggioTotale"]. "</td><td>
-                <form action='remove_friend.php' method='post'>
-                    <input type='hidden' name='utente' value='".$row["utente"]."'>
-                    <input type='submit' value='Remove'>
-                </form>
-                </td></tr>";
-            }
-            echo '          </table>
-                                    </div>
                                     <div class="info-2">                                         
                                         <form method="post">
                                             <label for="search">Cerca amici:</label><br><br>
                                             <input type="text" id="search" name="search"><br><br>
                                             <input type="submit" value="Submit">
                                         </form> 
-                                    <br> 
-                                    
-                                    <div class="info-2"> DarGay <br> </div>
-                                </div>
+                                        <br> 
+                                    </div>
+                                    <div> 
+                                        <table>
+                                        <tr>
+                                            <th>User</th>
+                                            <th>Score</th>
+
+                                        </tr>';
+                                        while($row = $result->fetch_assoc()) {
+                                            echo "<tr><td class='username'>" . $row["utente"]. "</td><td>" . $row["punteggioTotale"]. "</td><td>
+                                            <form class='button-rm' action='remove_friend.php' method='post'>
+                                                <input type='hidden' name='utente' value='".$row["utente"]."'>
+                                                <input type='submit' value='Remove'>
+                                            </form>
+                                            </td></tr>";
+                                        }
+        echo '                          </table>
+                                    </div>
                             </div>
                 
                             </div>

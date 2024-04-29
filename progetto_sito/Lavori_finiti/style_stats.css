@@ -39,15 +39,7 @@ body::-webkit-scrollbar{
     text-decoration: none;
 
 }
-.position {
-    position: absolute;
-    left: -90px;
-    top: 60%;   
-    transform: translateY(-50%);
-    color: black; /* Aggiungi un colore di testo */
-    background-color: white; /* Aggiungi un colore di sfondo */
-    z-index: 1; /* Aggiungi un z-index per assicurarti che il div .position non sia coperto da altri elementi */
-}
+
 
 
 /*header*/

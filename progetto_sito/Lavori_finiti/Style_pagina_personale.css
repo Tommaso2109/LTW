@@ -425,12 +425,14 @@ body::-webkit-scrollbar{
     font-size: 25px;
     color: white;
     margin-top: 90px;
+    
 }
 
 .positive{
     font-size: 50px;
     color: greenyellow;
     margin-top: 5px;
+    
 }
 
 .negative{
@@ -438,6 +440,37 @@ body::-webkit-scrollbar{
     color: rgb(255, 71, 71);
     margin-top: 5px;
 }
+
+table{
+    margin-left: 5%;
+    border-collapse: separate;
+    border-spacing: 0 15px;
+}
+table td {
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+
+table th{
+    font-style: italic;
+    font-size: 30px;
+    padding-top: 10px;
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+
+table tr {
+    background-color: #353535;
+    font-size: 25px;
+    color: white;
+    text-align: center;
+}
+
+.button-rm{
+    margin-top: 40%;
+
+}
+
 
 /*footer*/
 footer {

@@ -1,5 +1,41 @@
 <?php 
 session_start(); // Start the session at the beginning of your file 4
+
+if (!isset($_SESSION['bestTime'])) {
+    $_SESSION['bestTime'] = 0; // Imposta un valore predefinito
+}
+
+if (isset($_SESSION['username'])) {
+    // Connessione al database
+    $conn = new mysqli('localhost', 'root', '', 'statistiche');
+
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
+
+    $username = $_SESSION['username'];
+
+    // Add quotes around $username
+    $sql = "SELECT record_reaction FROM utenti WHERE username = '$username'";
+    $result = $conn->query($sql);
+
+    if ($result->num_rows > 0) {
+        $row = $result->fetch_assoc();
+        $bestTime = $row['record_reaction'];
+    } else {
+        echo "0 results";
+    }
+    $conn->close();
+} else {
+    echo "Non sei loggato";
+}
+
+?>
+
+<?php
+if (!is_numeric($_SESSION['bestTime'])) {
+    $_SESSION['bestTime'] = 0; // Imposta un valore predefinito
+}
 ?>
 
 <!DOCTYPE html>
@@ -52,22 +88,34 @@ session_start(); // Start the session at the beginning of your file 4
   <p>Tap/click when you're ready to race, then tap again when the lights go out.</p>
   <div class="results">
     <div class="time">00.000</div>
-    <div class="best">Your best: <span>00.000</span></div>
+    <?php echo '<div class="best">Your best: <span>'. $bestTime .'</span></div>';?>
     <div class="credit">Created by <a href="https://twitter.com/jaffathecake">@jaffathecake</a></div>
   </div>
 </body>
 </html>
-<?php
-if (!is_numeric($_SESSION['bestTime'])) {
-    $_SESSION['bestTime'] = 0; // Imposta un valore predefinito
-}
-?>
+
 <script>
+var bestTime = "<?php echo $bestTime; ?>";
+
+function timeStringToMilliseconds(timeString) {
+    var parts = timeString.split('.');
+    var milliseconds = 0;
+    if (parts.length === 2) {
+        milliseconds += parseInt(parts[0]) * 1000;   // seconds
+        milliseconds += parseInt(parts[1]);          // milliseconds
+    }
+    return milliseconds;
+}
+
 
 const lights = Array.prototype.slice.call(document.querySelectorAll('.light-strip'));
 const time = document.querySelector('.time');
 const best = document.querySelector('.best span');
-let bestTime = <?php echo json_encode($_SESSION['bestTime']); ?>;
+
+
+bestTime = timeStringToMilliseconds(bestTime);
+alert("Best Time: "+ bestTime);
+
 let started = false;
 let lightsOutTime = 0;
 let raf;
@@ -86,9 +134,7 @@ function formatTime(time) {
   return outputTime;
 }
 
-if (bestTime != Infinity) {
-  best.textContent = formatTime(bestTime);
-}
+
 
 function start() {
   for (const light of lights) {
@@ -132,20 +178,41 @@ function end(timeStamp) {
   cancelAnimationFrame(raf);
   clearTimeout(timeout);
   
+
+  
   if (!lightsOutTime) {
-    time.textContent = "Jump start!";
-    time.classList.add('anim');
-    return;
+      time.textContent = "Jump start!";
+      time.classList.add('anim');
+      return;
   }
   else {
-    const thisTime = timeStamp - lightsOutTime;
-    time.textContent = formatTime(thisTime);
     
-    if (thisTime < bestTime) {
-      bestTime = thisTime;
-      best.textContent = time.textContent;
-      localStorage.setItem('best', thisTime);
-    }
+      const thisTime = timeStamp - lightsOutTime;
+      time.textContent = formatTime(thisTime);
+      
+      if (thisTime < bestTime) {
+        alert("Best Time: "+ bestTime + ">" + "Your time: "+ thisTime);
+        bestTime = thisTime.toString();
+        best.textContent = time.textContent;
+        localStorage.setItem('best', bestTime);
+
+        // Invia una richiesta al server per salvare bestTime nel database
+        fetch('updateBestTime.php', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+          },
+          body: 'bestTime=' + encodeURIComponent(bestTime),
+        })
+        .then(response => response.text())
+        .then(data => {
+          console.log('Success:', data);
+        })
+        .catch((error) => {
+          console.error('Error:', error);
+        });
+      }
+
     
     time.classList.add('anim');
   }

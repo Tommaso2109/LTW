@@ -38,9 +38,6 @@ if (!is_numeric($_SESSION['bestTime'])) {
 }
 ?>
 
-
-
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -97,7 +94,6 @@ if (!is_numeric($_SESSION['bestTime'])) {
 </body>
 </html>
 
-
 <script>
 var bestTime = "<?php echo $bestTime; ?>";
 
@@ -111,16 +107,20 @@ function timeStringToMilliseconds(timeString) {
     return milliseconds;
 }
 
+
 const lights = Array.prototype.slice.call(document.querySelectorAll('.light-strip'));
 const time = document.querySelector('.time');
 const best = document.querySelector('.best span');
 
+
 bestTime = timeStringToMilliseconds(bestTime);
 alert("Best Time: "+ bestTime);
+
 let started = false;
 let lightsOutTime = 0;
 let raf;
 let timeout;
+
 
 function formatTime(time) {
   time = Math.round(time);
@@ -178,6 +178,7 @@ function end(timeStamp) {
   cancelAnimationFrame(raf);
   clearTimeout(timeout);
   
+
   
   if (!lightsOutTime) {
       time.textContent = "Jump start!";
@@ -211,6 +212,7 @@ function end(timeStamp) {
           console.error('Error:', error);
         });
       }
+
     
     time.classList.add('anim');
   }

@@ -10,7 +10,7 @@ $connessione = mysqli_connect($hostname, $username, $password, $database);
 
 if (isset($_SESSION['username'])) {
     $username = $_SESSION['username'];
-    $query = "select* from utenti where username= '$username'";
+    $query = "SELECT* FROM utenti WHERE username= '$username'";
 
     $result = mysqli_query ($connessione, $query);
 
@@ -19,6 +19,7 @@ if (isset($_SESSION['username'])) {
         $_SESSION['username'] = $row['username']; // Set the session variable
         $_SESSION['profile_image'] = $row['profile_image']; // Set the session variable
         $_SESSION['email'] = $row['email']; // Set the session variable
+        $_SESSION['bestTime'] = $row['record_reaction'];
         
     }
 }
@@ -371,6 +372,15 @@ if (isset($_SESSION['username'])) {
                 <a href="fanta-formula.php"class="button1">Leggi di più</a>
             </div>
          </div>
+
+         <div class="bg-cover_2 mt-3">
+            <div class="bg-cover_2__title">
+                <h1 class="big-text">reaction-test</h1>        
+                <a href="reaction_time.php"class="button1">PROVA!!!</a>
+            </div>
+         </div>
+
+         
 
          <footer class="footer mt-0">        
             <div class="col">

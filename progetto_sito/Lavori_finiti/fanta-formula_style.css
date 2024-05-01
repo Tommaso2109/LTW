@@ -269,19 +269,22 @@ body::-webkit-scrollbar{
     height: auto;
     border-radius: 100%;
 }
+.menu li a img{
+    display: none;
+}
 
+.menu label a {color: white; padding: 15px;display:none;}
 .hamburger{display: none;}
 
-
 @media(max-width:900px){
-    .header{background: none;}
-    .logo{display: none}
     .r-l{display: none}
-    .menu{position: absolute; top: 0; right: -200%; background: rgb(126, 0, 0);height: 270%;z-index: 2;}
+    .menu{position: absolute; top: 0; right: -200%; background: rgb(126, 0, 0);height: 350%;z-index: 2;}
     .menu li {display: block;}
     .menu li a{display: block;}
     .menu li span{display: none;}
     .menu label a {display: block;}
+    
+    
 
     .menu--open{right:-30%;}
     .hamburger{ 
@@ -294,6 +297,14 @@ body::-webkit-scrollbar{
         z-index: 2;
     }
     .hamburger span{z-index:2; background: white; height: 3px;width: 100%; display: block;margin-bottom: 5px;}
+
+    .menu li a img{
+        display: block;
+        width: 20%;
+        height: auto;
+        border-radius: 20px;
+
+    }
 }
 
 /*content*/
@@ -315,6 +326,11 @@ body::-webkit-scrollbar{
     /*border: 2px solid rgb(191, 0, 0);*/
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 
+}
+
+.banner-text{
+    font-size: 25px; 
+    font-weight: 700;
 }
 
 .bunner-budget::before {
@@ -649,7 +665,7 @@ body::-webkit-scrollbar{
     height: 25px;
 }
 
-.grid-itam-interno-interno{
+.grid-item-interno-interno{
     height: 50%;
 }
 
@@ -690,6 +706,72 @@ body::-webkit-scrollbar{
     background-color: rgba(155, 153, 153, 0.8);
 }
 
+@media(max-width:900px){
+    
+    #popup1-text {
+        font-size: 50px;
+        margin-top: 100%;
+    }
+
+    .grid-container{
+        grid-template-columns: 1fr;
+        grid-auto-rows: auto;
+        margin-left: 12.5%;
+    }
+
+    .grid-container-interno{
+        max-height: 20%;
+    }
+
+    .grid-item{
+        height: 1250px;
+    }
+    
+
+    .grid-container-interno-interno{
+        grid-template-columns: 1fr;
+        grid-auto-rows: auto;
+        height: 300%;
+    }
+
+    .grid-item-interno-interno{
+        height: 25%;
+    }
+
+    .bunner-budget{
+        min-width: 10%;
+        max-width: 90%;
+        margin-left: 5%;
+        margin-top: 160px;    
+    }
+
+    .banner-text{
+        font-size: 17.5px; 
+        font-weight: 200;
+    }
+
+    #scelte{
+        display: none;
+    }
+
+    .button-squad{
+        padding: 3px 5px; 
+        font-size: 15px;
+    }
+
+    .conferma-squad{
+        padding-left: 5px;
+        align-self: center;
+        margin-right: 5px;
+        
+    }
+
+    .content-bunner{
+        width: 100%;
+        margin-left: -40px;
+    }
+}
+
 
 /*footer*/
 footer {
@@ -710,6 +792,13 @@ footer {
     display: flex;
     justify-content: center;
 }
+
+@media(max-width:900px){
+    .footer{
+        width: 100%;
+    }
+}
+
 
 /*helpers*/
 .mt-0{margin-top: 25px;}

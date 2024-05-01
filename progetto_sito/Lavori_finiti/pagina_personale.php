@@ -20,6 +20,13 @@ session_start(); // Start the session at the beginning of your file
             </div>
 
             <ul class="menu">
+                <?php if(isset($_SESSION['username'])): ?>
+                    <li><a href="pagina_personale.php" id="userImage"><img src="<?php echo $_SESSION['profile_image']; ?>" alt="image"></a></li>
+                    <label><a href="logout.php" id="logoutButton" class="menu-text">LOGOUT</a></label>
+                <?php else: ?>
+                    <li><a href="login.html" id="loginButton" class="menu-text">LOGIN</a></li>
+                    <li><a href="register.html" id="registerButton" class="menu-text">REGISTER</a></li>
+                <?php endif; ?>
                 <li><a href="stats.php" class="menu-text">Stats</a></li>
                 <li><a href="piloti.php" class="menu-text">Piloti</a>
                     <ul>

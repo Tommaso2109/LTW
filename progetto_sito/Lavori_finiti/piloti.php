@@ -5,6 +5,9 @@ session_start(); // Start the session at the beginning of your file
 <!DOCTYPE html>
 <html lang="IT">
     <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>FormulaForFun</title>
         <link rel="stylesheet" href="stile_piloti.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flickity/3.0.0/flickity.min.css" integrity="sha512-fJcFDOQo2+/Ke365m0NMCZt5uGYEWSxth3wg2i0dXu7A1jQfz9T4hdzz6nkzwmJdOdkcS8jmy2lWGaRXl+nFMQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -18,6 +21,13 @@ session_start(); // Start the session at the beginning of your file
         </div>
 
         <ul class="menu">
+            <?php if(isset($_SESSION['username'])): ?>
+                <li><a href="pagina_personale.php" id="userImage"><img src="<?php echo $_SESSION['profile_image']; ?>" alt="image"></a></li>
+                <label><a href="logout.php" id="logoutButton" class="menu-text">LOGOUT</a></label>
+            <?php else: ?>
+                <label><a href="login.html" id="loginButton" class="menu-text">Login</a></label>
+                <label><a href="register.html" id="registerButton" class="menu-text">Register</a></label>
+            <?php endif; ?>
             <li><a href="stats.php" class="menu-text">Stats</a></li>
             <li><a href="scuderie.php" class="menu-text">Scuderie</a>
                 <ul>
@@ -33,7 +43,7 @@ session_start(); // Start the session at the beginning of your file
                     <span><a href="scuderie/Haas.php" >Haas</a></span>
                 </ul>
             </li>
-            <li><a href="fanta-formula.php" class="menu-text">Fanta-Formula</a></li> 
+            <li><a href="fanta-formula.php" class="menu-text">Fanta-Formula</a></li>
         </ul>
 
         <div class="r-l">
@@ -45,6 +55,11 @@ session_start(); // Start the session at the beginning of your file
                     <p>
                     <a href="register.html" id="registerButton" class="button">REGISTER</a>
                 <?php endif; ?>
+        </div>
+        <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
         </div>
     </div>
     <div class="mt-3">
@@ -128,27 +143,27 @@ session_start(); // Start the session at the beginning of your file
     </div>
     
     <div class="grid-container-phone">
-            <div class="container box"><a href="verstappen.php"><img src="media/versatppen.avif" alt=""></a> <label>Verstappen </label></div>
-            <div class="container box"><label>Perez</label> <a href="perez.php"><img src="media/perez.avif" alt=""></a></div>
-            <div class="container box"><a href="Hamilton.php"><img src="media/hamilton.avif" alt=""></a> <label>Hamilton </label></div>
-            <div class="container box"><label>Russell</label> <a href="Russel.php"><img src="media/russel.avif" alt=""></a></div>
-            <div class="container box"><a href="Leclerc.php"><img src="media/leclerc.avif" alt=""></a> <label>Leclerc </label></div>
-            <div class="container box"><label>Sainz</label> <a href="sainz.php"><img src="media/sainz.avif" alt=""></a></div>
-            <div class="container box"><a href="Norris.php"><img src="media/Norris.avif" alt=""></a> <label>Norris</label></div>
-            <div class="container box"><label>Piastri</label> <a href="piastri.php"><img src="media/Piastri.avif" alt=""></a></div>
-            <div class="container box"><a href="Alonso.php"><img src="media/alonso.avif" alt=""></a> <label>Alonso </label></div>
-            <div class="container box"><label>Stroll</label> <a href="Stroll.php"><img src="media/stroll.avif" alt=""></a></div>
-            <div class="container box"><a href="Gasly.php"><img src="media/gasly.avif" alt=""></a> <label>Gasly </label></div>
-            <div class="container box"><label>Ocon</label> <a href="Ocon.php"><img src="media/ocon.avif" alt=""></a></div>
-            <div class="container box"><a href="Albon.php"><img src="media/albon.avif" alt=""></a> <label>Albon </label></div>
-            <div class="container box"><label>Sargeant</label> <a href="Sargeant.php"><img src="media/sargent.avif" alt=""></a></div>
-            <div class="container box"><a href="Tsunoda.php"><img src="media/tunoda.avif" alt=""></a> <label>Tsunoda </label></div>
-            <div class="container box"><label>Ricciardo</label> <a href="Ricciardo.php"><img src="media/riccardo.avif" alt=""></a></div>
-            <div class="container box"><a href="bottas.php"><img src="media/bottas.avif" alt=""></a> <label>Bottas </label></div>
-            <div class="container box"><label>Zhou</label> <a href="Zhou.php"><img src="media/zhou.avif" alt=""></a></div>
-            <div class="container box"><a href="Hulkenberg.php"><img src="media/hulkenberg.avif" alt=""></a> <label>Hulkenberg </label></div>
-            <div class="container box"><label>Magnussen</label> <a href="magnussen.php"><img src="media/magnussen.avif" alt=""></a></div>  
-        </div>
+        <div class="container box"><a href="piloti/verstappen.php"><img src="media/versatppen.avif" alt=""></a> <label>Verstappen </label></div>
+        <div class="container box"><label>Perez</label> <a href="piloti/perez.php"><img src="media/perez.avif" alt=""></a></div>
+        <div class="container box"><a href="piloti/Hamilton.php"><img src="media/hamilton.avif" alt=""></a> <label>Hamilton </label></div>
+        <div class="container box"><label>Russell</label> <a href="piloti/Russel.php"><img src="media/russel.avif" alt=""></a></div>
+        <div class="container box"><a href="piloti/Leclerc.php"><img src="media/leclerc.avif" alt=""></a> <label>Leclerc </label></div>
+        <div class="container box"><label>Sainz</label> <a href="piloti/sainz.php"><img src="media/sainz.avif" alt=""></a></div>
+        <div class="container box"><a href="piloti/Norris.php"><img src="media/Norris.avif" alt=""></a> <label>Norris</label></div>
+        <div class="container box"><label>Piastri</label> <a href="piloti/piastri.php"><img src="media/Piastri.avif" alt=""></a></div>
+        <div class="container box"><a href="piloti/Alonso.php"><img src="media/alonso.avif" alt=""></a> <label>Alonso </label></div>
+        <div class="container box"><label>Stroll</label> <a href="piloti/Stroll.php"><img src="media/stroll.avif" alt=""></a></div>
+        <div class="container box"><a href="piloti/Gasly.php"><img src="media/gasly.avif" alt=""></a> <label>Gasly </label></div>
+        <div class="container box"><label>Ocon</label> <a href="piloti/Ocon.php"><img src="media/ocon.avif" alt=""></a></div>
+        <div class="container box"><a href="piloti/Albon.php"><img src="media/albon.avif" alt=""></a> <label>Albon </label></div>
+        <div class="container box"><label>Sargeant</label> <a href="piloti/Sargeant.php"><img src="media/sargent.avif" alt=""></a></div>
+        <div class="container box"><a href="piloti/Tsunoda.php"><img src="media/tunoda.avif" alt=""></a> <label>Tsunoda </label></div>
+        <div class="container box"><label>Ricciardo</label> <a href="piloti/Ricciardo.php"><img src="media/riccardo.avif" alt=""></a></div>
+        <div class="container box"><a href="piloti/bottas.php"><img src="media/bottas.avif" alt=""></a> <label>Bottas </label></div>
+        <div class="container box"><label>Zhou</label> <a href="piloti/Zhou.php"><img src="media/zhou.avif" alt=""></a></div>
+        <div class="container box"><a href="piloti/Hulkenberg.php"><img src="media/hulkenberg.avif" alt=""></a> <label>Hulkenberg </label></div>
+        <div class="container box"><label>Magnussen</label> <a href="piloti/magnussen.php"><img src="media/magnussen.avif" alt=""></a></div>  
+    </div>
 
 
     <footer class="footer mt-1">        
@@ -159,6 +174,12 @@ session_start(); // Start the session at the beginning of your file
         </div>
     </footer>
     
+    <!-- Jquery-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flickity/3.0.0/flickity.pkgd.min.js" integrity="sha512-achKCfKcYJg0u0J7UDJZbtrffUwtTLQMFSn28bDJ1Xl9DWkl/6VDT3LMfVTo09V51hmnjrrOTbtg4rEgg0QArA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script src="hamburger.js"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flickity/3.0.0/flickity.pkgd.min.js" integrity="sha512-achKCfKcYJg0u0J7UDJZbtrffUwtTLQMFSn28bDJ1Xl9DWkl/6VDT3LMfVTo09V51hmnjrrOTbtg4rEgg0QArA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </body>

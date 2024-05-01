@@ -34,6 +34,13 @@ if(!isset($_SESSION['username'])) {
             </div>
 
             <ul class="menu">
+                <?php if(isset($_SESSION['username'])): ?>
+                    <li><a href="pagina_personale.php" id="userImage"><img src="<?php echo $_SESSION['profile_image']; ?>" alt="image"></a></li>
+                    <label><a href="logout.php" id="logoutButton" class="menu-text">LOGOUT</a></label>
+                <?php else: ?>
+                    <label><a href="login.html" id="loginButton" class="menu-text">Login</a></label>
+                    <label><a href="register.html" id="registerButton" class="menu-text">Register</a></label>
+                <?php endif; ?>
                 <li><a href="stats.php" class="menu-text">Stats</a></li>
                 <li><a href="piloti.php" class="menu-text">Piloti</a>
                     <ul>
@@ -74,8 +81,6 @@ if(!isset($_SESSION['username'])) {
                     </ul>
                 </li>
                 <li><a href="fanta-formula.php" class="menu-text">Fanta-Formula</a></li>
-                <label><a href="login.php"class="menu-text">Login</a></label>
-                <label><a href="register.php"class="menu-text">Register</a></label>
             </ul>
 
             <div class="r-l">
@@ -99,8 +104,8 @@ if(!isset($_SESSION['username'])) {
         <?php if(isset($_SESSION['username'])): ?>
             <div class="bunner-budget">
                 <ul class="content-bunner">
-                    <li><a id="total" class="menu-text">Budget disponibile: 15000 $</a></li>
-                    <li><a id="scelte" class="menu-text">Piloti: 0/2, Scuderie: 0/1</a></li>
+                    <li><a id="total" class="banner-text">Budget disponibile: 15000 $</a></li>
+                    <li><a id="scelte" class="banner-text">Piloti: 0/2, Scuderie: 0/1</a></li>
                 </ul>
             
                 <div class="conferma-squad"> 

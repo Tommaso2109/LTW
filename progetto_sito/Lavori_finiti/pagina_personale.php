@@ -12,7 +12,6 @@ session_start(); // Start the session at the beginning of your file
         <link rel="stylesheet" href="Style_pagina_personale.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flickity/3.0.0/flickity.min.css" integrity="sha512-fJcFDOQo2+/Ke365m0NMCZt5uGYEWSxth3wg2i0dXu7A1jQfz9T4hdzz6nkzwmJdOdkcS8jmy2lWGaRXl+nFMQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     </head>
-
     <body>
         <div class="header">
             <div class="logo">
@@ -205,22 +204,65 @@ session_start(); // Start the session at the beginning of your file
                 $puntiPilota1Gara *= $moltiplicatoreScuderiaGara;
                 $puntiPilota2Gara *= $moltiplicatoreScuderiaGara;
 
-                //!Email
-                $sql = "SELECT email FROM utenti WHERE username = '$user'";
+                $punteggioTotale = $puntiPilota1Gara + $puntiPilota2Gara;
+
+                //!Email 
+                $sql = "SELECT email, punteggioStagionale FROM utenti WHERE username = '$user'";
                 $result = $conn->query($sql); 
                 if ($result->num_rows > 0) {    
                     $row = $result->fetch_assoc();
                     $email = $row["email"];
+                    $punteggioStagionaleUser = $row["punteggioStagionale"];
+                    
                     //<a href="" class="button1"> cambio immagine</a>
 
                     //!Lista Amici
+                    // Controlla se esiste una riga con $user sia in "utente" che in "amico"
+                    $sql = "SELECT * FROM amici WHERE utente = ? AND amico = ?";
+                    $stmt = $conn->prepare($sql);
+                    $stmt->bind_param("ss", $user, $user);
+                    $stmt->execute();
+                    $result = $stmt->get_result();
+
+                    if ($result->num_rows == 0) {
+                        // Se non esiste, aggiungi la riga
+                        $sql = "INSERT INTO amici (utente, amico, punteggioTotale) VALUES (?, ?, ?)";
+                        $stmt = $conn->prepare($sql);
+                        $stmt->bind_param("ssi", $user, $user, $punteggioTotale);
+                        $stmt->execute();
+                    }
+                    
+                    
+
                     // Verifica se il form è stato inviato
                     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                         // Prendi il termine di ricerca dall'input del form
                         $searchTerm = $_POST['search'];
 
-                        // Query SQL per cercare l'utente nella tabella "squadra" che non è già nella tabella "amici"
-                        $sql = "SELECT * FROM squadra WHERE utente LIKE ? AND utente NOT IN (SELECT utente FROM amici)";
+                        //! Punteggio Stagionale
+                        $sql = "SELECT punteggioStagionale FROM utenti WHERE username = '$searchTerm'";
+                        $result = $conn->query($sql); 
+                        if ($result->num_rows > 0) {    
+                            $row = $result->fetch_assoc();
+                            $punteggioStagionale = $row["punteggioStagionale"];
+                            //echo "<script>console.log('PunteggioStagionale: '+ $punteggioStagionale);</script>";
+                            //Aggiorno il valore in amici
+                            $sql = "UPDATE amici SET punteggioStagionale = ? WHERE amico = ?";
+                            $stmt = $conn->prepare($sql);
+                            $stmt->bind_param("is", $punteggioStagionale, $searchTerm);
+                            $stmt->execute();
+
+                            //Aggiorno il mio valore (user)
+                            $sql = "UPDATE amici SET punteggioStagionale = ? WHERE amico = ?";
+                            $stmt = $conn->prepare($sql);
+                            $stmt->bind_param("is", $punteggioStagionaleUser, $user);
+                            $stmt->execute();
+                            
+                        }else{
+                            echo "Punteggio Stagionale non disponibile";
+                        }
+                        // Query SQL per cercare l'utente nella tabella "squadra" che non è già nella tabella "amici" //*AND utente NOT IN (SELECT utente FROM amici)
+                        $sql = "SELECT * FROM squadra WHERE utente LIKE ?";
                         $stmt = $conn->prepare($sql);
                         $stmt->bind_param("s", $searchTerm);
                         $stmt->execute();
@@ -229,13 +271,30 @@ session_start(); // Start the session at the beginning of your file
                         // Se l'utente esiste
                         if ($result->num_rows > 0) {
                             while($row = $result->fetch_assoc()) {
-                                // Inserisci l'utente nella tabella "amici"
-                                $sql = "INSERT INTO amici (utente, punteggioTotale) VALUES (?, ?)";
-                                $stmt = $conn->prepare($sql);
-                                $stmt->bind_param("si", $row["utente"], $row["punteggioTotale"]);
-                                $stmt->execute();
-
-                                echo "User: " . $row["utente"]. " added to friends.<br>";
+                                if($user != $row["utente"]) {
+                                     // Controlla se l'utente esiste già nella tabella "amici"
+                                    $check_sql = "SELECT * FROM amici WHERE utente = ? AND amico = ?";
+                                    $check_stmt = $conn->prepare($check_sql);
+                                    $check_stmt->bind_param("ss", $user, $row["utente"]);
+                                    $check_stmt->execute();
+                                    $check_result = $check_stmt->get_result();
+                                    if ($check_result->num_rows == 0) {
+                                        // Inserisci l'utente nella tabella "amici"
+                                        $sql = "INSERT INTO amici (utente, amico, punteggioTotale, punteggioStagionale) VALUES (?, ?, ?, ?)";
+                                        $stmt = $conn->prepare($sql);
+                                        $stmt->bind_param("ssii", $user , $row["utente"], $row["punteggioTotale"], $punteggioStagionale);
+                                        $stmt->execute();
+                                        echo "User: " . $row["utente"]. " added to friends.<br>";
+                                    } else {
+                                        echo "User: " . $row["utente"]. " already exists in friends.<br>";
+                                    }
+                                }
+                                else{
+                                    echo "<script>
+                                        document.getElementById('popup-text').textContent = 'Ti sei cercato a te stesso, perché?';
+                                        document.getElementById('popup').style.display = 'block';
+                                    </script>";
+                                }
                             }
                         } else {
                             echo "<script>
@@ -243,10 +302,13 @@ session_start(); // Start the session at the beginning of your file
                                     document.getElementById('popup').style.display = 'block';
                                 </script>";
                         }
-                    }
+                        
+
+                    }   
 
                     // Query SQL per ottenere tutti gli utenti da "amici" ordinati per punteggio
-                    $sql = "SELECT * FROM amici ORDER BY punteggioTotale DESC";
+                    $user = $conn->real_escape_string($user); // Proteggi contro SQL Injection
+                    $sql = "SELECT * FROM amici WHERE utente = '$user' ORDER BY punteggioStagionale DESC";
                     $result = $conn->query($sql);
 
                     echo '<div class="mt-4">
@@ -278,13 +340,19 @@ session_start(); // Start the session at the beginning of your file
                                             <th>Score</th>
 
                                         </tr>';
+                                        
                                         while($row = $result->fetch_assoc()) {
-                                            echo "<tr><td class='username'>" . $row["utente"]. "</td><td>" . $row["punteggioTotale"]. "</td><td>
-                                            <form class='button-rm' action='remove_friend.php' method='post'>
-                                                <input type='hidden' name='utente' value='".$row["utente"]."'>
-                                                <input type='submit' value='Remove'>
-                                            </form>
-                                            </td></tr>";
+                                            if($row["amico"] == $user){
+                                                echo '<tr><td class="username">' . $user . '</td><td> '. $punteggioTotale. '</td><td> '. $punteggioStagionaleUser .'</td>
+                                                </tr>';
+                                            }else{
+                                                echo "<tr><td class='username'>" . $row["amico"]. "</td><td>" . $row["punteggioTotale"]. "</td><td>" . $row["punteggioStagionale"]. "</td><td>
+                                                <form class='button-rm' action='remove_friend.php' method='post'>
+                                                    <input type='hidden' name='utente' value='".$row["amico"]."'>
+                                                    <input type='submit' value='Remove'>
+                                                </form>
+                                                </td></tr>";
+                                            }
                                         }
         echo '                          </table>
                                     </div>
@@ -327,7 +395,69 @@ session_start(); // Start the session at the beginning of your file
             printf("Error: %s\n", $conn->error);
         }
         else{
+            echo '<div class="mt-4">
+                        <div class="grid-container">
+                            <div class="grid-container-profilo">
+                                <div class="immagine_profilo">
+                                    <img src="'. $_SESSION['profile_image'] .'" alt="immagine non presente"> 
+                                    
+                                    <form id="uploadForm" action="/login/upload.php" method="post" enctype="multipart/form-data">
+                                        <input id="fileInput" class="button1" type="file" name="profilePicture" accept="image/*" style="display: none;">
+                                        <button class="button1" id="uploadButton" type="button">Cambia immagine</button>
+                                    </form>
+                                </div>
+                                <div>
+                                    <div class="info-1"> '. $_SESSION['username'] .' <br> </div>
+                                    <div class="info-2"> '. $_SESSION['email'] .' <br> </div>
+                                    <div class="info-2">                                         
+                                        <form method="post">
+                                            <label for="search">Cerca amici:</label><br><br>
+                                            <input type="text" id="search" name="search"><br><br>
+                                            <input type="submit" value="Submit">
+                                        </form> 
+                                        <br> 
+                                    </div>
+                                    <div> 
+                                        <table>
+                                        <tr>
+                                            <th>User</th>
+                                            <th>Score</th>
 
+                                        </tr>';
+                                        
+                                        while($row = $result->fetch_assoc()) {
+                                            if($row["amico"] == $user){
+                                                echo '<tr><td class="username">' . $user . '</td><td> '. $punteggioTotale. '</td><td> '. $punteggioStagionaleUser .'</td>
+                                                </tr>';
+                                            }else{
+                                                echo "<tr><td class='username'>" . $row["amico"]. "</td><td>" . $row["punteggioTotale"]. "</td><td>" . $row["punteggioStagionale"]. "</td><td>
+                                                <form class='button-rm' action='remove_friend.php' method='post'>
+                                                    <input type='hidden' name='utente' value='".$row["amico"]."'>
+                                                    <input type='submit' value='Remove'>
+                                                </form>
+                                                </td></tr>";
+                                            }
+                                        }
+        echo '                          </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="grid-container-squad">
+                                <div class="grid-container-squad-interno">
+                                    <div class="grid-container-piloti">
+                                        <div class="info"> NESSUN PILOTA SCELTO</div>
+                                        <div class="info"> NESSUN PILOTA SCELTO</div>
+                                    </div>
+                                    <div class="grid-container-scuderie">
+                                        <div class="info">NESSUNA SCUDERIA SCELTA</div>
+                                    </div>
+                                </div>
+                                <div class="grid-container-punti">
+                                    <div class="info"> NONHAI FATTO ANCORALA TUA SQUADRA</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>';
         }
         // Chiudi la connessione
         $conn->close();
@@ -357,16 +487,73 @@ session_start(); // Start the session at the beginning of your file
             </div>
         </footer>
         
-        <!-- Jquery-->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+        
 
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/flickity/3.0.0/flickity.pkgd.min.js" integrity="sha512-achKCfKcYJg0u0J7UDJZbtrffUwtTLQMFSn28bDJ1Xl9DWkl/6VDT3LMfVTo09V51hmnjrrOTbtg4rEgg0QArA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script>
+            var countdownElement = document.getElementById('countdown');   
+            var targetDate;         
+            //alert("CAzzo");
+            // Funzione per ottenere la prossima gara dal database
+            function getNextRace() {
+                var xhr = new XMLHttpRequest();
+                xhr.open("GET", "getNextRace.php", false); // Imposta il terzo parametro su false per rendere la chiamata sincrona
+                xhr.send();
 
-        <script src="hamburger.js"></script>
+                if (xhr.status == 200) {
+                    targetDate = xhr.responseText;
+                    //console.log("1 "+targetDate);
+                }
+            }
+            // Imposta la data di destinazione
+            getNextRace();
+            
+             // Ottieni la prossima gara all'inizio
+            //console.log("Questo è un messaggio di test 1");
+            //console.log("2 "+targetDate);    
+            var countdownId = setInterval(function() {
+                var now = new Date().getTime();
+                var targetDateTimestamp = new Date(targetDate).getTime();
+                var timeLeft = targetDateTimestamp - now;
+                //console.log("3 "+timeLeft); 
+                var days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+                var hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                var minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+                var seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
 
-        <script src="timer.js"></script>
+                countdownElement.textContent = days + " : " + hours + " : " + minutes + " : " + seconds;
+                //alert("Now: " + now + "Tempo Rimanente: " + timeLeft);
+                
+                if (timeLeft < 0) {
+                    
+                    // Controlla se sono passati tre giorni dalla gara
+                    var threeDaysAfter = new Date(targetDate);
+                    threeDaysAfter.setDate(threeDaysAfter.getDate() + 3);
+                    console.log("Now: " + now + "Tempo Rimanente: " + timeLeft + "Tre giorni rimanenti: "+ threeDaysAfter);
+                    if (now >= threeDaysAfter) {
+                        var xhr = new XMLHttpRequest();
+                        xhr.open("GET", "deletePrevGara.php", true);
+                        xhr.send();
+                        xhr.onreadystatechange = function() {
+                            if (this.readyState == 4 && this.status == 200) {
+                                getNextRace(); // Ottieni la prossima gara
+                            }
+                        };
+                    } else {
+                        countdownElement.textContent = "La gara è iniziata!";
+                    }
+                }
+            }, 1000);
+            
+        </script>
+            <!-- Jquery-->
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/flickity/3.0.0/flickity.pkgd.min.js" integrity="sha512-achKCfKcYJg0u0J7UDJZbtrffUwtTLQMFSn28bDJ1Xl9DWkl/6VDT3LMfVTo09V51hmnjrrOTbtg4rEgg0QArA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/flickity/3.0.0/flickity.pkgd.min.js" integrity="sha512-achKCfKcYJg0u0J7UDJZbtrffUwtTLQMFSn28bDJ1Xl9DWkl/6VDT3LMfVTo09V51hmnjrrOTbtg4rEgg0QArA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+            <script src="hamburger.js"></script>
+
+
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/flickity/3.0.0/flickity.pkgd.min.js" integrity="sha512-achKCfKcYJg0u0J7UDJZbtrffUwtTLQMFSn28bDJ1Xl9DWkl/6VDT3LMfVTo09V51hmnjrrOTbtg4rEgg0QArA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     </body>
 </php>
 

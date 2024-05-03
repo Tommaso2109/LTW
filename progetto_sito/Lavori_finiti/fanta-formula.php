@@ -622,7 +622,6 @@ if(!isset($_SESSION['username'])) {
             if (!scuderia || !pilota1 || !pilota2) {
                 var popup = document.getElementById('popup');
                 var popupText = document.getElementById('popup-text');
-                alert('Scuderia: ' + scuderia + '\nPilota 1: ' + pilota1 + '\nPilota 2: ' + pilota2);
                 popupText.textContent = 'Per favore, completa tutti i campi.';
                 popup.style.display = 'block';
                 return;
@@ -630,7 +629,6 @@ if(!isset($_SESSION['username'])) {
             else if (counters.scuderie != 1 || counters.piloti != 2) {
                 var popup = document.getElementById('popup');
                 var popupText = document.getElementById('popup-text');
-                alert('Scuderia: ' + counters.scuderie + '\nPiloti: ' + counters.piloti );
                 popupText.textContent = 'Per favore, completa tutti i campi.';
                 popup.style.display = 'block';
                 return;
@@ -683,7 +681,7 @@ if(!isset($_SESSION['username'])) {
         });
 
         //NON CAMBIARE ^
-
+        /*
         function saveTeam(scuderia, pilota1, pilota2) {
             $.ajax({
                 type: "POST",
@@ -706,7 +704,7 @@ if(!isset($_SESSION['username'])) {
                     // Gestisci gli errori di rete o di server qui
                 }
             });
-        }
+        }*/
     </script>
 </html>
 

@@ -11,7 +11,7 @@ if ($conn->connect_error) {
 $friend_user = $_POST['utente'];
 
 // Query SQL per rimuovere l'amico
-$sql = "DELETE FROM amici WHERE utente = ?";
+$sql = "DELETE FROM amici WHERE amico = ?";
 
 // Preparazione ed esecuzione della query
 $stmt = $conn->prepare($sql);

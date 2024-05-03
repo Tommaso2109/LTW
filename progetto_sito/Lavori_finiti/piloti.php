@@ -126,20 +126,42 @@ session_start(); // Start the session at the beginning of your file
                 </div>
         </div>
     </div>
+    
+    <div class="grid-container-phone">
+            <div class="container box"><a href="verstappen.php"><img src="media/versatppen.avif" alt=""></a> <label>Verstappen </label></div>
+            <div class="container box"><label>Perez</label> <a href="perez.php"><img src="media/perez.avif" alt=""></a></div>
+            <div class="container box"><a href="Hamilton.php"><img src="media/hamilton.avif" alt=""></a> <label>Hamilton </label></div>
+            <div class="container box"><label>Russell</label> <a href="Russel.php"><img src="media/russel.avif" alt=""></a></div>
+            <div class="container box"><a href="Leclerc.php"><img src="media/leclerc.avif" alt=""></a> <label>Leclerc </label></div>
+            <div class="container box"><label>Sainz</label> <a href="sainz.php"><img src="media/sainz.avif" alt=""></a></div>
+            <div class="container box"><a href="Norris.php"><img src="media/Norris.avif" alt=""></a> <label>Norris</label></div>
+            <div class="container box"><label>Piastri</label> <a href="piastri.php"><img src="media/Piastri.avif" alt=""></a></div>
+            <div class="container box"><a href="Alonso.php"><img src="media/alonso.avif" alt=""></a> <label>Alonso </label></div>
+            <div class="container box"><label>Stroll</label> <a href="Stroll.php"><img src="media/stroll.avif" alt=""></a></div>
+            <div class="container box"><a href="Gasly.php"><img src="media/gasly.avif" alt=""></a> <label>Gasly </label></div>
+            <div class="container box"><label>Ocon</label> <a href="Ocon.php"><img src="media/ocon.avif" alt=""></a></div>
+            <div class="container box"><a href="Albon.php"><img src="media/albon.avif" alt=""></a> <label>Albon </label></div>
+            <div class="container box"><label>Sargeant</label> <a href="Sargeant.php"><img src="media/sargent.avif" alt=""></a></div>
+            <div class="container box"><a href="Tsunoda.php"><img src="media/tunoda.avif" alt=""></a> <label>Tsunoda </label></div>
+            <div class="container box"><label>Ricciardo</label> <a href="Ricciardo.php"><img src="media/riccardo.avif" alt=""></a></div>
+            <div class="container box"><a href="bottas.php"><img src="media/bottas.avif" alt=""></a> <label>Bottas </label></div>
+            <div class="container box"><label>Zhou</label> <a href="Zhou.php"><img src="media/zhou.avif" alt=""></a></div>
+            <div class="container box"><a href="Hulkenberg.php"><img src="media/hulkenberg.avif" alt=""></a> <label>Hulkenberg </label></div>
+            <div class="container box"><label>Magnussen</label> <a href="magnussen.php"><img src="media/magnussen.avif" alt=""></a></div>  
+        </div>
+
+
+    <footer class="footer mt-1">        
+        <div class="col">
+            <h3 class="medium-text">Contatti </h3>
+            <p class="normal-text">e-mail: <br/> Fantaformula@gmail.com</p>
+            <p class="normal-text">telefono: <br/> +39 3383477124</p>
+        </div>
+    </footer>
+    
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flickity/3.0.0/flickity.pkgd.min.js" integrity="sha512-achKCfKcYJg0u0J7UDJZbtrffUwtTLQMFSn28bDJ1Xl9DWkl/6VDT3LMfVTo09V51hmnjrrOTbtg4rEgg0QArA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </body>
-</html>
-
-        <footer class="footer mt-1">        
-            <div class="col">
-                <h3 class="medium-text">Contatti </h3>
-                <p class="normal-text">e-mail: <br/> Fantaformula@gmail.com</p>
-                <p class="normal-text">telefono: <br/> +39 3383477124</p>
-            </div>
-        </footer>
-        
-
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/flickity/3.0.0/flickity.pkgd.min.js" integrity="sha512-achKCfKcYJg0u0J7UDJZbtrffUwtTLQMFSn28bDJ1Xl9DWkl/6VDT3LMfVTo09V51hmnjrrOTbtg4rEgg0QArA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    </body>
 </html>
 
 

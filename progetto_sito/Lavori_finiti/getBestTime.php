@@ -1,6 +1,7 @@
 <?php
 session_start();
 if (isset($_SESSION['username'])) {
+
     // Connessione al database
     $conn = new mysqli('localhost', 'root', '', 'statistiche');
 
@@ -37,5 +38,6 @@ if (isset($_SESSION['username'])) {
     }
     
     $conn->close();
+
 }
 ?>

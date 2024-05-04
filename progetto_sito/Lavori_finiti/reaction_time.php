@@ -100,23 +100,19 @@ if (!is_numeric($_SESSION['bestTime'])) {
 
 <script>
 var bestTime = "<?php echo $bestTime; ?>";
-
-function timeStringToMilliseconds(timeString) {
-    var parts = timeString.split('.');
-    var milliseconds = 0;
-    if (parts.length === 2) {
-        milliseconds += parseInt(parts[0]) * 1000;   // seconds
-        milliseconds += parseInt(parts[1]);          // milliseconds
-    }
-    return milliseconds;
-}
+console.log("Prima del parsing Best Time: "+ bestTime);
 
 const lights = Array.prototype.slice.call(document.querySelectorAll('.light-strip'));
 const time = document.querySelector('.time');
 const best = document.querySelector('.best span');
 
-bestTime = timeStringToMilliseconds(bestTime);
-console.log("Best Time: "+ bestTime);
+function unformatTime(timeStr) {
+  let time = parseFloat(timeStr);
+  return Math.round(time * 1000);
+}
+bestTime = unformatTime(bestTime);
+console.log("Dopo del parsing Best Time: "+ bestTime);
+
 let started = false;
 let lightsOutTime = 0;
 let raf;
@@ -133,8 +129,6 @@ function formatTime(time) {
   }
   return outputTime;
 }
-
-
 
 function start() {
   for (const light of lights) {
@@ -188,6 +182,7 @@ function end(timeStamp) {
     
       const thisTime = timeStamp - lightsOutTime;
       time.textContent = formatTime(thisTime);
+      console.log("Tempo ottenuto: "+thisTime)
       
       if (thisTime < bestTime) {
         console.log("Best Time: "+ bestTime + ">" + "Your time: "+ thisTime);
@@ -201,7 +196,7 @@ function end(timeStamp) {
           headers: {
             'Content-Type': 'application/x-www-form-urlencoded',
           },
-          body: 'bestTime=' + encodeURIComponent(bestTime),
+          body: 'bestTime=' + encodeURIComponent(formatTime(bestTime)),
         })
         .then(response => response.text())
         .then(data => {

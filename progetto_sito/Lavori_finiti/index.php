@@ -161,7 +161,7 @@ if (isset($_SESSION['username'])) {
         
             <div class="grid mt-2">
                 <div class="col">
-                    <h3 class="big-text" style="color:#FFFFFF; margin-top:1100px"><b> Piloti </b> </h3>
+                    <h3 class="big-text" style="color:#FFFFFF; margin-top:650px"><b> Piloti </b> </h3>
                 </div>
             </div>
 
@@ -393,17 +393,64 @@ if (isset($_SESSION['username'])) {
             </div>
 
             <div class="banner 1">
-                <div class="app-text">
+                <div class="app-text" style="margin-top:50px">
                     <h1>Leclerc vs Verstappen</h1>
                     <p>Una rivalita che va avanti dagli anni del karting, dove i due si odiavano secondo Leclerc. <br>
                     Dalle polemiche dopo il GP d’Austria del 2019 alle sfide della prima parte del 2022, Charles e Max hanno avuto modo di sfidarsi più e più volte dimostrando sempre molta lealtà.
                     </p>
                 </div> 
                 <div class="app_picture">
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/2fKBg5Wem5M" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <video controls>
+                        <source src="media/LeclercVSVerstappen.mp4" type="video/mp4">
+                    </video>                
                 </div>
             </div>
-            
+
+            <div class="banner mt-3">
+                <div class="app-text" style="margin-top:65px;margin-left:1px">
+                    <h1>Schumacher incotra un piccolo Max Verstappen</h1>
+                    <p>Una storica foto del 7 volte campione del mondo con un babino che oggi conosciamo come Max Verstappen, 3 volte campione del mondo
+                        e pronto ad aumentare il suo record.
+                    </p>
+                </div> 
+                <div class="app_picture" >
+                    <img src="media/BabyMaxSchumacher.png">                
+                </div>
+            </div>
+            <div class="banner mt-3">
+                <div class="app-text" style="margin-top:95px;margin-left:1px">
+                    <h1>Monaco</h1>
+                    <p> Il circuito di Monaco è il meno sicuro su cui correre, 
+                        ma per i piloti ne vale la pena rischiare una volta l’anno. Una vittoria qui fa storia. «È un 
+                        circuito molto sfidante dal punto di vista personale perché mette in mostra le qualità 
+                        di coraggio e guida del pilota. A Monte Carlo ogni minimo errore si paga, perché i muri 
+                        sono molto vicini e la pista è estremamente tecnica. Credo piaccia molto ai piloti, 
+                        perché si confrontano con i propri limiti» disse Schumacher.
+                    </p>
+                </div> 
+                <div class="app_picture" >
+                    <video autoplay muted loop height="700">
+                        <source src="media/celebrationMonaco.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+            <div class="banner mt-3">
+                <div class="app-text" style="margin-top:95px;margin-left:1px">
+                    <h1>Mad Max</h1>
+                    <p> 
+                        Prima che Max Verstappen dominasse la Formula 1, Max era famoso per attacchi pericolosi 
+                        e difese che mettevano in pericolo le macchine e piloti avversari. Trovandosi spesso 
+                        in mezzo a numerose polemiche con altri membri dello sport, che siano piloti o direttori esecutivi
+                        di altre squadre. Dal 2022 questa narrativa non si è realmente ripetuta, ma questo può dipendere 
+                        dal fatto che Verstappen non viene realmente sfidato come prima.
+                    </p>
+                </div> 
+                <div class="app_picture" >
+                    <video height="700" controls>
+                        <source src="media/madMax.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
             <div class="clearfix"></div>
         
             <footer class="footer mt-0">        

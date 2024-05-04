@@ -116,7 +116,7 @@ const time = document.querySelector('.time');
 const best = document.querySelector('.best span');
 
 bestTime = timeStringToMilliseconds(bestTime);
-alert("Best Time: "+ bestTime);
+console.log("Best Time: "+ bestTime);
 let started = false;
 let lightsOutTime = 0;
 let raf;
@@ -190,7 +190,7 @@ function end(timeStamp) {
       time.textContent = formatTime(thisTime);
       
       if (thisTime < bestTime) {
-        alert("Best Time: "+ bestTime + ">" + "Your time: "+ thisTime);
+        console.log("Best Time: "+ bestTime + ">" + "Your time: "+ thisTime);
         bestTime = thisTime.toString();
         best.textContent = time.textContent;
         localStorage.setItem('best', bestTime);

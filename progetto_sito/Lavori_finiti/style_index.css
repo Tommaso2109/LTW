@@ -351,16 +351,20 @@ body::-webkit-scrollbar{
 }
 
 .banner{
+    display: flex;
     width:80%;
     height:70%;
     /*top:25%;*/
     left:130px;
     position:relative;
     color:#FFFFFF;
+    
 }
+
 .app-text{
     width:50%;
     float:left;
+   
 }
 .app-text h1{
     font-size: 60px;
@@ -391,6 +395,10 @@ body::-webkit-scrollbar{
     margin-left: 160px;
 }
 .app_picture iframe{
+    width:100%;
+    margin-left: 160px;
+}
+.app_picture video{
     width:100%;
     margin-left: 160px;
 }

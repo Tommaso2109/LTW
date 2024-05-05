@@ -172,7 +172,7 @@ session_start(); // Start the session at the beginning of your file
         </main>
     </div>
 
-    <div class="hero-telefono" style=" background-image: url('media/albon_phone.jpg');">
+    <div class="hero-telefono" style=" background-image: url('media/tsunoda_phone.avif');">
         <div class="hero-telefono__content">
             <h1 class = "medium-text"> YUKI TSUNODA</h1>
         </div>

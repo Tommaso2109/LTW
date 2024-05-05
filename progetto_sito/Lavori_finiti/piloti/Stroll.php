@@ -171,6 +171,54 @@ session_start(); // Start the session at the beginning of your file
             </nav>
         </main>
     </div>
+
+    <div class="hero-telefono" style=" background-image: url('media/stroll_phone.webp');">
+        <div class="hero-telefono__content">
+            <h1 class = "medium-text"> LANCE STROLL</h1>
+        </div>
+    </div>
+  
+    <div class="telefono">
+        <h2 class="title">Carriera</h2>
+        <p class="description">
+            Stroll ha iniziato la sua carriera nel karting, ottenendo numerosi 
+            successi giovanili, tra cui quattro titoli nella Florida Winter Tour 
+            e vari campionati canadesi. Nel 2011, ha debuttato nel campionato italiano 
+            di kart e ha continuato a competere con successo nei campionati europei e 
+            mondiali di karting. Nel 2014, si è trasferito alla Formula 4, vincendo il 
+            titolo con la Ferrari Driver Academy. Successivamente, ha gareggiato nella 
+            Formula Toyota e nel Campionato europeo di Formula 3.<br>
+            Nel 2016, Stroll è diventato collaudatore per il team Williams di Formula 1 
+            e ha debuttato come pilota titolare nel 2017. Ha poi corso per la Racing Point 
+            (ex Force India) dal 2019, ottenendo il suo primo podio a Baku nello stesso anno.<br>
+            Nel 2020 ha continuato a ottenere successi, conquistando due terzi posti e una 
+            pole position. All'inizio del 2021, il team Racing Point è stato rinominato 
+            Aston Martin, con Stroll confermato come pilota insieme a Sebastian Vettel.
+            Dal 2023 il suo nuovo compagno è diventato Fernando Alonso.
+        </p>
+        <h2 class="title">Statistiche</h2>
+        <p class="description">
+            Stroll non è il pilota piu amato in F1, ci sono vari motivi per 
+            questa situazione. Prima le statistiche, in 8 stagioni nella competizione
+            ha ottenuto solo 3 podi e 1 pole position, infatti a una media si soli
+            1.7 punti per gara. Che per i fan è ovviamente non abbastanza.
+            Un'altro motivo potrebbe essere che viene da una famiglia molto benestante
+            ed ha una vita molto costosa, senza mostrare la dedicazione che molti altri dimostrano.
+            L'ultimo podio fu conseguito nel 2020.
+        </p>
+
+        <h2 class="title">Biografia</h2>
+        <p class="description">
+            Lance Stroll, nato il 29 ottobre 1998 a Montréal, è attualmente pilota 
+            ufficiale della casa britannica Aston Martin in Formula 1. Cresciuto in 
+            una famiglia agiata, con un padre imprenditore e una madre stilista, Stroll 
+            ha mostrato fin da giovane un talento nel mondo delle corse.<br>
+            Sin dai suoi 
+            primi anni di carriera, è stato considerato uno dei piloti più promettenti 
+            della sua generazione, nonostante le critiche riguardo ai vantaggi economici 
+            che ha avuto nel suo percorso.
+        </p>
+    </div>
   
     <script
     type="module"

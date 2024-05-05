@@ -439,34 +439,56 @@ body::-webkit-scrollbar{
 @media(max-width:900px){
     .grid-container{
         display: grid;
-        grid-template-columns: repeat(1, 1fr);
+        grid-template-columns:1fr;
         grid-template-rows: auto;
-        gap: 10;
-        min-height: 100vh;
+        min-height: 80vh;
         width: 100vw;
         margin-bottom: 20px;
-        margin-left: 90px;
+        margin-left: -30px;
     }
     
     .main:hover .container .title,
     .main:hover .container .button_grid ,
     .main:hover .container .desc{
-        left:150%;
+        left:100%;
     }
 
     .main .container .title,
     .main .container .button_grid,
     .main .container .desc {
         transition: none;
-        left: 150%;
+        left: 100%;
         width: 100%;
     }
     .main::before,
     .main::after,
     .main:hover::before {
         display: none;
-      }
+    }
+
+    .container{
+        min-width: 300%;
+        margin-left: -200%;
+    }
     
+    .desc{
+        min-width: 100%;
+        margin-left: 15px;
+    }
+
+    .title{
+        margin-left: 15px;
+    }
+
+    .box{
+        height: 5%;
+    }
+
+    .box img{
+        width: 60%;
+        height: auto;
+        margin-left: -10px;
+    }
 }
 
 /*footer*/

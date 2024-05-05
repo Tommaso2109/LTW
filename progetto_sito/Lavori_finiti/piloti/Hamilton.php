@@ -172,7 +172,7 @@ session_start(); // Start the session at the beginning of your file
         </main>
     </div>
   
-    <div class="hero-telefono" style=" background-image: url('media/albon_phone.jpg');">
+    <div class="hero-telefono" style=" background-image: url('media/hamilton_phone.jpg');">
         <div class="hero-telefono__content">
             <h1 class = "medium-text">LEWIS HAMILTON</h1>
         </div>

@@ -471,8 +471,10 @@ body::-webkit-scrollbar{
 .poster{
     display: flex;
     height: 100%;
-    width: 100%;
+    width: 80%;
     align-items:center;
+    margin-left: 10%;
+    margin-right: 10%;
 }
 
 .poster__img{
@@ -482,16 +484,29 @@ body::-webkit-scrollbar{
 
 .poster__img img{
     object-fit: cover; 
-    width: 100%;height: 100%;;
+    width: 100%;height: 100%;
+    margin-left: 25px;
+    
+}
+
+.poster__img video{
+    width:80%;
+    margin-left: 160px;
 }
 
 .poster__content{
     width: 35%;
     padding: 50px;
+    text-align: center;
+    font-size: 25px;
+    font-style: italic;
+    color: #bcbaba;
 
 }
-.poster a{
-    width: 81px;
+.poster a {
+    display: block; /* Aggiungi questa linea */
+    width: 100%;
+    text-align: center; /* Aggiungi questa linea */
 }
 
 .poster a:hover{
@@ -513,17 +528,32 @@ body::-webkit-scrollbar{
     }
     .poster__content{
         width: 100%;
+        text-align: left;
+        font-size: 20px;
+    }
+
+    .poster__img img{
+        object-fit: cover; 
+        width: 130%;height: 130%;
+        margin-left: -15%;
+    }
+
+    .poster__img video {
+        width: 100%; /* Aggiungi questa linea */
+        height: 100%; /* Aggiungi questa linea */
+        object-fit: contain; /* Aggiungi questa linea */
+        margin-left: 0;
     }
 
 }
 
-.poster2__telefono {display: none;}
-
 .poster2{
     display: flex;
-    height: 100vh;
-    width: 100%;
+    height: 100%;
+    width: 80%;
     align-items:center;
+    margin-left: 10%;
+    margin-right: 10%;
 }
 
 .poster2__img{
@@ -533,68 +563,110 @@ body::-webkit-scrollbar{
 
 .poster2__img img{
     object-fit: cover; 
-    width: 100%;height: 100%;
+    width: 100%;height: 100%;;
+    
 }
 
 .poster2__content{
     width: 35%;
     padding: 50px;
+    text-align: center;
+    font-size: 25px;
+    font-style: italic;
+    color: #bcbaba;
 
 }
-
-.poster2__content a{
-    width: 81px;
+.poster2 a {
+    display: block; /* Aggiungi questa linea */
+    width: 100%;
+    text-align: center; /* Aggiungi questa linea */
 }
 
-.poster2__content a:hover{
+.poster2 a:hover{
     background-color:red;
     color: #FFFFFF;
     text-decoration: none;
 }
 
+.poster__telefono{
+    display: none;
+}
+
+.poster__telefono{
+    display: flex;
+    height: 100%;
+    width: 80%;
+    align-items:center;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.poster__telefono__img{
+    width: 65%;
+    height: 100%;
+}
+
+.poster__telefono__img img{
+    object-fit: cover; 
+    width: 100%;height: 100%;
+    margin-left: 25px;
+    
+}
+
+.poster__telefono__img video{
+    width:80%;
+    margin-left: 160px;
+}
+
+.poster__telefono__content{
+    width: 35%;
+    padding: 50px;
+    text-align: center;
+    font-size: 25px;
+    font-style: italic;
+    color: #bcbaba;
+
+}
+.poster__telefono a {
+    display: block; /* Aggiungi questa linea */
+    width: 100%;
+    text-align: center; /* Aggiungi questa linea */
+}
+
+.poster__telefono a:hover{
+    background-color:red;
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+.poster__telefono{display: none;}
+
 @media(max-width:900px){
-    .poster2 {display: none;}
-
-    .poster2__telefono{
-        
-        display: flex;
-        height: 100vh;
-        width: 100%;
-        align-items:center;
-    }
-    
-    .poster2__telefono__img img{
-        object-fit: cover; 
-        width: 100%;
-        height: 100%;
-    }
-
-    .poster2__telefono__content{
-        width: 100%;
-        padding: 50px;
-    
-    }
-    
-
-    .poster2__telefono{
+    .poster2{display: none;}
+    .poster__telefono{
         flex-wrap: wrap;
         height: auto;
+        display:flex;
+        
     }
 
-    .poster2__telefono__img{
+    .poster__telefono__img{
         width: 90%;
-        margin-left: 5%;
+        margin-left:5%;
     }
-    .poster2_telefono__content{
-        width: 100%;    
+    .poster__telefono__content{
+        width: 100%;
+        text-align: left;
+        font-size: 20px;
     }
-    
-    .poster2__telefono__content a{
-        width: 81px;
+
+    .poster__telefono__img img{
+        object-fit: cover; 
+        width: 130%;height: 130%;
+        margin-left: -15%;
     }
 
 }
-
 
 
 /*slider*/

@@ -238,6 +238,7 @@ session_start(); // Start the session at the beginning of your file
                         $stmt->bind_param("ssi", $user, $user, $punteggioTotale);
                         $stmt->execute();
                     }
+
                     //! PrevSquadra
                     $sql = "SELECT prevSquadra FROM squadra WHERE utente LIKE ?";
                     $stmt = $conn->prepare($sql);
@@ -254,7 +255,7 @@ session_start(); // Start the session at the beginning of your file
                     
                     
                     echo '<script>console.log("Prev Squadra: [' . $prevSquadra . ']");</script>';
-                    
+
                     // Verifica se il form è stato inviato
                     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                         // Prendi il termine di ricerca dall'input del form
@@ -326,9 +327,11 @@ session_start(); // Start the session at the beginning of your file
                         }
                         
 
+
                     }  
 
                    
+
 
                     // Query SQL per ottenere tutti gli utenti da "amici" ordinati per punteggio
                     $user = $conn->real_escape_string($user); // Proteggi contro SQL Injection
@@ -362,6 +365,7 @@ session_start(); // Start the session at the beginning of your file
                                         <tr>
                                             <th>User</th>
                                             <th>Score</th>
+                                            <th>total</th>
 
                                         </tr>';
                                         
@@ -486,7 +490,9 @@ session_start(); // Start the session at the beginning of your file
                                     </div>
                                 </div>
                                 <div class="grid-container-punti">
+
                                     <div class="info"> NON HAI FATTO ANCORALA TUA SQUADRA</div>
+
                                 </div>
                             </div>
                         </div>

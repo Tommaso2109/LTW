@@ -34,8 +34,10 @@ if ($result->num_rows > 0) {
         $sql = "UPDATE utenti SET punteggioStagionale = punteggioStagionale + $punteggio WHERE username = '$user'";
         $conn->query($sql);
 
-        $sql = "DELETE FROM squadra WHERE utente = '$user'";
-        $conn->query($sql);
+        $sql = "UPDATE squadra SET prevSquadra = 0 WHERE utente = ?";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("s", $user);
+        $stmt->execute();
         
     }  else {
         echo "no punteggioTotale found";

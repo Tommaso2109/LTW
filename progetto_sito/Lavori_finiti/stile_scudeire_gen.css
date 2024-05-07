@@ -6,6 +6,7 @@
 .small-text{font-size: 14px;}
 
 body{
+    background: #42455a;
     margin: 0;
     overflow-y: scroll;
     margin-top: 150px;

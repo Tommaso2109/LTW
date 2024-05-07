@@ -238,9 +238,23 @@ session_start(); // Start the session at the beginning of your file
                         $stmt->bind_param("ssi", $user, $user, $punteggioTotale);
                         $stmt->execute();
                     }
+                    //! PrevSquadra
+                    $sql = "SELECT prevSquadra FROM squadra WHERE utente LIKE ?";
+                    $stmt = $conn->prepare($sql);
+                    $stmt->bind_param("s", $user);
+                    $stmt->execute();
+                    $result = $stmt->get_result();
+                    if ($result->num_rows > 0) {
+                        $row = $result->fetch_assoc();
+                        $prevSquadra = $row["prevSquadra"];
+                        echo "Prev Squadra: " . $prevSquadra;
+                    } else {
+                        echo "No results found";
+                    }
                     
                     
-
+                    echo '<script>console.log("Prev Squadra: [' . $prevSquadra . ']");</script>';
+                    
                     // Verifica se il form è stato inviato
                     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                         // Prendi il termine di ricerca dall'input del form
@@ -268,6 +282,7 @@ session_start(); // Start the session at the beginning of your file
                         }else{
                             echo "Punteggio Stagionale non disponibile";
                         }
+
                         // Query SQL per cercare l'utente nella tabella "squadra" che non è già nella tabella "amici" //*AND utente NOT IN (SELECT utente FROM amici)
                         $sql = "SELECT * FROM squadra WHERE utente LIKE ?";
                         $stmt = $conn->prepare($sql);
@@ -311,7 +326,9 @@ session_start(); // Start the session at the beginning of your file
                         }
                         
 
-                    }   
+                    }  
+
+                   
 
                     // Query SQL per ottenere tutti gli utenti da "amici" ordinati per punteggio
                     $user = $conn->real_escape_string($user); // Proteggi contro SQL Injection
@@ -374,20 +391,29 @@ session_start(); // Start the session at the beginning of your file
                                         </div>
                                         <div class="immagine_pilota"> 
                                             <img src="media/' . $immaginePilota2 . '" alt="">
-                                        </div>
-                                        <div class="info '. ($puntiPilota1Gara > 0 ? 'positive' : 'negative') .'"> '. $puntiPilota1Gara .'</div>
-                                        <div class="info '. ($puntiPilota2Gara > 0 ? 'positive' : 'negative') .'"> '. $puntiPilota2Gara .'</div>
-                                    </div>
+                                        
+                                        </div>';
+                                        if($prevSquadra != 1) {
+                                            echo '<div class="info ' . ($puntiPilota1Gara > 0 ? 'positive' : 'negative') . '"> ' . $puntiPilota1Gara . '</div>';
+                                        }
+                                        if($prevSquadra != 1) {
+                                            echo '<div class="info ' . ($puntiPilota2Gara > 0 ? 'positive' : 'negative') . '"> ' . $puntiPilota2Gara . '</div>';
+                                        }
+                                        #<div class="info '. ($puntiPilota1Gara > 0 ? 'positive' : 'negative') .'"> '. $puntiPilota1Gara .'</div>
+                                        #<div class="info '. ($puntiPilota2Gara > 0 ? 'positive' : 'negative') .'"> '. $puntiPilota2Gara .'</div>
+                echo '              </div>
                                     <div class="grid-container-scuderie">
                                         <div class="immagine_scuderia">
                                             <img src="media/' . $immagineScuderia . '" alt="">
-                                        </div>
-                                        <div class="info">x'. $moltiplicatoreScuderiaGara .'</div>
-                                    </div>
+                                        </div>';
+                                        if($prevSquadra != 1) echo '<div class="info">x'. $moltiplicatoreScuderiaGara .'</div>';
+
+                echo'               </div>
                                 </div>
-                                <div class="grid-container-punti">
-                                    <div class="info"> Punti della Squadra: '. $puntiPilota1Gara + $puntiPilota2Gara .'</div>
-                                </div>
+                                <div class="grid-container-punti">';
+                                    if($prevSquadra != 1) echo '<div class="info"> Punti della Squadra: '. $puntiPilota1Gara + $puntiPilota2Gara .'</div>';
+                                    else  echo '<div class="info"> Punti della Squadra:<br> Aspetta la fine della gara per sapere i risultati </div>';
+                echo '          </div>
                                 <div class="timer">
                                         <p>Prossima gara fra:</p>
                                         <p id="countdown"></p>
@@ -460,7 +486,7 @@ session_start(); // Start the session at the beginning of your file
                                     </div>
                                 </div>
                                 <div class="grid-container-punti">
-                                    <div class="info"> NONHAI FATTO ANCORALA TUA SQUADRA</div>
+                                    <div class="info"> NON HAI FATTO ANCORALA TUA SQUADRA</div>
                                 </div>
                             </div>
                         </div>

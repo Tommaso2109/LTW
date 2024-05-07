@@ -338,10 +338,11 @@ body::-webkit-scrollbar{
 
 .grid-container {
     display: grid;
-    grid-template-columns: 20% 80%;
+    grid-template-columns: 25% 75%;
     text-align: center;
     margin-left: 1%;
     margin-right: 1%;
+    height: auto;
 }
 
 .grid-container-profilo {
@@ -364,15 +365,15 @@ body::-webkit-scrollbar{
 
 .grid-container-piloti{
     display: grid;
-    grid-template-rows: 50% 50%;
-    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 70% 10%;
+    grid-template-columns: 50% 50%;
     border: 2px solid gray;
     
 }
 
 .grid-container-scuderie{
     display: grid;
-    grid-template-rows: 1fr 1fr;
+    grid-template-rows: 70% 10%;
     grid-template-columns: 1fr;
     border: 2px solid gray;
     
@@ -380,8 +381,8 @@ body::-webkit-scrollbar{
 
 .grid-container-punti{
     display: grid;
-    grid-template-rows: 1fr;
-    grid-template-columns: 1fr;
+    grid-template-rows: 100%;
+    grid-template-columns: 100%;
     border: 2px solid gray;
     
 }
@@ -391,13 +392,13 @@ body::-webkit-scrollbar{
     height: 80%;
     margin-left: 10%;
     margin-top: 5%;
-    object-fit: cover;
 }
 
 .grid-container-profilo img {
     width: 100%;
     height: 100%;
     object-fit: contain;
+    aspect-ratio: 1/1;
 }
 
 
@@ -456,7 +457,7 @@ body::-webkit-scrollbar{
 #countdown{
     color: rgb(255, 255, 255);
     font-family: 'MyCustomFont', sans-serif;
-    font-size: 150px;
+    font-size: 120px;
     
     
 }
@@ -476,7 +477,7 @@ body::-webkit-scrollbar{
 .info-2{
     font-size: 25px;
     color: white;
-    margin-top: 90px;
+    margin-top: 50px;
     
 }
 
@@ -494,28 +495,31 @@ body::-webkit-scrollbar{
 }
 
 table{
-    margin-left: 5%;
+    width: 98%;
+    height: 50%;
+    table-layout: fixed;
+    margin-left: 1%;
     border-collapse: separate;
     border-spacing: 0 15px;
 }
 table td {
     border: 1px solid #ccc;
-    padding: 10px;
+    padding: 5px;
 }
 
 table th{
     font-style: italic;
-    font-size: 30px;
-    padding-top: 10px;
+    font-size: 25px;
     border: 1px solid #ccc;
-    padding: 10px;
+    padding: 5px 15px;
 }
 
 table tr {
     background-color: #353535;
-    font-size: 25px;
+    font-size: 17px;
     color: white;
     text-align: center;
+    line-height: 1.2;
 }
 
 .button-rm{
@@ -555,7 +559,7 @@ table tr {
     }
 
     .grid-container-punti{
-        margin-top: 20px;
+        margin-top: 25px;
         display: grid;
         grid-template-rows: 1fr;
         grid-template-columns: 1fr;

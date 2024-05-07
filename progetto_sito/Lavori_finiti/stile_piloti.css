@@ -9,6 +9,7 @@
 body{
     margin: 0;
     overflow-y: scroll;
+    background: #42455a;
 }
 
 body::-webkit-scrollbar{
@@ -165,6 +166,7 @@ body::-webkit-scrollbar{
     border-radius: 100%;
 }
 
+
 .menu li a img{
     display: none;
 }
@@ -200,6 +202,7 @@ body::-webkit-scrollbar{
 
     }
 }
+
 
 /*contet*/
 .center{
@@ -371,7 +374,6 @@ body::-webkit-scrollbar{
         0 -2px black;
 }
 .grid-container-phone{display: none;}
-
 
 @media screen and (max-width: 900px) {
     .grid-container {

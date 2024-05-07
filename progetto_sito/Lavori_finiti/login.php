@@ -29,7 +29,7 @@
     if ($result->num_rows > 0) {
         // User exists and password is correct, handle this case
         $_SESSION['username'] = $user;
-        echo json_encode(["success" => "Login successful!"]);
+        echo json_encode(["success" => "Login successfull!"]);
     } else {
         // User does not exist or password is incorrect, handle this case
         echo json_encode(["error" => "Questo user non è iscritto, Registrati! Oppure la password è errata."]);

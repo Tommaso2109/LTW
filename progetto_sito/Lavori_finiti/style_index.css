@@ -355,16 +355,126 @@ body::-webkit-scrollbar{
     
 }
 
+.container{
+    width:100%;
+    height:100%;
+    background: #42455a;
+    min-height: 100vh;
+}
+
+.banner{
+    display: flex;
+    width:80%;
+    height:70%;
+    /*top:25%;*/
+    left:130px;
+    position:relative;
+    color:#FFFFFF;
+    
+}
+
+.app-text{
+    width:50%;
+    float:left;
+   
+}
+.app-text h1{
+    font-size: 60px;
+    width:640px;
+    position: relative;
+    margin-left: 40px;
+    
+}
+.app-text p {
+    font-size: 25px;
+    font-style: italic;
+    line-height: 1.6;
+    font-weight: bold; /* Makes the text bold */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Adds a subtle shadow */
+    letter-spacing: 1px; /* Adds some space between letters */
+    width: 650px;
+    margin: 30px 0 30px 40px;
+    line-height: 25px;
+    color: #bcbaba;
+}
+.app_picture{
+    width:50%;
+    float:right;
+    
+}
+.app_picture img{
+    width:100%;
+    margin-left: 160px;
+}
+.app_picture iframe{
+    width:100%;
+    margin-left: 160px;
+}
+.app_picture video{
+    width:100%;
+    margin-left: 160px;
+}
+
+/* OPPOSTO */
+.banner-op{
+    width:80%;
+    height:70%;
+    /*top:25%;*/
+    right:130px;
+    position:relative;
+    color:#FFFFFF;
+    float: right; /* Aggiungi questo */
+    margin-top: 100px;
+}
+.app-text-op{
+    width:50%;
+    float:right;
+}
+.app-text-op h1{
+    font-size: 60px;
+    width:640px;
+    position: relative;
+    margin-left: 20px;
+}
+.app-text-op p {
+    font-size: 25px;
+    font-style: italic;
+    line-height: 1.6;
+    font-weight: bold; /* Makes the text bold */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Adds a subtle shadow */
+    letter-spacing: 1px; /* Adds some space between letters */
+    width: 650px;
+    margin: 30px 0 30px 20px;
+    line-height: 25px;
+    color: #bcbaba;
+}
+.app_picture-op{
+    width:50%;
+    float:left;
+}
+.app_picture-op img{
+    width:100%;
+    float:right;
+    margin-right: 130px;
+}
+.clearfix {
+    clear: both;
+}
+
+
+
 .intro_content{
-    width: 100%;
-    text-align: center;
+    display: flex;
+    align-items: center;
 }
 
 .poster{
     display: flex;
     height: 100%;
-    width: 100%;
+    width: 80%;
     align-items:center;
+    margin-left: 10%;
+    margin-right: 10%;
 }
 
 .poster__img{
@@ -374,16 +484,29 @@ body::-webkit-scrollbar{
 
 .poster__img img{
     object-fit: cover; 
-    width: 100%;height: 100%;;
+    width: 100%;height: 100%;
+    margin-left: 25px;
+    
+}
+
+.poster__img video{
+    width:80%;
+    margin-left: 160px;
 }
 
 .poster__content{
     width: 35%;
     padding: 50px;
+    text-align: center;
+    font-size: 25px;
+    font-style: italic;
+    color: #bcbaba;
 
 }
-.poster a{
-    width: 81px;
+.poster a {
+    display: block; /* Aggiungi questa linea */
+    width: 100%;
+    text-align: center; /* Aggiungi questa linea */
 }
 
 .poster a:hover{
@@ -405,17 +528,32 @@ body::-webkit-scrollbar{
     }
     .poster__content{
         width: 100%;
+        text-align: left;
+        font-size: 20px;
+    }
+
+    .poster__img img{
+        object-fit: cover; 
+        width: 130%;height: 130%;
+        margin-left: -15%;
+    }
+
+    .poster__img video {
+        width: 100%; /* Aggiungi questa linea */
+        height: 100%; /* Aggiungi questa linea */
+        object-fit: contain; /* Aggiungi questa linea */
+        margin-left: 0;
     }
 
 }
 
-.poster2__telefono {display: none;}
-
 .poster2{
     display: flex;
-    height: 100vh;
-    width: 100%;
+    height: 100%;
+    width: 80%;
     align-items:center;
+    margin-left: 10%;
+    margin-right: 10%;
 }
 
 .poster2__img{
@@ -425,82 +563,131 @@ body::-webkit-scrollbar{
 
 .poster2__img img{
     object-fit: cover; 
-    width: 100%;height: 100%;
+    width: 100%;height: 100%;;
+    
 }
 
 .poster2__content{
     width: 35%;
     padding: 50px;
+    text-align: center;
+    font-size: 25px;
+    font-style: italic;
+    color: #bcbaba;
 
 }
-
-.poster2__content a{
-    width: 81px;
+.poster2 a {
+    display: block; /* Aggiungi questa linea */
+    width: 100%;
+    text-align: center; /* Aggiungi questa linea */
 }
 
-.poster2__content a:hover{
+.poster2 a:hover{
     background-color:red;
     color: #FFFFFF;
     text-decoration: none;
 }
 
+.poster__telefono{
+    display: none;
+}
+
+.poster__telefono{
+    display: flex;
+    height: 100%;
+    width: 80%;
+    align-items:center;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.poster__telefono__img{
+    width: 65%;
+    height: 100%;
+}
+
+.poster__telefono__img img{
+    object-fit: cover; 
+    width: 100%;height: 100%;
+    margin-left: 25px;
+    
+}
+
+.poster__telefono__img video{
+    width:80%;
+    margin-left: 160px;
+}
+
+.poster__telefono__content{
+    width: 35%;
+    padding: 50px;
+    text-align: center;
+    font-size: 25px;
+    font-style: italic;
+    color: #bcbaba;
+
+}
+.poster__telefono a {
+    display: block; /* Aggiungi questa linea */
+    width: 100%;
+    text-align: center; /* Aggiungi questa linea */
+}
+
+.poster__telefono a:hover{
+    background-color:red;
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+.poster__telefono{display: none;}
+
 @media(max-width:900px){
-    .poster2 {display: none;}
-
-    .poster2__telefono{
-        
-        display: flex;
-        height: 100vh;
-        width: 100%;
-        align-items:center;
-    }
-    
-    .poster2__telefono__img img{
-        object-fit: cover; 
-        width: 100%;
-        height: 100%;
-    }
-
-    .poster2__telefono__content{
-        width: 100%;
-        padding: 50px;
-    
-    }
-    
-
-    .poster2__telefono{
+    .poster2{display: none;}
+    .poster__telefono{
         flex-wrap: wrap;
         height: auto;
+        display:flex;
+        
     }
 
-    .poster2__telefono__img{
+    .poster__telefono__img{
         width: 90%;
-        margin-left: 5%;
+        margin-left:5%;
     }
-    .poster2_telefono__content{
-        width: 100%;    
+    .poster__telefono__content{
+        width: 100%;
+        text-align: left;
+        font-size: 20px;
     }
-    
-    .poster2__telefono__content a{
-        width: 81px;
+
+    .poster__telefono__img img{
+        object-fit: cover; 
+        width: 130%;height: 130%;
+        margin-left: -15%;
     }
 
 }
 
 
-
 /*slider*/
 .grid{
-    display: flex;
+    display: fixed;
     max-width: 1350px;
-    padding: 0 30px;
+    padding: 0 20px;
     margin: 0 auto; 
     align-self: center;
     text-align: center;
+    color:#FFFFFF;
+    
 } 
+
+.cell__titolo{
+    color:#FFFFFF;
+}
 
 .grid .col{
     width: 100%;
+    
 }
 
 @media(max-width:900px){
@@ -511,6 +698,7 @@ body::-webkit-scrollbar{
 .main-carousel{
     padding: 40 px 0;
     position: fixed;
+    margin-top: 50px;
 }
 
 .carousel-cell{
@@ -558,7 +746,7 @@ body::-webkit-scrollbar{
     display: flex;
     width: 90%;
     align-items: center;
-    background: linear-gradient(0deg, rgba(0,0,0,.2), rgba(0,0,0,0.5)), url('media/fanta_formula.png')no-repeat center center;
+    background: linear-gradient(0deg, rgba(0,0,0,.2), rgba(0,0,0,0.5)), url('media/indexFanta.png')no-repeat center center;
     background-size:cover; 
     align-items: center; 
     padding-left: 10%;

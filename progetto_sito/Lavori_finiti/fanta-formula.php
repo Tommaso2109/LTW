@@ -638,7 +638,41 @@ if(!isset($_SESSION['username'])) {
                 popup.style.display = 'block';
                 return;
             }
+            //! Controllo partita gia iniziata
+            var targetDate;
+            // Funzione per ottenere la prossima gara dal database
+            function getNextRace() {
+                var xhr = new XMLHttpRequest();
+                xhr.open("GET", "getNextRace.php", false); // Imposta il terzo parametro su false per rendere la chiamata sincrona
+                xhr.send();
 
+                if (xhr.status == 200) {
+                    targetDate = xhr.responseText;
+                }
+            }
+            getNextRace();
+            
+                var now = new Date().getTime();
+                var targetDateTimestamp = new Date(targetDate).getTime();
+                var timeLeft = targetDateTimestamp - now;
+                var days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+                var hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                var minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+                var seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+                
+                if (timeLeft < 0) {
+                    // Controlla se sono passati tre giorni dalla gara
+                    var threeDaysAfter = new Date(targetDate);
+                    threeDaysAfter.setDate(threeDaysAfter.getDate() + 3);
+                    console.log("Now: " + now + "Tempo Rimanente: " + timeLeft + "Tre giorni rimanenti: "+ threeDaysAfter);
+                    if (now < threeDaysAfter) {
+                        var popup = document.getElementById('popup1');
+                        var popupText = document.getElementById('popup1-text');
+                        popupText.textContent = 'Non puoi cambiare la squadra se la partita è iniziata.';
+                        popup.style.display = 'block';
+                        return;
+                    }
+                }
             
 
             // Invia i dati al server utilizzando AJAX

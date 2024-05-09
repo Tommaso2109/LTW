@@ -40,7 +40,7 @@ if ($result->num_rows > 0) {
         echo '</a>';
         echo '<form>';
         echo '<label for="login">User already registered. Please Login</label><br>';
-        echo '<a href="login.html" class="login" >-> Login <-</a>';
+        echo '<a href="loginStart.php" class="login" >-> Login <-</a>';
         echo '</form>';
         echo '</div>';
         echo "</body>";
@@ -66,7 +66,7 @@ if ($result->num_rows > 0) {
         echo '</a>';
         echo '<form>';
         echo '<label for="login">Thanks for register :)</label><br>';
-        echo '<a href="login.html" class="login" >You can Login here</a><br>';
+        echo '<a href="loginStart.php" class="login" >You can Login here</a><br>';
         echo '</form>';
         echo '</div>';
         echo "</body>";

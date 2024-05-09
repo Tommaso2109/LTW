@@ -370,16 +370,30 @@ session_start(); // Start the session at the beginning of your file
                                         </tr>';
                                         
                                         while($row = $result->fetch_assoc()) {
-                                            if($row["amico"] == $user){
-                                                echo '<tr><td class="username">' . $user . '</td><td> '. $punteggioTotale. '</td><td> '. $punteggioStagionaleUser .'</td>
-                                                </tr>';
+                                            if($prevSquadra != 1){
+                                                if($row["amico"] == $user){
+                                                    echo '<tr><td class="username">' . $user . '</td><td> '. $punteggioTotale. '</td><td> '. $punteggioStagionaleUser .'</td>
+                                                    </tr>';
+                                                }else{
+                                                    echo "<tr><td class='username'>" . $row["amico"]. "</td><td>" . $row["punteggioTotale"]. "</td><td>" . $row["punteggioStagionale"]. "</td><td>
+                                                    <form class='button-rm' action='remove_friend.php' method='post'>
+                                                        <input type='hidden' name='utente' value='".$row["amico"]."'>
+                                                        <input type='submit' value='Remove'>
+                                                    </form>
+                                                    </td></tr>";
+                                                }
                                             }else{
-                                                echo "<tr><td class='username'>" . $row["amico"]. "</td><td>" . $row["punteggioTotale"]. "</td><td>" . $row["punteggioStagionale"]. "</td><td>
-                                                <form class='button-rm' action='remove_friend.php' method='post'>
-                                                    <input type='hidden' name='utente' value='".$row["amico"]."'>
-                                                    <input type='submit' value='Remove'>
-                                                </form>
-                                                </td></tr>";
+                                                if($row["amico"] == $user){
+                                                    echo '<tr><td class="username">' . $user . '</td><td> 0  </td><td> '. $punteggioStagionaleUser .'</td>
+                                                    </tr>';
+                                                }else{
+                                                    echo "<tr><td class='username'>" . $row["amico"]. "</td><td>" . $row["punteggioTotale"]. "</td><td>" . $row["punteggioStagionale"]. "</td><td>
+                                                    <form class='button-rm' action='remove_friend.php' method='post'>
+                                                        <input type='hidden' name='utente' value='".$row["amico"]."'>
+                                                        <input type='submit' value='Remove'>
+                                                    </form>
+                                                    </td></tr>";
+                                                }
                                             }
                                         }
         echo '                          </table>
@@ -530,8 +544,7 @@ session_start(); // Start the session at the beginning of your file
 
         <script>
             var countdownElement = document.getElementById('countdown');   
-            var targetDate;         
-            //alert("CAzzo");
+            var targetDate;
             // Funzione per ottenere la prossima gara dal database
             function getNextRace() {
                 var xhr = new XMLHttpRequest();

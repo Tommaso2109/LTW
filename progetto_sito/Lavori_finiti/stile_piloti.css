@@ -375,6 +375,7 @@ body::-webkit-scrollbar{
 }
 .grid-container-phone{display: none;}
 
+
 @media screen and (max-width: 900px) {
     .grid-container {
         display: none;
@@ -415,6 +416,7 @@ body::-webkit-scrollbar{
         border-radius: 20px;
     }
 }
+
 
 /*footer*/
 footer {

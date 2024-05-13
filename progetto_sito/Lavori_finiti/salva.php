@@ -27,8 +27,8 @@
         $sql = "SELECT posizione, nome, scuderia, fastLap FROM ultimagara";
         $result = $conn->query($sql); 
         if ($result->num_rows > 0) {    
-            $puntixposizione = array(25, 18, 15, 12, 10, 8, 6, 4, 2, 1);
-            $moltiplicatoreScuderia = array(4 , 3, 2, 1.75, 1.35, 1.30, 1.25, 1.20, 1.15, 1.10);
+            $puntixposizione = array(25, 18, 15, 12, 10, 8, 6, 4, 2, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+            $moltiplicatoreScuderia = array(4 , 3, 2, 1.75, 1.35, 1.30, 1.25, 1.20, 1.15, 1.10, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1);
             // Stampa i dati di ogni riga
             
             $found = false;
@@ -68,12 +68,23 @@
 
             if ($checkResult->num_rows > 0) {
                 // La squadra esiste già, invia una risposta appropriata
-                echo json_encode(["error" => "La squadra è già stata fatta."]);
+                $prevSquadra = 1;
+                $sql = "UPDATE squadra SET scuderia = ?, pilota1 = ?, pilota2 = ?, punteggioTotale = ?, prevSquadra = ? WHERE utente = ?";   
+                $stmt = $conn->prepare($sql);
+                $stmt->bind_param("sssiis", $scuderia, $pilota1, $pilota2, $punteggioTotale, $prevSquadra, $utente);
+            
+                if($stmt->execute()) {
+                    echo json_encode(["success" => "Squadra aggiornata con successo."]);
+                } else {
+                    echo json_encode(["error" => "Errore: " . $stmt->error]);
+                }
+
             } else {
                 // La squadra non esiste, inserisci i dati
-                $sql = "INSERT INTO squadra (utente,scuderia, pilota1, pilota2, punteggioTotale) VALUES (? ,?, ?, ?, ?)";
+                $prevSquadra = 1;
+                $sql = "INSERT INTO squadra (utente,scuderia, pilota1, pilota2, punteggioTotale, prevSquadra) VALUES (? ,?, ?, ?, ?, ?)";
                 $stmt = $conn->prepare($sql);
-                $stmt->bind_param("ssssi", $utente, $scuderia, $pilota1, $pilota2, $punteggioTotale);
+                $stmt->bind_param("ssssii", $utente, $scuderia, $pilota1, $pilota2, $punteggioTotale, $prevSquadra);
             
                 if($stmt->execute()) {
                     echo json_encode(["success" => "Squadra salvata con successo."]);
@@ -81,7 +92,7 @@
                     echo json_encode(["error" => "Errore: " . $stmt->error]);
                 }
                  
-                }
+            }
         }catch (Exception $e) {
             echo json_encode(["error" => "Errore inaspettato: " . $e->getMessage()]);
             exit();
@@ -94,6 +105,3 @@
     }
 
 ?>
-<script>
-    
-</script>

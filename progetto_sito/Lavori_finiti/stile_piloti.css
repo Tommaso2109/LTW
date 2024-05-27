@@ -9,6 +9,7 @@
 body{
     margin: 0;
     overflow-y: scroll;
+    background: #42455a;
 }
 
 body::-webkit-scrollbar{
@@ -373,6 +374,49 @@ body::-webkit-scrollbar{
         0 -2px black;
 }
 .grid-container-phone{display: none;}
+
+
+@media screen and (max-width: 900px) {
+    .grid-container {
+        display: none;
+        
+        
+    }
+
+    .grid-container-phone {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(10, 1fr);
+        column-gap: 5px;
+        margin-right: 10px;
+        margin-left: 10px;
+    }
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        padding-top: 10px;
+    }
+
+    label{
+        font-size: 20px;
+        font-weight: bold;
+        background: #000000;
+        text-align: center;
+        width: 100%;
+        border-radius: 10px;
+        color: white;
+    }
+
+    .box{
+        padding-top: 10px;
+    }
+
+    img{
+        border-radius: 20px;
+    }
+}
+
 
 /*footer*/
 footer {

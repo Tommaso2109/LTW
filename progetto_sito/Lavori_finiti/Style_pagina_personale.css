@@ -39,6 +39,21 @@ body::-webkit-scrollbar{
     text-decoration: none;
 }
 
+.button3{
+    padding: 15px 15px; 
+    background: rgb(255, 255, 255); 
+    color: rgb(0, 0, 0); 
+    border-radius: 4px;
+    display: inline-block;
+    text-decoration: none;
+
+}
+.button3:hover{
+    background-color:rgba(255, 0, 0, 0.87);
+    color: #ffffff;
+    text-decoration: none;
+}
+
 .logo2 {
     transform: scale(0.6) translateY(-35px);
     margin-top: -40px;
@@ -338,10 +353,11 @@ body::-webkit-scrollbar{
 
 .grid-container {
     display: grid;
-    grid-template-columns: 20% 80%;
+    grid-template-columns: 25% 75%;
     text-align: center;
     margin-left: 1%;
     margin-right: 1%;
+    height: auto;
 }
 
 .grid-container-profilo {
@@ -353,7 +369,8 @@ body::-webkit-scrollbar{
 
 .grid-container-squad {
     display: grid;
-    grid-template-rows: 30% 30% 40%;
+    grid-template-rows: 35.5% 27.5% 37%;
+    overflow: auto;
 }
 
 .grid-container-squad-interno {
@@ -364,17 +381,20 @@ body::-webkit-scrollbar{
 
 .grid-container-piloti{
     display: grid;
-    grid-template-rows: 50% 50%;
-    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 80% 20%;
+    grid-template-columns: 50% 50%;
     border: 2px solid gray;
+    height: 88%;
+    ;
     
 }
 
 .grid-container-scuderie{
     display: grid;
-    grid-template-rows: 1fr 1fr;
+    grid-template-rows: 70% 30%;
     grid-template-columns: 1fr;
     border: 2px solid gray;
+    height: 88%;
     
 }
 
@@ -391,13 +411,13 @@ body::-webkit-scrollbar{
     height: 80%;
     margin-left: 10%;
     margin-top: 5%;
-    object-fit: cover;
 }
 
 .grid-container-profilo img {
     width: 100%;
     height: 100%;
     object-fit: contain;
+    aspect-ratio: 1/1;
 }
 
 
@@ -456,7 +476,7 @@ body::-webkit-scrollbar{
 #countdown{
     color: rgb(255, 255, 255);
     font-family: 'MyCustomFont', sans-serif;
-    font-size: 150px;
+    font-size: 120px;
     
     
 }
@@ -476,7 +496,7 @@ body::-webkit-scrollbar{
 .info-2{
     font-size: 25px;
     color: white;
-    margin-top: 90px;
+    margin-top: 50px;
     
 }
 
@@ -494,32 +514,36 @@ body::-webkit-scrollbar{
 }
 
 table{
-    margin-left: 5%;
+    width: 98%;
+    height: auto;
+    table-layout:auto;
+    margin-left: 1%;
     border-collapse: separate;
     border-spacing: 0 15px;
 }
 table td {
     border: 1px solid #ccc;
-    padding: 10px;
+    padding: 5px;
 }
 
 table th{
     font-style: italic;
-    font-size: 30px;
-    padding-top: 10px;
+    font-size: 25px;
     border: 1px solid #ccc;
-    padding: 10px;
+    padding: 5px 15px;
 }
 
 table tr {
     background-color: #353535;
-    font-size: 25px;
+    font-size: 17px;
     color: white;
     text-align: center;
+    line-height: 1.2;
 }
 
 .button-rm{
-    margin-top: 40%;
+  margin-bottom: -1px;
+    
 
 }
 
@@ -538,6 +562,11 @@ table tr {
         font-size: 30px;
     }
 
+    .grid-container-squad-interno{
+        grid-template-columns: 1fr;
+        grid-template-rows:80% 80%;
+    }
+
     .grid-container-piloti{
         display: grid;
         grid-template-rows: 70% 30%;
@@ -548,14 +577,14 @@ table tr {
     
     .grid-container-scuderie{
         display: grid;
-        grid-template-rows: 70% 30%;
         grid-template-columns: 1fr;
+        grid-template-rows: 60% 40%;
         border: 2px solid gray;
         
     }
 
     .grid-container-punti{
-        margin-top: 20px;
+        margin-top: 103px;
         display: grid;
         grid-template-rows: 1fr;
         grid-template-columns: 1fr;
@@ -563,7 +592,7 @@ table tr {
     }
 
     .info{
-        font-size: 25px;
+        font-size: 20px;
         color: white;
         margin-top: 10px;
     }
@@ -611,6 +640,7 @@ table tr {
     
     
 }
+
 
 
 /*footer*/

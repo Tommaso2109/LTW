@@ -116,16 +116,17 @@ session_start(); // Start the session at the beginning of your file
         $counter = 1;
       
         echo ' 
-          <div class="grid-container mt-4">
-            <div class="box box-1">
+          <div class="grid-container mt-3">
+            <div class="box">
               <div class="main">
                 <div class="position">'.$counter.'</div>
-                <img class="product__image" src="media/versatppen.avif" alt="soda_can" />
+                <img class="product__image" src="media/versatppen.avif" alt="pilota_image" />
                   <div class="container">
                     <div class="title">Max Verstappen
                       <span>RedBull</span>
+                      <span>- 1° -</span>
                     </div>
-                    <p class="desc">Vittorie: '. $wins .'</br> Gare: '. $gare .'</br> Podi: '. $podi .'</br> Giro più veloce: '. $fastLap .'</br> Media Griglia inizio gara: '. $mediaGriglia .'</br> Media Griglia fine gara: '. $mediaFinale .'</p>
+                    <div class="desc">Vittorie: '. $wins .'   Gare: '. $gare .'  Podi: '. $podi .'</br> Giro più veloce: '. $fastLap .'</br>Media Griglia inizio gara: '. $mediaGriglia .'</br> Media Griglia fine gara: '. $mediaFinale .'</div>
                     
                   </div>
                 </div>
@@ -143,14 +144,15 @@ session_start(); // Start the session at the beginning of your file
             $counter++;
 
             echo '
-            <div class="box box-2">
+            <div class="box">
                 <div class="main">
-                    <img class="product__image" src="media/perez.avif" alt="soda_can" />
+                    <img class="product__image" src="media/perez.avif" alt="pilota_image" />
                     <div class="container">
                       <div class="title">Sergio Perez
                         <span>RedBull</span>
+                        <span>- 2° -</span>
                       </div>
-                      <p class="desc">Vittorie: '. $wins .'</br> Gare: '. $gare .'</br> Podi: '. $podi .'</br> Giro più veloce: '. $fastLap .'</br> Media Griglia inizio gara: '. $mediaGriglia .'</br> Media Griglia fine gara: '. $mediaFinale .'</p>
+                      <div class="desc">Vittorie: '. $wins .'   Gare: '. $gare .'  Podi: '. $podi .'</br> Giro più veloce: '. $fastLap .'</br>Media Griglia inizio gara: '. $mediaGriglia .'</br> Media Griglia fine gara: '. $mediaFinale .'</div>
             
                     </div>
                   </div>
@@ -169,14 +171,15 @@ session_start(); // Start the session at the beginning of your file
 
         echo '
           <div class="grid-container">
-              <div class="box box-1">
+              <div class="box">
                   <div class="main">
-                      <img class="product__image" src="media/hamilton.avif" alt="soda_can" />
+                      <img class="product__image" src="media/hamilton.avif" alt="pilota_image" />
                       <div class="container">
                         <div class="title">Lewis Hamilton
                           <span>Mercedes</span>
+                          <span>- 3° -</span>
                         </div>
-                        <p class="desc">Vittorie: '. $wins .'</br> Gare: '. $gare .'</br> Podi: '. $podi .'</br> Giro più veloce: '. $fastLap .'</br> Media Griglia inizio gara: '. $mediaGriglia .'</br> Media Griglia fine gara: '. $mediaFinale .'</p>
+                        <div class="desc">Vittorie: '. $wins .'   Gare: '. $gare .'  Podi: '. $podi .'</br> Giro più veloce: '. $fastLap .'</br>Media Griglia inizio gara: '. $mediaGriglia .'</br> Media Griglia fine gara: '. $mediaFinale .'</div>
                     
                       </div>
                     </div>
@@ -193,66 +196,16 @@ session_start(); // Start the session at the beginning of your file
               $mediaFinale = $row["mediaFinale"];
 
               echo '
-              <div class="box box-2">
+              <div class="box">
                   <div class="main">
-                      <img class="product__image" src="media/russel.avif" alt="soda_can" />
+                      <img class="product__image" src="media/leclerc.avif" alt="pilota_image" />
                       <div class="container">
-                        <div class="title">George Russell
-                          <span>Mercedes</span>
-                        </div>
-                        <p class="desc">Vittorie: '. $wins .'</br> Gare: '. $gare .'</br> Podi: '. $podi .'</br> Giro più veloce: '. $fastLap .'</br> Media Griglia inizio gara: '. $mediaGriglia .'</br> Media Griglia fine gara: '. $mediaFinale .'</p>
-  
-                      </div>
-                    </div>
-              </div>
-          </div>';
-  
-          $row = $result->fetch_assoc();
-          $cognome = $row["cognome"];
-          $posizone = $row["posizione"];
-          $wins = $row["vittorie"];
-          $gare = $row["gare"];
-          $podi = $row["podi"];
-          $fastLap = $row["fastLap"];
-          $mediaGriglia = $row["mediaGriglia"];
-          $mediaFinale = $row["mediaFinale"];
-  
-          echo '
-
-          <div class="grid-container">
-              <div class="box box-1">
-                  <div class="main">
-                      <img class="product__image" src="media/leclerc.avif" alt="soda_can" />
-                      <div class="container">
-                        <div class="title">Charles Leclerc
+                        <div class="title">Charle Leclerc
                           <span>Ferrari</span>
+                          <span>- 4° -</span>
                         </div>
-                        <p class="desc">Vittorie: '. $wins .'</br> Gare: '. $gare .'</br> Podi: '. $podi .'</br> Giro più veloce: '. $fastLap .'</br> Media Griglia inizio gara: '. $mediaGriglia .'</br> Media Griglia fine gara: '. $mediaFinale .'</p>
-                  
-                      </div>
-                    </div>
-              </div>';
+                        <div class="desc">Vittorie: '. $wins .'   Gare: '. $gare .'  Podi: '. $podi .'</br> Giro più veloce: '. $fastLap .'</br>Media Griglia inizio gara: '. $mediaGriglia .'</br> Media Griglia fine gara: '. $mediaFinale .'</div>
   
-              $row = $result->fetch_assoc();
-              $cognome = $row["cognome"];
-              $posizone = $row["posizione"];
-              $wins = $row["vittorie"];
-              $gare = $row["gare"];
-              $podi = $row["podi"];
-              $fastLap = $row["fastLap"];
-              $mediaGriglia = $row["mediaGriglia"];
-              $mediaFinale = $row["mediaFinale"];
-      
-              echo '
-              <div class="box box-2">
-                  <div class="main">
-                      <img class="product__image" src="media/sainz.avif" alt="soda_can" />
-                      <div class="container">
-                        <div class="title">Carlos Sainz
-                          <span>Ferrari</span>
-                        </div>
-                        <p class="desc">Vittorie: '. $wins .'</br> Gare: '. $gare .'</br> Podi: '. $podi .'</br> Giro più veloce: '. $fastLap .'</br> Media Griglia inizio gara: '. $mediaGriglia .'</br> Media Griglia fine gara: '. $mediaFinale .'</p>
-              
                       </div>
                     </div>
               </div>
@@ -271,65 +224,68 @@ session_start(); // Start the session at the beginning of your file
           echo '
 
           <div class="grid-container">
-              <div class="box box-1">
+              <div class="box">
                   <div class="main">
-                      <img class="product__image" src="media/Norris.avif" alt="soda_can" />
-                      <div class="container">
-                        <div class="title">Lando Norris
-                          <span>McLaren</span>
-                        </div>
-                        <p class="desc">Vittorie: '. $wins .'</br> Gare: '. $gare .'</br> Podi: '. $podi .'</br> Giro più veloce: '. $fastLap .'</br> Media Griglia inizio gara: '. $mediaGriglia .'</br> Media Griglia fine gara: '. $mediaFinale .'</p>
-                
-                      </div>
-                    </div>
-              </div>';
-  
-              $row = $result->fetch_assoc();
-              $cognome = $row["cognome"];
-              $posizone = $row["posizione"];
-              $wins = $row["vittorie"];
-              $gare = $row["gare"];
-              $podi = $row["podi"];
-              $fastLap = $row["fastLap"];
-              $mediaGriglia = $row["mediaGriglia"];
-              $mediaFinale = $row["mediaFinale"];
-      
-              echo '
-              <div class="box box-2">
-                  <div class="main">
-                      <img class="product__image" src="media/Piastri.avif" alt="soda_can" />
-                      <div class="container">
-                        <div class="title">Oscar Piastri
-                          <span>McLaren</span>
-                        </div>
-                        <p class="desc">Vittorie: '. $wins .'</br> Gare: '. $gare .'</br> Podi: '. $podi .'</br> Giro più veloce: '. $fastLap .'</br> Media Griglia inizio gara: '. $mediaGriglia .'</br> Media Griglia fine gara: '. $mediaFinale .'</p>
-                  
-                      </div>
-                    </div>
-              </div>
-          </div>';
-  
-          $row = $result->fetch_assoc();
-          $cognome = $row["cognome"];
-          $posizone = $row["posizione"];
-          $wins = $row["vittorie"];
-          $gare = $row["gare"];
-          $podi = $row["podi"];
-          $fastLap = $row["fastLap"];
-          $mediaGriglia = $row["mediaGriglia"];
-          $mediaFinale = $row["mediaFinale"];
-  
-          echo '
-
-          <div class="grid-container">
-              <div class="box box-1">
-                  <div class="main">
-                      <img class="product__image" src="media/alonso.avif" alt="soda_can" />
+                      <img class="product__image" src="media/alonso.avif" alt="pilota_image" />
                       <div class="container">
                         <div class="title">Fernando Alonso
                           <span>Aston Martin</span>
+                          <span>- 5° -</span>
                         </div>
-                        <p class="desc">Vittorie: '. $wins .'</br> Gare: '. $gare .'</br> Podi: '. $podi .'</br> Giro più veloce: '. $fastLap .'</br> Media Griglia inizio gara: '. $mediaGriglia .'</br> Media Griglia fine gara: '. $mediaFinale .'</p>
+                        <div class="desc">Vittorie: '. $wins .'   Gare: '. $gare .'  Podi: '. $podi .'</br> Giro più veloce: '. $fastLap .'</br>Media Griglia inizio gara: '. $mediaGriglia .'</br> Media Griglia fine gara: '. $mediaFinale .'</div>
+                  
+                      </div>
+                    </div>
+              </div>';
+  
+              $row = $result->fetch_assoc();
+              $cognome = $row["cognome"];
+              $posizone = $row["posizione"];
+              $wins = $row["vittorie"];
+              $gare = $row["gare"];
+              $podi = $row["podi"];
+              $fastLap = $row["fastLap"];
+              $mediaGriglia = $row["mediaGriglia"];
+              $mediaFinale = $row["mediaFinale"];
+      
+              echo '
+              <div class="box">
+                  <div class="main">
+                      <img class="product__image" src="media/Norris.avif" alt="pilota_image" />
+                      <div class="container">
+                        <div class="title">Lando Norris
+                          <span>MCLarren</span>
+                          <span>- 6° -</span>
+                        </div>
+                        <div class="desc">Vittorie: '. $wins .'   Gare: '. $gare .'  Podi: '. $podi .'</br> Giro più veloce: '. $fastLap .'</br>Media Griglia inizio gara: '. $mediaGriglia .'</br> Media Griglia fine gara: '. $mediaFinale .'</div>
+              
+                      </div>
+                    </div>
+              </div>
+          </div>';
+  
+          $row = $result->fetch_assoc();
+          $cognome = $row["cognome"];
+          $posizone = $row["posizione"];
+          $wins = $row["vittorie"];
+          $gare = $row["gare"];
+          $podi = $row["podi"];
+          $fastLap = $row["fastLap"];
+          $mediaGriglia = $row["mediaGriglia"];
+          $mediaFinale = $row["mediaFinale"];
+  
+          echo '
+
+          <div class="grid-container">
+              <div class="box">
+                  <div class="main">
+                      <img class="product__image" src="media/sainz.avif" alt="pilota_image" />
+                      <div class="container">
+                        <div class="title">Carlos Sainz
+                          <span>Ferrari</span>
+                          <span>- 7° -</span>
+                        </div>
+                        <div class="desc">Vittorie: '. $wins .'   Gare: '. $gare .'  Podi: '. $podi .'</br> Giro più veloce: '. $fastLap .'</br>Media Griglia inizio gara: '. $mediaGriglia .'</br> Media Griglia fine gara: '. $mediaFinale .'</div>
                 
                       </div>
                     </div>
@@ -346,14 +302,68 @@ session_start(); // Start the session at the beginning of your file
               $mediaFinale = $row["mediaFinale"];
       
               echo '
-              <div class="box box-2">
+              <div class="box">
                   <div class="main">
-                      <img class="product__image" src="media/stroll.avif" alt="soda_can" />
+                      <img class="product__image" src="media/russel.avif" alt="pilota_image" />
+                      <div class="container">
+                        <div class="title">George Russel
+                          <span>Mercedes</span>
+                          <span>- 8° -</span>
+                        </div>
+                        <div class="desc">Vittorie: '. $wins .'   Gare: '. $gare .'  Podi: '. $podi .'</br> Giro più veloce: '. $fastLap .'</br>Media Griglia inizio gara: '. $mediaGriglia .'</br> Media Griglia fine gara: '. $mediaFinale .'</div>
+                  
+                      </div>
+                    </div>
+              </div>
+          </div>';
+  
+          $row = $result->fetch_assoc();
+          $cognome = $row["cognome"];
+          $posizone = $row["posizione"];
+          $wins = $row["vittorie"];
+          $gare = $row["gare"];
+          $podi = $row["podi"];
+          $fastLap = $row["fastLap"];
+          $mediaGriglia = $row["mediaGriglia"];
+          $mediaFinale = $row["mediaFinale"];
+  
+          echo '
+
+          <div class="grid-container">
+              <div class="box">
+                  <div class="main">
+                      <img class="product__image" src="media/Piastri.avif" alt="pilota_image" />
+                      <div class="container">
+                        <div class="title">Oscar Piastri
+                          <span>McLaren</span>
+                          <span>- 9° -</span>
+                        </div>
+                        <div class="desc">Vittorie: '. $wins .'   Gare: '. $gare .'  Podi: '. $podi .'</br> Giro più veloce: '. $fastLap .'</br>Media Griglia inizio gara: '. $mediaGriglia .'</br> Media Griglia fine gara: '. $mediaFinale .'</div>
+                
+                      </div>
+                    </div>
+              </div>';
+  
+              $row = $result->fetch_assoc();
+              $cognome = $row["cognome"];
+              $posizone = $row["posizione"];
+              $wins = $row["vittorie"];
+              $gare = $row["gare"];
+              $podi = $row["podi"];
+              $fastLap = $row["fastLap"];
+              $mediaGriglia = $row["mediaGriglia"];
+              $mediaFinale = $row["mediaFinale"];
+      
+              echo '
+              <div class="box">
+                  <div class="main">
+                      <img class="product__image" src="media/stroll.avif" alt="pilota_image" />
                       <div class="container">
                         <div class="title">Lance Stroll
                           <span>Aston Martin</span>
+                          <span>- 10° -</span>
                         </div>
-                        <p class="desc">Vittorie: '. $wins .'</br> Gare: '. $gare .'</br> Podi: '. $podi .'</br> Giro più veloce: '. $fastLap .'</br> Media Griglia inizio gara: '. $mediaGriglia .'</br> Media Griglia fine gara: '. $mediaFinale .'</p>
+                        <div class="desc">Vittorie: '. $wins .'   Gare: '. $gare .'  Podi: '. $podi .'</br> Giro più veloce: '. $fastLap .'</br>Media Griglia inizio gara: '. $mediaGriglia .'</br> Media Griglia fine gara: '. $mediaFinale .'</div>
                 
                       </div>
                     </div>
@@ -373,14 +383,15 @@ session_start(); // Start the session at the beginning of your file
           echo '
 
           <div class="grid-container">
-              <div class="box box-1">
+              <div class="box">
                   <div class="main">
-                      <img class="product__image" src="media/gasly.avif" alt="soda_can" />
+                      <img class="product__image" src="media/gasly.avif" alt="pilota_image" />
                       <div class="container">
                         <div class="title">Pierre Gasly
                           <span>Alpha</span>
+                          <span>- 11° -</span>
                         </div>
-                        <p class="desc">Vittorie: '. $wins .'</br> Gare: '. $gare .'</br> Podi: '. $podi .'</br> Giro più veloce: '. $fastLap .'</br> Media Griglia inizio gara: '. $mediaGriglia .'</br> Media Griglia fine gara: '. $mediaFinale .'</p>
+                        <div class="desc">Vittorie: '. $wins .'   Gare: '. $gare .'  Podi: '. $podi .'</br> Giro più veloce: '. $fastLap .'</br>Media Griglia inizio gara: '. $mediaGriglia .'</br> Media Griglia fine gara: '. $mediaFinale .'</div>
               
                       </div>
                     </div>
@@ -397,14 +408,15 @@ session_start(); // Start the session at the beginning of your file
               $mediaFinale = $row["mediaFinale"];
       
               echo '
-              <div class="box box-2">
+              <div class="box">
                   <div class="main">
-                      <img class="product__image" src="media/ocon.avif" alt="soda_can" />
+                      <img class="product__image" src="media/ocon.avif" alt="pilota_image" />
                       <div class="container">
                         <div class="title">Esteban Ocon
                           <span>Alphine</span>
+                          <span>- 12° -</span>
                         </div>
-                        <p class="desc">Vittorie: '. $wins .'</br> Gare: '. $gare .'</br> Podi: '. $podi .'</br> Giro più veloce: '. $fastLap .'</br> Media Griglia inizio gara: '. $mediaGriglia .'</br> Media Griglia fine gara: '. $mediaFinale .'</p>
+                        <div class="desc">Vittorie: '. $wins .'   Gare: '. $gare .'  Podi: '. $podi .'</br> Giro più veloce: '. $fastLap .'</br>Media Griglia inizio gara: '. $mediaGriglia .'</br> Media Griglia fine gara: '. $mediaFinale .'</div>
             
                       </div>
                     </div>
@@ -424,14 +436,15 @@ session_start(); // Start the session at the beginning of your file
           echo '
 
           <div class="grid-container">
-              <div class="box box-1">
+              <div class="box">
                   <div class="main">
-                      <img class="product__image" src="media/albon.avif" alt="soda_can" />
+                      <img class="product__image" src="media/albon.avif" alt="pilota_image" />
                       <div class="container">
                         <div class="title">Alexander Albon
                           <span>Williams</span>
+                          <span>- 13° -</span>
                         </div>
-                        <p class="desc">Vittorie: '. $wins .'</br> Gare: '. $gare .'</br> Podi: '. $podi .'</br> Giro più veloce: '. $fastLap .'</br> Media Griglia inizio gara: '. $mediaGriglia .'</br> Media Griglia fine gara: '. $mediaFinale .'</p>
+                        <div class="desc">Vittorie: '. $wins .'   Gare: '. $gare .'  Podi: '. $podi .'</br> Giro più veloce: '. $fastLap .'</br>Media Griglia inizio gara: '. $mediaGriglia .'</br> Media Griglia fine gara: '. $mediaFinale .'</div>
               
                       </div>
                     </div>
@@ -448,14 +461,15 @@ session_start(); // Start the session at the beginning of your file
               $mediaFinale = $row["mediaFinale"];
       
               echo '
-              <div class="box box-2">
+              <div class="box">
                   <div class="main">
-                      <img class="product__image" src="media/sargent.avif" alt="soda_can" />
+                      <img class="product__image" src="media/tunoda.avif" alt="pilota_image" />
                       <div class="container">
-                        <div class="title">Logan Sargeant
-                          <span>Williams</span>
+                        <div class="title">Yuki Tsunoda
+                          <span>Alpha Tauri</span>
+                          <span>- 14° -</span>
                         </div>
-                        <p class="desc">Vittorie: '. $wins .'</br> Gare: '. $gare .'</br> Podi: '. $podi .'</br> Giro più veloce: '. $fastLap .'</br> Media Griglia inizio gara: '. $mediaGriglia .'</br> Media Griglia fine gara: '. $mediaFinale .'</p>
+                        <div class="desc">Vittorie: '. $wins .'   Gare: '. $gare .'  Podi: '. $podi .'</br> Giro più veloce: '. $fastLap .'</br>Media Griglia inizio gara: '. $mediaGriglia .'</br> Media Griglia fine gara: '. $mediaFinale .'</div>
                     
                       </div>
                     </div>
@@ -475,14 +489,15 @@ session_start(); // Start the session at the beginning of your file
           echo '
 
           <div class="grid-container">
-              <div class="box box-1">
+              <div class="box">
                   <div class="main">
-                      <img class="product__image" src="media/tunoda.avif" alt="soda_can" />
+                      <img class="product__image" src="media/bottas.avif" alt="pilota_image" />
                       <div class="container">
-                        <div class="title">Yuki Tsunoda
-                          <span>Alpha Tauri</span>
+                        <div class="title">Valterri Bottas
+                          <span>Kick Saubern</span>
+                          <span>- 15° -</span>
                         </div>
-                        <p class="desc">Vittorie: '. $wins .'</br> Gare: '. $gare .'</br> Podi: '. $podi .'</br> Giro più veloce: '. $fastLap .'</br> Media Griglia inizio gara: '. $mediaGriglia .'</br> Media Griglia fine gara: '. $mediaFinale .'</p>
+                        <div class="desc">Vittorie: '. $wins .'   Gare: '. $gare .'  Podi: '. $podi .'</br> Giro più veloce: '. $fastLap .'</br>Media Griglia inizio gara: '. $mediaGriglia .'</br> Media Griglia fine gara: '. $mediaFinale .'</div>
                   
                       </div>
                     </div>
@@ -499,14 +514,15 @@ session_start(); // Start the session at the beginning of your file
               $mediaFinale = $row["mediaFinale"];
       
               echo '
-              <div class="box box-2">
+              <div class="box">
                   <div class="main">
-                      <img class="product__image" src="media/riccardo.avif" alt="soda_can" />
+                      <img class="product__image" src="media/hulkenberg.avif" alt="pilota_image" />
                       <div class="container">
-                        <div class="title">Daniel Ricciardo
-                          <span>Alpha Tauri</span>
+                        <div class="title">Nico Hulkenberg
+                          <span>Haas</span>
+                          <span>- 16° -</span>
                         </div>
-                        <p class="desc">Vittorie: '. $wins .'</br> Gare: '. $gare .'</br> Podi: '. $podi .'</br> Giro più veloce: '. $fastLap .'</br> Media Griglia inizio gara: '. $mediaGriglia .'</br> Media Griglia fine gara: '. $mediaFinale .'</p>
+                        <div class="desc">Vittorie: '. $wins .'   Gare: '. $gare .'  Podi: '. $podi .'</br> Giro più veloce: '. $fastLap .'</br>Media Griglia inizio gara: '. $mediaGriglia .'</br> Media Griglia fine gara: '. $mediaFinale .'</div>
                       
                       </div>
                     </div>
@@ -526,14 +542,15 @@ session_start(); // Start the session at the beginning of your file
           echo '
 
           <div class="grid-container">
-              <div class="box box-1">
+              <div class="box">
                   <div class="main">
-                      <img class="product__image" src="media/bottas.avif" alt="soda_can" />
+                      <img class="product__image" src="media/zhou.avif" alt="pilota_image" />
                       <div class="container">
-                        <div class="title">Valterri Bottas
+                        <div class="title">Ghuanyu Zhou
                           <span>kick Saubern</span>
+                          <span>- 17° -</span>
                         </div>
-                        <p class="desc">Vittorie: '. $wins .'</br> Gare: '. $gare .'</br> Podi: '. $podi .'</br> Giro più veloce: '. $fastLap .'</br> Media Griglia inizio gara: '. $mediaGriglia .'</br> Media Griglia fine gara: '. $mediaFinale .'</p>
+                        <div class="desc">Vittorie: '. $wins .'   Gare: '. $gare .'  Podi: '. $podi .'</br> Giro più veloce: '. $fastLap .'</br>Media Griglia inizio gara: '. $mediaGriglia .'</br> Media Griglia fine gara: '. $mediaFinale .'</div>
                 
                       </div>
                     </div>
@@ -550,14 +567,15 @@ session_start(); // Start the session at the beginning of your file
               $mediaFinale = $row["mediaFinale"];
       
               echo '
-              <div class="box box-2">
+              <div class="box">
                   <div class="main">
-                      <img class="product__image" src="media/zhou.avif" alt="soda_can" />
+                      <img class="product__image" src="media/riccardo.avif" alt="pilota_image" />
                       <div class="container">
-                        <div class="title">Ghuanyu Zhou
-                          <span>kick Saubern</span>
+                        <div class="title">Daniel Ricciardo
+                          <span>Alpha Tauri</span>
+                          <span>- 18° -</span>
                         </div>
-                        <p class="desc">Vittorie: '. $wins .'</br> Gare: '. $gare .'</br> Podi: '. $podi .'</br> Giro più veloce: '. $fastLap .'</br> Media Griglia inizio gara: '. $mediaGriglia .'</br> Media Griglia fine gara: '. $mediaFinale .'</p>
+                        <div class="desc">Vittorie: '. $wins .'   Gare: '. $gare .'  Podi: '. $podi .'</br> Giro più veloce: '. $fastLap .'</br>Media Griglia inizio gara: '. $mediaGriglia .'</br> Media Griglia fine gara: '. $mediaFinale .'</div>
             
                       </div>
                     </div>
@@ -577,14 +595,15 @@ session_start(); // Start the session at the beginning of your file
           echo '
 
           <div class="grid-container">
-              <div class="box box-1">
+              <div class="box">
                   <div class="main">
-                      <img class="product__image" src="media/hulkenberg.avif" alt="soda_can" />
+                      <img class="product__image" src="media/magnussen.avif" alt="pilota_image" />
                       <div class="container">
-                        <div class="title">Nico Hulkenberg
+                        <div class="title">Kevin Magnussen 
                           <span>Haas</span>
+                          <span>- 19° -</span>
                         </div>
-                        <p class="desc">Vittorie: '. $wins .'</br> Gare: '. $gare .'</br> Podi: '. $podi .'</br> Giro più veloce: '. $fastLap .'</br> Media Griglia inizio gara: '. $mediaGriglia .'</br> Media Griglia fine gara: '. $mediaFinale .'</p>
+                        <div class="desc">Vittorie: '. $wins .'   Gare: '. $gare .'  Podi: '. $podi .'</br> Giro più veloce: '. $fastLap .'</br>Media Griglia inizio gara: '. $mediaGriglia .'</br> Media Griglia fine gara: '. $mediaFinale .'</div>
                         
                       </div>
                     </div>
@@ -601,14 +620,15 @@ session_start(); // Start the session at the beginning of your file
               $mediaFinale = $row["mediaFinale"];
       
               echo '
-              <div class="box box-2">
+              <div class="box">
                   <div class="main">
-                      <img class="product__image" src="media/magnussen.avif" alt="soda_can" />
+                      <img class="product__image" src="media/sargent.avif" alt="pilota_image" />
                       <div class="container">
-                        <div class="title">Kevin Magnussen
-                          <span>Haas</span>
+                        <div class="title">Logan Sargeant
+                          <span>Williams</span>
+                          <span>- 20° -</span>
                         </div>
-                        <p class="desc">Vittorie: '. $wins .'</br> Gare: '. $gare .'</br> Podi: '. $podi .'</br> Giro più veloce: '. $fastLap .'</br> Media Griglia inizio gara: '. $mediaGriglia .'</br> Media Griglia fine gara: '. $mediaFinale .'</p>
+                        <div class="desc">Vittorie: '. $wins .'   Gare: '. $gare .'  Podi: '. $podi .'</br> Giro più veloce: '. $fastLap .'</br>Media Griglia inizio gara: '. $mediaGriglia .'</br> Media Griglia fine gara: '. $mediaFinale .'</div>
                       
                       </div>
                     </div>

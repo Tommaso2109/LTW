@@ -124,3 +124,9 @@ label {
     margin-bottom: 20px;
 }
 
+@media(max-width:900px){
+    .box{
+        width: 85%;
+    }
+}
+

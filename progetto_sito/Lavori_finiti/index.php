@@ -111,12 +111,19 @@ if (isset($_SESSION['username'])) {
         <div class= "container">
 
             <div class="hero">
-                <div class="hero__content ">
-                    <h1 class = "big-text">Formula 1 For Fun </h1>
+                <div class="content">
+                    <div class ="content__container">
+                        <h1 class = "content__container__text">Formula 1 For </h1>
+                        <ul class="content__container__list">
+                            <li class="content__container__list__item">Fun</li>
+                            <li class="content__container__list__item">Everybody</li>
+                            <li class="content__container__list__item">Friends</li>
+                            <li class="content__container__list__item">You &lt;3</li>
+                        </ul>
+                    </div>
                 </div>
                 <video autoplay muted loop id="video">
                     <source src="media/home_video.mp4" type="video/mp4">
-        
                 </video>
             </div>
 
@@ -131,8 +138,9 @@ if (isset($_SESSION['username'])) {
                 <h1 class="big-text" style="color:#FFFFFF; margin-left:30px">I nostri servizi</h1>
             </div>
 
-            <div class="banner 1">
-                <div class="app-text">
+
+            <div class="poster">
+                <div class="poster__content">
                     <h1>Statistiche piloti</h1>
                     <p>In questa pagina potra vedere tutto il necessario per fare la giusta decisione per la propria squadra per la prossima gara!
                         <br> Ricorda che se i tuoi piloti entrano nella top-10 faranno punti che poi verranno moltiplicati dalla scuderia da te scelta,
@@ -140,12 +148,16 @@ if (isset($_SESSION['username'])) {
                     </p>
                     <a href="stats.php" class="button">Leggi di più</a>
                 </div> 
-                <div class="app_picture">
-                    <img src="media/stats.avif">
+
+                <div class="poster__img">
+                    <img src="media/gridIndex.jpeg">
                 </div>
             </div>
-            <div class="banner-op">
-                <div class="app-text-op">
+            <div class="poster2 mt-3">
+                <div class="poster2__img">
+                    <img src="media/scuderie.jpg" alt="">
+                </div>
+                <div class="poster2__content">
                     <h1>Scuderie</h1>
                     <p>Qui potrai sapere tutto quello che ti serve sulle scuderie che supportano i tuoi piloti!
                         <br>Ricorda che una scuderia non da punti, ma moltiplica i punti dei tuoi piloti, quindi
@@ -153,15 +165,33 @@ if (isset($_SESSION['username'])) {
                     </p>
                     <a href="scuderie.php" class="button">Leggi di più</a>
                 </div>
-                <div class="app_picture-op">
+                
+            </div>
+
+            <div class="poster__telefono mt-3">
+                
+                <div class="poster__telefono__content">
+
+                    <h1>Scuderie</h1>
+                    <p>Qui potrai sapere tutto quello che ti serve sulle scuderie che supportano i tuoi piloti!
+                        <br>Ricorda che una scuderia non da punti, ma moltiplica i punti dei tuoi piloti, quindi
+                        è la colonna portante della tua squadra.
+                    </p>
+                    <a href="scuderie.php" class="button">Leggi di più</a>
+                </div>
+
+                <div class="poster__telefono__img">
                     <img src="media/scuderie.jpg" alt="">
                 </div>
+                
             </div>
             
         
             <div class="grid mt-2">
                 <div class="col">
-                    <h3 class="big-text" style="color:#FFFFFF; margin-top:650px"><b> Piloti </b> </h3>
+
+                    <h3 class="big-text" style="color:#FFFFFF"><b> Piloti </b> </h3>
+
                 </div>
             </div>
 
@@ -379,7 +409,9 @@ if (isset($_SESSION['username'])) {
                 </div>
             </div>
         
-            <div class="bg-cover_2 mt-3">
+
+            <div class="bg-cover_2 mt-2">
+
                 <div class="bg-cover_2__title">
                     <h1 class="big-text">Reaction Test</h1>        
                     <a href="reaction_time.php"class="button1">PROVA ORA!</a>
@@ -392,33 +424,51 @@ if (isset($_SESSION['username'])) {
                 </div>
             </div>
 
-            <div class="banner 1">
-                <div class="app-text" style="margin-top:50px">
+            <div class="poster mt-0">
+                <div class="poster__content" ">
                     <h1>Leclerc vs Verstappen</h1>
                     <p>Una rivalita che va avanti dagli anni del karting, dove i due si odiavano secondo Leclerc. <br>
                     Dalle polemiche dopo il GP d’Austria del 2019 alle sfide della prima parte del 2022, Charles e Max hanno avuto modo di sfidarsi più e più volte dimostrando sempre molta lealtà.
                     </p>
                 </div> 
-                <div class="app_picture">
+
+                <div class="poster__img">
                     <video controls>
                         <source src="media/LeclercVSVerstappen.mp4" type="video/mp4">
                     </video>                
                 </div>
             </div>
 
-            <div class="banner mt-3">
-                <div class="app-text" style="margin-top:65px;margin-left:1px">
+            <div class="poster mt-0">
+                <div class="poster__content" ">
+                    <h1>Leclerc e suo padre</h1>
+                    <p>Leclerc perse il padre il 20 giugno 2017, stroncato a 54 anni da una lunga malattia. 
+                       Appena quattro giorni dopo, il diciannovenne monegasco dominava la gara di Formula 2 con una prestazione maiuscola. 
+                       Charles rivela di non aver mai scartato l'idea di correre in quel fine settimana: “Mio padre era il mio fan numero uno”.</p>
+                </div> 
+
+                <div class="poster__img">
+                    <video height="700" style="margin-top: 40px;" controls>
+                        <source src="media/LeclerPadreMonaco.mp4" type="video/mp4">
+                    </video>
+                    </video>                
+                </div>
+            </div>
+
+            <div class="poster mt-2">
+                <div class="poster__content" >
                     <h1>Schumacher incotra un piccolo Max Verstappen</h1>
                     <p>Una storica foto del 7 volte campione del mondo con un babino che oggi conosciamo come Max Verstappen, 3 volte campione del mondo
                         e pronto ad aumentare il suo record.
                     </p>
                 </div> 
-                <div class="app_picture" >
+
+                <div class="poster__img" >
                     <img src="media/BabyMaxSchumacher.png">                
                 </div>
             </div>
-            <div class="banner mt-3">
-                <div class="app-text" style="margin-top:95px;margin-left:1px">
+            <div class="poster mt-2">
+                <div class="poster__content">
                     <h1>Monaco</h1>
                     <p> Il circuito di Monaco è il meno sicuro su cui correre, 
                         ma per i piloti ne vale la pena rischiare una volta l’anno. Una vittoria qui fa storia. «È un 
@@ -428,14 +478,18 @@ if (isset($_SESSION['username'])) {
                         perché si confrontano con i propri limiti» disse Schumacher.
                     </p>
                 </div> 
-                <div class="app_picture" >
+
+                <div class="poster__img" >
+
                     <video autoplay muted loop height="700">
                         <source src="media/celebrationMonaco.mp4" type="video/mp4">
                     </video>
                 </div>
             </div>
-            <div class="banner mt-3">
-                <div class="app-text" style="margin-top:95px;margin-left:1px">
+
+            <div class="poster mt-2">
+                <div class="poster__content" >
+
                     <h1>Mad Max</h1>
                     <p> 
                         Prima che Max Verstappen dominasse la Formula 1, Max era famoso per attacchi pericolosi 
@@ -445,7 +499,9 @@ if (isset($_SESSION['username'])) {
                         dal fatto che Verstappen non viene realmente sfidato come prima.
                     </p>
                 </div> 
-                <div class="app_picture" >
+
+                <div class="poster__img" >
+
                     <video height="700" controls>
                         <source src="media/madMax.mp4" type="video/mp4">
                     </video>

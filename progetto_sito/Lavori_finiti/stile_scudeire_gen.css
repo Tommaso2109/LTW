@@ -6,6 +6,7 @@
 .small-text{font-size: 14px;}
 
 body{
+    color: white;
     background: #42455a;
     margin: 0;
     overflow-y: scroll;
@@ -278,8 +279,8 @@ body::-webkit-scrollbar{
     display: flex;
     margin: 3%;
     flex-direction: column;
-    border-top: 2px solid #000000;
-    border-right:2px solid #000000;
+    border-top: 2px solid #ffffff;
+    border-right:2px solid #ffffff;
     border-top-right-radius: 3%;
     transition:all 0.3s ease;
 }
@@ -309,8 +310,8 @@ body::-webkit-scrollbar{
     display: flex;
     margin: 3%;
     flex-direction: column;
-    border-top: 2px solid #000000;
-    border-right:2px solid #000000;
+    border-top: 2px solid #ffffff;
+    border-right:2px solid #ffffff;
     border-top-right-radius: 3%;
     transition:all 0.3s ease;
 }
@@ -340,8 +341,8 @@ body::-webkit-scrollbar{
     display: flex;
     margin: 3%;
     flex-direction: column;
-    border-top: 2px solid #000000;
-    border-right:2px solid #000000;
+    border-top: 2px solid #ffffff;
+    border-right:2px solid #ffffff;
     border-top-right-radius: 3%;
     transition:all 0.3s ease;
 }
@@ -371,8 +372,8 @@ body::-webkit-scrollbar{
     display: flex;
     margin: 3%;
     flex-direction: column;
-    border-top: 2px solid #000000;
-    border-right:2px solid #000000;
+    border-top: 2px solid #ffffff;
+    border-right:2px solid #ffffff;
     border-top-right-radius: 3%;
     transition:all 0.3s ease;
 }
@@ -402,8 +403,8 @@ body::-webkit-scrollbar{
     display: flex;
     margin: 3%;
     flex-direction: column;
-    border-top: 2px solid #000000;
-    border-right:2px solid #000000;
+    border-top: 2px solid #ffffff;
+    border-right:2px solid #ffffff;
     border-top-right-radius: 3%;
     transition:all 0.3s ease;
 }
@@ -433,8 +434,8 @@ body::-webkit-scrollbar{
     display: flex;
     margin: 3%;
     flex-direction: column;
-    border-top: 2px solid #000000;
-    border-right:2px solid #000000;
+    border-top: 2px solid #ffffff;
+    border-right:2px solid #ffffff;
     border-top-right-radius: 3%;
     transition:all 0.3s ease;
 }
@@ -464,8 +465,8 @@ body::-webkit-scrollbar{
     display: flex;
     margin: 3%;
     flex-direction: column;
-    border-top: 2px solid #000000;
-    border-right:2px solid #000000;
+    border-top: 2px solid #ffffff;
+    border-right:2px solid #ffffff;
     border-top-right-radius: 3%;
     transition:all 0.3s ease;
 }
@@ -495,8 +496,8 @@ body::-webkit-scrollbar{
     display: flex;
     margin: 3%;
     flex-direction: column;
-    border-top: 2px solid #000000;
-    border-right:2px solid #000000;
+    border-top: 2px solid #ffffff;
+    border-right:2px solid #ffffff;
     border-top-right-radius: 3%;
     transition:all 0.3s ease;
 }
@@ -526,8 +527,8 @@ body::-webkit-scrollbar{
     display: flex;
     margin: 3%;
     flex-direction: column;
-    border-top: 2px solid #000000;
-    border-right:2px solid #000000;
+    border-top: 2px solid #ffffff;
+    border-right:2px solid #ffffff;
     border-top-right-radius: 3%;
     transition:all 0.3s ease;
 }
@@ -557,8 +558,8 @@ body::-webkit-scrollbar{
     display: flex;
     margin: 3%;
     flex-direction: column;
-    border-top: 2px solid #000000;
-    border-right:2px solid #000000;
+    border-top: 2px solid #ffffff;
+    border-right:2px solid #ffffff;
     border-top-right-radius: 3%;
     transition:all 0.3s ease;
 }

@@ -105,8 +105,13 @@ session_start(); // Start the session at the beginning of your file
                 echo '<div class="grid-item"> SEGNALA : </div>';
                 // Stampa un elemento grid-item per ciascun utente
                 while($row = $result->fetch_assoc()) {
-                    echo '<div class="grid-item">' . htmlspecialchars($row['username']) . '</div>';
-                    echo '<div class="grid-item"><a href="" class="button1">segnala</a></div>';
+                    if($row['username']!=$_SESSION['username']){
+                        echo '<div class="grid-item">' . htmlspecialchars($row['username']) . '</div>';
+                        echo '<div class="grid-item"><form method="post" action="incrementa_segnalazioni.php">';
+                        echo '<input type="hidden" name="username" value="'.$row['username'].'">';
+                        echo '<button type="submit" class="button1">segnala</button>';
+                        echo '</form> </div>';
+                    }
                 }
                 echo '</div>';
             } else {

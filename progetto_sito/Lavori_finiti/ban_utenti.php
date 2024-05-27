@@ -109,7 +109,10 @@ session_start(); // Start the session at the beginning of your file
                 while($row = $result->fetch_assoc()) {
                     echo '<div class="grid-item">' . htmlspecialchars($row['username']) . '</div>';
                     echo '<div class="grid-item">' . htmlspecialchars($row['num_segnalazioni']) . '</div>';
-                    echo '<div class="grid-item"><a href="" class="button1">BAN</a></div>';
+                    echo '<div class="grid-item"><form method="post" action="incremento_ban.php">';
+                    echo '<input type="hidden" name="username" value="'.$row['username'].'">';
+                    echo '<button type="submit" class="button1">banna</button>';
+                    echo '</form> </div>';
                 }
                 echo '</div>';
             } else {

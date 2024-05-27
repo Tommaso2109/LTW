@@ -41,15 +41,56 @@ $email = getUserEmail($accessToken);
 
 // get the user's details
 
+function getEmail(){
+    if(empty($_COOKIE['cr_github_access_token'])) {
+        return false;
+    }
+    $client = new Client();
+    $userEmail = '';
+    // Get user email
+    $apiUrl = "https://api.github.com/user/emails";
+    try {
+        $response = $client->get($apiUrl, [
+            'headers' => [
+                'Authorization' => 'Bearer ' . $_COOKIE['cr_github_access_token'],
+                'Accept' => 'application/json',
+            ]
+        ]);
+
+        if($response->getStatusCode() == 200) {
+            $emails = json_decode($response->getBody()->getContents());
+            foreach ($emails as $email) {
+                if ($email->primary && $email->verified) {
+                    // Save the user's email in a variable
+                    $userEmail = $email->email;
+                    break;
+                }
+            }
+            // Print the response to debug
+            //var_dump($emails);
+            $email = $emails[0]->email;
+
+            //var_dump($email);
+            return $email;
+        } else {
+            return false;
+        }
+        
+    }
+    catch(RequestException $e) {
+        return false;
+    }
+}
+
 function getUser() {
     if(empty($_COOKIE['cr_github_access_token'])) {
         return false;
     }
 
-    $apiUrl = "https://api.github.com/user";
-
     $client = new Client();
 
+    // Get user details
+    $apiUrl = "https://api.github.com/user";
     try {
         $response = $client->get($apiUrl, [
             'headers' => [
@@ -61,13 +102,12 @@ function getUser() {
         if($response->getStatusCode() == 200) {
             $user = json_decode($response->getBody()->getContents());
 
-            // Save the user's profile image and name in the session
+            // Save the user's profile image, name, and email in the session
             $_SESSION['user'] = [
                 'avatar_url' => $user->avatar_url,
                 'name' => $user->name,
-                'login' => $user->login // GitHub username
+                'login' => $user->login, // GitHub username
             ];
-
             return $user;
         }
         return false;
@@ -80,6 +120,49 @@ function getUser() {
 $user = false;
 
 $user = getUser();
+$email = getEmail();
+
+//print "EMAIL: [" . $email ."]\n";
+
+$connessione = new mysqli('127.0.0.1', 'root', '', 'statistiche');
+
+if (isset($user)) {
+    $username = "$user->login";
+    $query = "SELECT* FROM utenti WHERE username= '$username'";
+
+    $result = mysqli_query ($connessione, $query);
+
+    if (mysqli_num_rows($result)>0){
+        $row = mysqli_fetch_assoc($result);
+        $_SESSION['username'] = $row['username']; // Set the session variable
+        $_SESSION['profile_image'] = $row['profile_image']; // Set the session variable
+        $_SESSION['bestTime'] = $row['record_reaction'];
+
+        // Only set the email session variable if the email is not empty in the database
+        if (!empty($row['email'])) {
+            $_SESSION['email'] = $row['email']; // Set the session variable
+        }
+    }else{
+        $defaultImage = $user->avatar_url;
+        print "EMAIL: [" . $email ."]\n";
+        $sql = "INSERT INTO utenti (username, email, password,profile_image) VALUES ('$user->login', '$email', '','$defaultImage')";
+        $connessione->query($sql);
+        $query = "SELECT* FROM utenti WHERE username= '$user->login'";
+
+        $result = mysqli_query ($connessione, $query);
+        if (mysqli_num_rows($result)>0){
+            $row = mysqli_fetch_assoc($result);
+            $_SESSION['username'] = $row['username']; // Set the session variable
+            $_SESSION['profile_image'] = $row['profile_image']; // Set the session variable
+            $_SESSION['email'] = $row['email']; // Set the session variable
+            $_SESSION['bestTime'] = $row['record_reaction'];
+            
+        }else{
+            echo 'UTENTE NON TROVATO DOPO LA REGISTRAZIONE';
+        }
+    }
+}
+
 
 $connessione = new mysqli('127.0.0.1', 'root', '', 'statistiche');
 
